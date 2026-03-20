@@ -1,0 +1,28 @@
+$rojo: #ff3f3f;
+$negro: #333333;
+
+@mixin fnFlex($direction, $justify, $align, $gap) {
+    display: flex;
+    flex-direction: $direction;
+    justify-content: $justify;
+    align-items: $align;
+    gap: $gap;
+}
+
+@mixin fnFont($size, $weight, $lineHeight, $letterSpacing, $color) {
+    font-size: $size;
+    font-weight: $weight;
+    line-height: $lineHeight;
+    letter-spacing: $letterSpacing;
+    color: $color;
+    margin: 0;
+    padding: 0;
+}
+
+@mixin fnWidth($top, $right, $bottom, $left, $width) {
+    padding-top: $top;
+    padding-right: $right;
+    padding-bottom: $bottom;
+    padding-left: $left;
+    width: calc($width - calc($right + $left));
+}

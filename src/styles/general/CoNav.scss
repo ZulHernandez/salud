@@ -1,0 +1,63 @@
+@use "../tokens/tokens.scss" as *;
+
+.navbar {
+    @include fnFlex(column, space-between, center, 2.5rem);
+    position: fixed;
+    @include fnWidth(1rem, 5rem, 4rem, 5rem, 100%);
+    transition: all 0.3s ease;
+    background-color: white;
+
+    .navbar-head {
+        @include fnFlex(row, space-between, center, 0);
+        width: 100%;
+        padding-bottom: 1rem;
+        border-bottom: $rojo 2px solid;
+        &-logo {
+            @include fnFlex(column, center, center, 0px);
+            h1 {
+                @include fnFont(4.8rem, 900, normal, 0.48rem, $rojo);
+            }
+            h3 {
+                display: none;
+            }
+        }
+        &-links {
+            @include fnFlex(row, space-between, flex-end, 2rem);
+            &-element {
+                @include fnFlex(row, flex-end, center, 0.5rem);
+                cursor: pointer;
+                transition: all 0.3s ease;
+                @media (max-width: 660px) {
+                    span {
+                        display: none;
+                    }
+                }
+                img {
+                    width: 1.8rem;
+                }
+            }
+        }
+    }
+
+    .navbar-browse {
+        @include fnFlex(row, space-between, center, 3rem);
+        width: 100%;
+
+        &-input {
+            @include fnFlex(row, center, center, 1rem);
+            width: 100%;
+            max-width: 50rem;
+            border-bottom: $negro 2px solid;
+            input {
+                width: 100%;
+            }
+            img {
+                cursor: pointer;
+            }
+        }
+
+        &-links {
+            @include fnFlex(row, space-between, center, 2rem);
+        }
+    }
+}
