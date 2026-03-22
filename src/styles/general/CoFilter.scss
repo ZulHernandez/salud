@@ -1,0 +1,76 @@
+@use "../tokens/tokens.scss" as *;
+
+.filter-toogle {
+    @include fnFlex(row, center, center, 0.5rem);
+    width: fit-content;
+    border-radius: 1rem;
+    background-color: transparent;
+    border-radius: 1rem;
+    border: $negro 0.2rem solid;
+    padding: 1rem 1.5rem;
+    width: fit-content;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    span{
+        width: max-content;
+    }
+    img {
+        transition: all 0.3s ease;
+        width: 1.6rem;
+    }
+    &-icon {
+        display: block;
+    }
+    &-icon--white {
+        display: none;
+    }
+    &-close {
+        display: none;
+    }
+
+    &:hover {
+        background-color: $negro;
+        color: #fff;
+        .filter-toogle {
+            &-icon {
+                display: none;
+            }
+            &-icon--white {
+                display: block;
+            }
+            &-close {
+                display: none;
+            }
+        }
+    }
+}
+
+.filter-toogle--active {
+    @include fnFlex(row, center, center, 0.5rem);
+    border-radius: 1rem;
+    background-color: $rojo;
+    border-radius: 1rem;
+    border: $rojo 0.2rem solid;
+    padding: 1rem 1.5rem;
+    width: fit-content;
+    color: #fff;
+    span{
+        width: max-content;
+    }
+    img {
+        transition: all 0.3s ease;
+        width: 1.6rem;
+    }
+    .filter-toogle {
+        &-icon {
+            display: none;
+        }
+        &-icon--white {
+            display: block;
+        }
+        &-close {
+            display: block;
+            cursor: pointer;
+        }
+    }
+}

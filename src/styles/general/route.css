@@ -1,0 +1,8 @@
+.main {
+  padding: 18rem 5rem;
+}
+@media (max-width: 660px) {
+  .main {
+    padding: 18rem 3rem;
+  }
+}/*# sourceMappingURL=route.css.map */

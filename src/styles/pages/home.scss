@@ -1,0 +1,9 @@
+@use "../tokens/tokens.scss" as *;
+
+.filters{
+    @include fnFlex(row, flex-start, center, 2rem);
+    width: 100%;
+    clip-path: fill-box;
+    overflow-x: auto;
+    padding-bottom: 2rem;
+}

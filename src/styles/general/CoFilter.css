@@ -1,0 +1,81 @@
+.filter-toogle {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  width: -moz-fit-content;
+  width: fit-content;
+  border-radius: 1rem;
+  background-color: transparent;
+  border-radius: 1rem;
+  border: #333333 0.2rem solid;
+  padding: 1rem 1.5rem;
+  width: fit-content;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+.filter-toogle span {
+  width: -moz-max-content;
+  width: max-content;
+}
+.filter-toogle img {
+  transition: all 0.3s ease;
+  width: 1.6rem;
+}
+.filter-toogle-icon {
+  display: block;
+}
+.filter-toogle-icon--white {
+  display: none;
+}
+.filter-toogle-close {
+  display: none;
+}
+.filter-toogle:hover {
+  background-color: #333333;
+  color: #fff;
+}
+.filter-toogle:hover .filter-toogle-icon {
+  display: none;
+}
+.filter-toogle:hover .filter-toogle-icon--white {
+  display: block;
+}
+.filter-toogle:hover .filter-toogle-close {
+  display: none;
+}
+
+.filter-toogle--active {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  border-radius: 1rem;
+  background-color: #ff3f3f;
+  border-radius: 1rem;
+  border: #ff3f3f 0.2rem solid;
+  padding: 1rem 1.5rem;
+  width: -moz-fit-content;
+  width: fit-content;
+  color: #fff;
+}
+.filter-toogle--active span {
+  width: -moz-max-content;
+  width: max-content;
+}
+.filter-toogle--active img {
+  transition: all 0.3s ease;
+  width: 1.6rem;
+}
+.filter-toogle--active .filter-toogle-icon {
+  display: none;
+}
+.filter-toogle--active .filter-toogle-icon--white {
+  display: block;
+}
+.filter-toogle--active .filter-toogle-close {
+  display: block;
+  cursor: pointer;
+}/*# sourceMappingURL=CoFilter.css.map */

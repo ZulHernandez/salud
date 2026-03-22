@@ -1,0 +1,11 @@
+.filters {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 2rem;
+  width: 100%;
+  clip-path: fill-box;
+  overflow-x: auto;
+  padding-bottom: 2rem;
+}/*# sourceMappingURL=home.css.map */
