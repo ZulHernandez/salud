@@ -5,6 +5,34 @@ html {
     height: 100vh;
 }
 
+//main ScroolBar
+::-webkit-scrollbar {
+    width: 7.5px;
+    height: 7.5px;
+}
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+::-webkit-scrollbar-thumb {
+    background-color: rgba($negro, 0.25);
+    border-radius: 20px;
+    border-style: solid;
+    border-width: 2px;
+    border-color: transparent;
+    mix-blend-mode: exclusion;
+    &:hover {
+        background-color: rgba($rojo, 1);
+    }
+}
+
+//main Selection
+::selection {
+    background: $rojo;
+    color: $negro;
+    mix-blend-mode: difference;
+    text-decoration: dotted underline;
+}
+
 .outfit {
     font-family: "Outfit", sans-serif;
     font-optical-sizing: auto;
@@ -28,30 +56,34 @@ body::before {
     left: 0;
     width: 100vw;
     height: 100vh;
-    
+
     /* Ruido de alto contraste (blanco y negro) */
-    background-image: 
+    background-image:
         repeating-radial-gradient(#000 0 0.0001%, #fff 0 0.0002%),
         repeating-conic-gradient(#000 0 0.0001%, #fff 0 0.0002%);
     background-size: 200px 200px; /* Tamaño mucho más pequeño para que sea visible */
     background-blend-mode: difference;
-    
+
     /* Bajamos la opacidad aquí para que sea 'ligero' */
-    opacity: 0.05; 
-    
+    opacity: 0.05;
+
     /* Animación rápida (como pediste al inicio) pero con saltos */
     animation: noise-move 0.2s steps(2) infinite;
-    
+
     pointer-events: none;
     z-index: 9999; /* Esto asegura que esté POR ENCIMA de todo */
 }
 
 @keyframes noise-move {
-    0% { background-position: 0 0; }
-    100% { background-position: 10px 10px; }
+    0% {
+        background-position: 0 0;
+    }
+    100% {
+        background-position: 10px 10px;
+    }
 }
 
-a{
+a {
     text-decoration: none;
     color: $negro;
     transition: all 0.3s ease;
@@ -72,5 +104,40 @@ input[type="text"] {
 
     &:focus {
         outline: none;
+    }
+}
+
+.drop-menu {
+    @include fnFlex(column, flex-start, center, 0.1rem);
+    position: absolute;
+    top: 100%;
+    left: 0%;
+    transform: translateX(-50%);
+    transform-origin: top center;
+    overflow-y: auto;
+    width: 10rem;
+    max-height: 10rem;
+    margin-top: 1rem;
+    padding: 1rem 2rem;
+    border-radius: 1rem;
+    background-color: rgba($negro, 0.75);
+    backdrop-filter: blur(7px);
+    color: #fff;
+    z-index: 10000;
+    hr{
+        width: 100%;
+        border: none;
+        border-top: 1px solid rgba(#fff, 0.5);
+    }
+    &-option {
+        @include fnFont(1.5rem, 400, normal, normal, "#fff");
+        cursor: pointer;
+        width: 100%;
+        text-align: center;
+        transition: all 0.3s ease;
+        &:hover {
+            text-decoration: underline;
+            font-weight: 600;
+        }
     }
 }

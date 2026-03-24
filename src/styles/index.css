@@ -4,6 +4,42 @@ html {
   height: 100vh;
 }
 
+::-webkit-scrollbar {
+  width: 7.5px;
+  height: 7.5px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: rgba(51, 51, 51, 0.25);
+  border-radius: 20px;
+  border-style: solid;
+  border-width: 2px;
+  border-color: transparent;
+  mix-blend-mode: exclusion;
+}
+::-webkit-scrollbar-thumb:hover {
+  background-color: #ff3f3f;
+}
+
+::-moz-selection {
+  background: #ff3f3f;
+  color: #333333;
+  mix-blend-mode: difference;
+  text-decoration: dotted underline;
+}
+
+::selection {
+  background: #ff3f3f;
+  color: #333333;
+  mix-blend-mode: difference;
+  -webkit-text-decoration: dotted underline;
+          text-decoration: dotted underline;
+}
+
 .outfit {
   font-family: "Outfit", sans-serif;
   font-optical-sizing: auto;
@@ -78,4 +114,49 @@ input[type=text]::placeholder {
 }
 input[type=text]:focus {
   outline: none;
+}
+
+.drop-menu {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 0.1rem;
+  position: absolute;
+  top: 100%;
+  left: 0%;
+  transform: translateX(-50%);
+  transform-origin: top center;
+  overflow-y: auto;
+  width: 10rem;
+  max-height: 10rem;
+  margin-top: 1rem;
+  padding: 1rem 2rem;
+  border-radius: 1rem;
+  background-color: rgba(51, 51, 51, 0.75);
+  backdrop-filter: blur(7px);
+  color: #fff;
+  z-index: 10000;
+}
+.drop-menu hr {
+  width: 100%;
+  border: none;
+  border-top: 1px solid rgba(255, 255, 255, 0.5);
+}
+.drop-menu-option {
+  font-size: 1.5rem;
+  font-weight: 400;
+  line-height: normal;
+  letter-spacing: normal;
+  color: "#fff";
+  margin: 0;
+  padding: 0;
+  cursor: pointer;
+  width: 100%;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+.drop-menu-option:hover {
+  text-decoration: underline;
+  font-weight: 600;
 }/*# sourceMappingURL=index.css.map */

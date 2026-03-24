@@ -1,178 +1,278 @@
-import absinthe from "../assets/icons/glassware/absinthe.svg";
-import absintheWhite from "../assets/icons/glassware/absinthe--white.svg";
+import absintheEmptyBlack from "../assets/icons/glassware/empty-black/absinthe-glass.svg";
+import absintheEmptyWhite from "../assets/icons/glassware/empty-white/absinthe-glass.svg";
+import absintheFillBlack from "../assets/icons/glassware/fill-black/absinthe-glass.svg";
+import absintheFillWhite from "../assets/icons/glassware/fill-white/absinthe-glass.svg";
 
-import bostonPint from "../assets/icons/glassware/boston - pint.svg";
-import bostonPintWhite from "../assets/icons/glassware/boston - pint--white.svg";
+import bostonPintEmptyBlack from "../assets/icons/glassware/empty-black/boston__pint-glass.svg";
+import bostonPintEmptyWhite from "../assets/icons/glassware/empty-white/boston__pint-glass.svg";
+import bostonPintFillBlack from "../assets/icons/glassware/fill-black/boston__pint-glass.svg";
+import bostonPintFillWhite from "../assets/icons/glassware/fill-white/boston__pint-glass.svg";
 
-import collins from "../assets/icons/glassware/collins.svg";
-import collinsWhite from "../assets/icons/glassware/collins--white.svg";
+import collinsEmptyBlack from "../assets/icons/glassware/empty-black/collins.svg";
+import collinsEmptyWhite from "../assets/icons/glassware/empty-white/collins.svg";
+import collinsFillBlack from "../assets/icons/glassware/fill-black/collins.svg";
+import collinsFillWhite from "../assets/icons/glassware/fill-white/collins.svg";
 
-import copitaSherry from "../assets/icons/glassware/copita - sherry.svg";
-import copitaSherryWhite from "../assets/icons/glassware/copita - sherry--white.svg";
+import copitaSherryEmptyBlack from "../assets/icons/glassware/empty-black/copita__sherry-glass.svg";
+import copitaSherryEmptyWhite from "../assets/icons/glassware/empty-white/copita__sherry-glass.svg";
+import copitaSherryFillBlack from "../assets/icons/glassware/fill-black/copita__sherry-glass.svg";
+import copitaSherryFillWhite from "../assets/icons/glassware/fill-white/copita__sherry-glass.svg";
 
-import coupeCoupetteChampagne from "../assets/icons/glassware/coupe - coupette - champagne.svg";
-import coupeCoupetteChampagneWhite from "../assets/icons/glassware/coupe - coupette - champagne--white.svg";
+import coupeCoupetteChampagneEmptyBlack from "../assets/icons/glassware/empty-black/coupe__coupette__champagne-saucer.svg";
+import coupeCoupetteChampagneEmptyWhite from "../assets/icons/glassware/empty-white/coupe__coupette__champagne-saucer.svg";
+import coupeCoupetteChampagneFillBlack from "../assets/icons/glassware/fill-black/coupe__coupette__champagne-saucer.svg";
+import coupeCoupetteChampagneFillWhite from "../assets/icons/glassware/fill-white/coupe__coupette__champagne-saucer.svg";
 
-import doubleOldFashioned from "../assets/icons/glassware/double old fashioned.svg";
-import doubleOldFashionedWhite from "../assets/icons/glassware/double old fashioned--white.svg";
+import doubleOldFashionedEmptyBlack from "../assets/icons/glassware/empty-black/double-old-fashioned.svg";
+import doubleOldFashionedEmptyWhite from "../assets/icons/glassware/empty-white/double-old-fashioned.svg";
+import doubleOldFashionedFillBlack from "../assets/icons/glassware/fill-black/double-old-fashioned.svg";
+import doubleOldFashionedFillWhite from "../assets/icons/glassware/fill-white/double-old-fashioned.svg";
 
-import flute from "../assets/icons/glassware/flute.svg";
-import fluteWhite from "../assets/icons/glassware/flute--white.svg";
+import fluteEmptyBlack from "../assets/icons/glassware/empty-black/flute.svg";
+import fluteEmptyWhite from "../assets/icons/glassware/empty-white/flute.svg";
+import fluteFillBlack from "../assets/icons/glassware/fill-black/flute.svg";
+import fluteFillWhite from "../assets/icons/glassware/fill-white/flute.svg";
 
-import globetWine from "../assets/icons/glassware/globet - wine.svg";
-import globetWineWhite from "../assets/icons/glassware/globet - wine--white.svg";
+import globetWineEmptyBlack from "../assets/icons/glassware/empty-black/globet__wine-glass.svg";
+import globetWineEmptyWhite from "../assets/icons/glassware/empty-white/globet__wine-glass.svg";
+import globetWineFillBlack from "../assets/icons/glassware/fill-black/globet__wine-glass.svg";
+import globetWineFillWhite from "../assets/icons/glassware/fill-white/globet__wine-glass.svg";
 
-import highballHiball from "../assets/icons/glassware/highball - hi ball.svg";
-import highballHiballWhite from "../assets/icons/glassware/highball - hi ball--white.svg";
+import highballHiballEmptyBlack from "../assets/icons/glassware/empty-black/highball__hi-ball.svg";
+import highballHiballEmptyWhite from "../assets/icons/glassware/empty-white/highball__hi-ball.svg";
+import highballHiballFillBlack from "../assets/icons/glassware/fill-black/highball__hi-ball.svg";
+import highballHiballFillWhite from "../assets/icons/glassware/fill-white/highball__hi-ball.svg";
 
-import hurricane from "../assets/icons/glassware/hurricane.svg";
-import hurricaneWhite from "../assets/icons/glassware/hurricane--white.svg";
+import hurricaneEmptyBlack from "../assets/icons/glassware/empty-black/hurricane-glass.svg";
+import hurricaneEmptyWhite from "../assets/icons/glassware/empty-white/hurricane-glass.svg";
+import hurricaneFillBlack from "../assets/icons/glassware/fill-black/hurricane-glass.svg";
+import hurricaneFillWhite from "../assets/icons/glassware/fill-white/hurricane-glass.svg";
 
-import julep from "../assets/icons/glassware/julep.svg";
-import julepWhite from "../assets/icons/glassware/julep--white.svg";
+import julepEmptyBlack from "../assets/icons/glassware/empty-black/julep-cup.svg";
+import julepEmptyWhite from "../assets/icons/glassware/empty-white/julep-cup.svg";
+import julepFillBlack from "../assets/icons/glassware/fill-black/julep-cup.svg";
+import julepFillWhite from "../assets/icons/glassware/fill-white/julep-cup.svg";
 
-import margarita from "../assets/icons/glassware/margarita.svg";
-import margaritaWhite from "../assets/icons/glassware/margarita--white.svg";
+import margaritaEmptyBlack from "../assets/icons/glassware/empty-black/margarita-glass.svg";
+import margaritaEmptyWhite from "../assets/icons/glassware/empty-white/margarita-glass.svg";
+import margaritaFillBlack from "../assets/icons/glassware/fill-black/margarita-glass.svg";
+import margaritaFillWhite from "../assets/icons/glassware/fill-white/margarita-glass.svg";
 
-import martini from "../assets/icons/glassware/martini.svg";
-import martiniWhite from "../assets/icons/glassware/martini--white.svg";
+import martiniEmptyBlack from "../assets/icons/glassware/empty-black/martini.svg";
+import martiniEmptyWhite from "../assets/icons/glassware/empty-white/martini.svg";
+import martiniFillBlack from "../assets/icons/glassware/fill-black/martini.svg";
+import martiniFillWhite from "../assets/icons/glassware/fill-white/martini.svg";
 
-import mule from "../assets/icons/glassware/mule.svg";
-import muleWhite from "../assets/icons/glassware/mule--white.svg";
+import muleEmptyBlack from "../assets/icons/glassware/empty-black/mule-mug.svg";
+import muleEmptyWhite from "../assets/icons/glassware/empty-white/mule-mug.svg";
+import muleFillBlack from "../assets/icons/glassware/fill-black/mule-mug.svg";
+import muleFillWhite from "../assets/icons/glassware/fill-white/mule-mug.svg";
 
-import nickAndNora from "../assets/icons/glassware/nick & nora.svg";
-import nickAndNoraWhite from "../assets/icons/glassware/nick & nora--white.svg";
+import nickAndNoraEmptyBlack from "../assets/icons/glassware/empty-black/nick-and-nora.svg";
+import nickAndNoraEmptyWhite from "../assets/icons/glassware/empty-white/nick-and-nora.svg";
+import nickAndNoraFillBlack from "../assets/icons/glassware/fill-black/nick-and-nora.svg";
+import nickAndNoraFillWhite from "../assets/icons/glassware/fill-white/nick-and-nora.svg";
 
-import oldFashioned from "../assets/icons/glassware/old fashioned.svg";
-import oldFashionedWhite from "../assets/icons/glassware/old fashioned--white.svg";
+import oldFashionedEmptyBlack from "../assets/icons/glassware/empty-black/old-fashioned.svg";
+import oldFashionedEmptyWhite from "../assets/icons/glassware/empty-white/old-fashioned.svg";
+import oldFashionedFillBlack from "../assets/icons/glassware/fill-black/old-fashioned.svg";
+import oldFashionedFillWhite from "../assets/icons/glassware/fill-white/old-fashioned.svg";
 
-import pocoGrandePinaColada from "../assets/icons/glassware/poco grande - pina colada.svg";
-import pocoGrandePinaColadaWhite from "../assets/icons/glassware/poco grande - pina colada--white.svg";
+import pocoGrandePinaColadaEmptyBlack from "../assets/icons/glassware/empty-black/poco-grande__piña-colada-glass.svg";
+import pocoGrandePinaColadaEmptyWhite from "../assets/icons/glassware/empty-white/poco-grande__piña-colada-glass.svg";
+import pocoGrandePinaColadaFillBlack from "../assets/icons/glassware/fill-black/poco-grande__piña-colada-glass.svg";
+import pocoGrandePinaColadaFillWhite from "../assets/icons/glassware/fill-white/poco-grande__piña-colada-glass.svg";
 
-import rocks from "../assets/icons/glassware/rocks.svg";
-import rocksWhite from "../assets/icons/glassware/rocks--white.svg";
+import rocksEmptyBlack from "../assets/icons/glassware/empty-black/rocks.svg";
+import rocksEmptyWhite from "../assets/icons/glassware/empty-white/rocks.svg";
+import rocksFillBlack from "../assets/icons/glassware/fill-black/rocks.svg";
+import rocksFillWhite from "../assets/icons/glassware/fill-white/rocks.svg";
 
-import shot from "../assets/icons/glassware/shot.svg";
-import shotWhite from "../assets/icons/glassware/shot--white.svg";
+import shotEmptyBlack from "../assets/icons/glassware/empty-black/shot-glass.svg";
+import shotEmptyWhite from "../assets/icons/glassware/empty-white/shot-glass.svg";
+import shotFillBlack from "../assets/icons/glassware/fill-black/shot-glass.svg";
+import shotFillWhite from "../assets/icons/glassware/fill-white/shot-glass.svg";
 
-import sling from "../assets/icons/glassware/sling.svg";
-import slingWhite from "../assets/icons/glassware/sling--white.svg";
+import slingEmptyBlack from "../assets/icons/glassware/empty-black/sling.svg";
+import slingEmptyWhite from "../assets/icons/glassware/empty-white/sling.svg";
+import slingFillBlack from "../assets/icons/glassware/fill-black/sling.svg";
+import slingFillWhite from "../assets/icons/glassware/fill-white/sling.svg";
 
-import sniferBrandy from "../assets/icons/glassware/snifer - brandy.svg";
-import sniferBrandyWhite from "../assets/icons/glassware/snifer - brandy--white.svg";
+import sniferBrandyEmptyBlack from "../assets/icons/glassware/empty-black/snifer__brandy-ballon.svg";
+import sniferBrandyEmptyWhite from "../assets/icons/glassware/empty-white/snifer__brandy-ballon.svg";
+import sniferBrandyFillBlack from "../assets/icons/glassware/fill-black/snifer__brandy-ballon.svg";
+import sniferBrandyFillWhite from "../assets/icons/glassware/fill-white/snifer__brandy-ballon.svg";
 
-import sour from "../assets/icons/glassware/sour.svg";
-import sourWhite from "../assets/icons/glassware/sour--white.svg";
+import sourEmptyBlack from "../assets/icons/glassware/empty-black/sour-glass.svg";
+import sourEmptyWhite from "../assets/icons/glassware/empty-white/sour-glass.svg";
+import sourFillBlack from "../assets/icons/glassware/fill-black/sour-glass.svg";
+import sourFillWhite from "../assets/icons/glassware/fill-white/sour-glass.svg";
 
-import teaCup from "../assets/icons/glassware/tea cup.svg";
-import teaCupWhite from "../assets/icons/glassware/tea cup--white.svg";
+import teaCupEmptyBlack from "../assets/icons/glassware/empty-black/tea-cup.svg";
+import teaCupEmptyWhite from "../assets/icons/glassware/empty-white/tea-cup.svg";
+import teaCupFillBlack from "../assets/icons/glassware/fill-black/tea-cup.svg";
+import teaCupFillWhite from "../assets/icons/glassware/fill-white/tea-cup.svg";
 
-import tiki from "../assets/icons/glassware/tiki.svg";
-import tikiWhite from "../assets/icons/glassware/tiki--white.svg";
+import tikiEmptyBlack from "../assets/icons/glassware/empty-black/tiki-mug.svg";
+import tikiEmptyWhite from "../assets/icons/glassware/empty-white/tiki-mug.svg";
+import tikiFillBlack from "../assets/icons/glassware/fill-black/tiki-mug.svg";
+import tikiFillWhite from "../assets/icons/glassware/fill-white/tiki-mug.svg";
 
-import toddy from "../assets/icons/glassware/toddy.svg";
-import toddyWhite from "../assets/icons/glassware/toddy--white.svg";
+import toddyEmptyBlack from "../assets/icons/glassware/empty-black/toddy-glass.svg";
+import toddyEmptyWhite from "../assets/icons/glassware/empty-white/toddy-glass.svg";
+import toddyFillBlack from "../assets/icons/glassware/fill-black/toddy-glass.svg";
+import toddyFillWhite from "../assets/icons/glassware/fill-white/toddy-glass.svg";
 
 const glassware = {
     "absinthe": {
-        black: absinthe,
-        white: absintheWhite,
+        fillBlack: absintheFillBlack,
+        fillWhite: absintheFillWhite,
+        emptyBlack: absintheEmptyBlack,
+        emptyWhite: absintheEmptyWhite,
     },
     "boston - pint": {
-        black: bostonPint,
-        white: bostonPintWhite,
+        fillBlack: bostonPintFillBlack,
+        fillWhite: bostonPintFillWhite,
+        emptyBlack: bostonPintEmptyBlack,
+        emptyWhite: bostonPintEmptyWhite,
     },
     "collins": {
-        black: collins,
-        white: collinsWhite,
+        fillBlack: collinsFillBlack,
+        fillWhite: collinsFillWhite,
+        emptyBlack: collinsEmptyBlack,
+        emptyWhite: collinsEmptyWhite,
     },
     "copita - sherry": {
-        black: copitaSherry,
-        white: copitaSherryWhite,
+        fillBlack: copitaSherryFillBlack,
+        fillWhite: copitaSherryFillWhite,
+        emptyBlack: copitaSherryEmptyBlack,
+        emptyWhite: copitaSherryEmptyWhite,
     },
     "coupe - coupette - champagne": {
-        black: coupeCoupetteChampagne,
-        white: coupeCoupetteChampagneWhite,
+        fillBlack: coupeCoupetteChampagneFillBlack,
+        fillWhite: coupeCoupetteChampagneFillWhite,
+        emptyBlack: coupeCoupetteChampagneEmptyBlack,
+        emptyWhite: coupeCoupetteChampagneEmptyWhite,
     },
     "double old fashioned": {
-        black: doubleOldFashioned,
-        white: doubleOldFashionedWhite,
+        fillBlack: doubleOldFashionedFillBlack,
+        fillWhite: doubleOldFashionedFillWhite,
+        emptyBlack: doubleOldFashionedEmptyBlack,
+        emptyWhite: doubleOldFashionedEmptyWhite,
     },
     "flute": {
-        black: flute,
-        white: fluteWhite,
+        fillBlack: fluteFillBlack,
+        fillWhite: fluteFillWhite,
+        emptyBlack: fluteEmptyBlack,
+        emptyWhite: fluteEmptyWhite,
     },
     "globet - wine": {
-        black: globetWine,
-        white: globetWineWhite,
+        fillBlack: globetWineFillBlack,
+        fillWhite: globetWineFillWhite,
+        emptyBlack: globetWineEmptyBlack,
+        emptyWhite: globetWineEmptyWhite,
     },
     "highball - hi ball": {
-        black: highballHiball,
-        white: highballHiballWhite,
+        fillBlack: highballHiballFillBlack,
+        fillWhite: highballHiballFillWhite,
+        emptyBlack: highballHiballEmptyBlack,
+        emptyWhite: highballHiballEmptyWhite,
     },
     "hurricane": {
-        black: hurricane,
-        white: hurricaneWhite,
+        fillBlack: hurricaneFillBlack,
+        fillWhite: hurricaneFillWhite,
+        emptyBlack: hurricaneEmptyBlack,
+        emptyWhite: hurricaneEmptyWhite,
     },
     "julep": {
-        black: julep,
-        white: julepWhite,
+        fillBlack: julepFillBlack,
+        fillWhite: julepFillWhite,
+        emptyBlack: julepEmptyBlack,
+        emptyWhite: julepEmptyWhite,
     },
     "margarita": {
-        black: margarita,
-        white: margaritaWhite,
+        fillBlack: margaritaFillBlack,
+        fillWhite: margaritaFillWhite,
+        emptyBlack: margaritaEmptyBlack,
+        emptyWhite: margaritaEmptyWhite,
     },
     "martini": {
-        black: martini,
-        white: martiniWhite,
+        fillBlack: martiniFillBlack,
+        fillWhite: martiniFillWhite,
+        emptyBlack: martiniEmptyBlack,
+        emptyWhite: martiniEmptyWhite,
     },
     "mule": {
-        black: mule,
-        white: muleWhite,
+        fillBlack: muleFillBlack,
+        fillWhite: muleFillWhite,
+        emptyBlack: muleEmptyBlack,
+        emptyWhite: muleEmptyWhite,
     },
     "nick & nora": {
-        black: nickAndNora,
-        white: nickAndNoraWhite,
+        fillBlack: nickAndNoraFillBlack,
+        fillWhite: nickAndNoraFillWhite,
+        emptyBlack: nickAndNoraEmptyBlack,
+        emptyWhite: nickAndNoraEmptyWhite,
     },
     "old fashioned": {
-        black: oldFashioned,
-        white: oldFashionedWhite,
+        fillBlack: oldFashionedFillBlack,
+        fillWhite: oldFashionedFillWhite,
+        emptyBlack: oldFashionedEmptyBlack,
+        emptyWhite: oldFashionedEmptyWhite,
     },
     "poco grande - piña colada": {
-        black: pocoGrandePinaColada,
-        white: pocoGrandePinaColadaWhite,
+        fillBlack: pocoGrandePinaColadaFillBlack,
+        fillWhite: pocoGrandePinaColadaFillWhite,
+        emptyBlack: pocoGrandePinaColadaEmptyBlack,
+        emptyWhite: pocoGrandePinaColadaEmptyWhite,
     },
     "rocks": {
-        black: rocks,
-        white: rocksWhite,
+        fillBlack: rocksFillBlack,
+        fillWhite: rocksFillWhite,
+        emptyBlack: rocksEmptyBlack,
+        emptyWhite: rocksEmptyWhite,
     },
     "shot": {
-        black: shot,
-        white: shotWhite,
+        fillBlack: shotFillBlack,
+        fillWhite: shotFillWhite,
+        emptyBlack: shotEmptyBlack,
+        emptyWhite: shotEmptyWhite,
     },
     "sling": {
-        black: sling,
-        white: slingWhite,
+        fillBlack: slingFillBlack,
+        fillWhite: slingFillWhite,
+        emptyBlack: slingEmptyBlack,
+        emptyWhite: slingEmptyWhite,
     },
     "snifer - brandy": {
-        black: sniferBrandy,
-        white: sniferBrandyWhite,
+        fillBlack: sniferBrandyFillBlack,
+        fillWhite: sniferBrandyFillWhite,
+        emptyBlack: sniferBrandyEmptyBlack,
+        emptyWhite: sniferBrandyEmptyWhite,
     },
     "sour": {
-        black: sour,
-        white: sourWhite,
+        fillBlack: sourFillBlack,
+        fillWhite: sourFillWhite,
+        emptyBlack: sourEmptyBlack,
+        emptyWhite: sourEmptyWhite,
     },
     "tea cup": {
-        black: teaCup,
-        white: teaCupWhite,
+        fillBlack: teaCupFillBlack,
+        fillWhite: teaCupFillWhite,
+        emptyBlack: teaCupEmptyBlack,
+        emptyWhite: teaCupEmptyWhite,
     },
     "tiki": {
-        black: tiki,
-        white: tikiWhite,
+        fillBlack: tikiFillBlack,
+        fillWhite: tikiFillWhite,
+        emptyBlack: tikiEmptyBlack,
+        emptyWhite: tikiEmptyWhite,
     },
     "toddy": {
-        black: toddy,
-        white: toddyWhite,
+        fillBlack: toddyFillBlack,
+        fillWhite: toddyFillWhite,
+        emptyBlack: toddyEmptyBlack,
+        emptyWhite: toddyEmptyWhite,
     },
 };
 

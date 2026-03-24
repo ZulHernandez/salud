@@ -10,6 +10,7 @@
     @media (max-width: 660px) {
         @include fnWidth(2rem, 3rem, 4rem, 3rem, 100%);
     }
+    z-index: 100;
 
     .navbar-head {
         @include fnFlex(row, space-between, center, 0);
@@ -28,16 +29,21 @@
         &-links {
             @include fnFlex(row, space-between, flex-end, 2rem);
             &-element {
-                @include fnFlex(row, flex-end, center, 0.5rem);
+                @include fnFlex(column, center, center, 0.5rem);
+                position: relative;
                 cursor: pointer;
-                transition: all 0.3s ease;
-                @media (max-width: 660px) {
-                    span {
-                        display: none;
+                &-info {
+                    @include fnFlex(row, flex-end, center, 0.5rem);
+                    cursor: pointer;
+                    transition: all 0.3s ease;
+                    @media (max-width: 660px) {
+                        span {
+                            display: none;
+                        }
                     }
-                }
-                img {
-                    width: 1.8rem;
+                    img {
+                        width: 1.8rem;
+                    }
                 }
             }
         }

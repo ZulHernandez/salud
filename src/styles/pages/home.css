@@ -6,6 +6,6 @@
   gap: 2rem;
   width: 100%;
   clip-path: fill-box;
-  overflow-x: auto;
-  padding-bottom: 2rem;
+  overflow-x: scroll;
+  height: 10rem;
 }/*# sourceMappingURL=home.css.map */
