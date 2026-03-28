@@ -2,278 +2,481 @@ import absintheEmptyBlack from "../assets/icons/glassware/empty-black/absinthe-g
 import absintheEmptyWhite from "../assets/icons/glassware/empty-white/absinthe-glass.svg";
 import absintheFillBlack from "../assets/icons/glassware/fill-black/absinthe-glass.svg";
 import absintheFillWhite from "../assets/icons/glassware/fill-white/absinthe-glass.svg";
+import absintheEmpty from "../assets/icons/glassware/empty/absinthe-glass.svg";
 
 import bostonPintEmptyBlack from "../assets/icons/glassware/empty-black/boston__pint-glass.svg";
 import bostonPintEmptyWhite from "../assets/icons/glassware/empty-white/boston__pint-glass.svg";
 import bostonPintFillBlack from "../assets/icons/glassware/fill-black/boston__pint-glass.svg";
 import bostonPintFillWhite from "../assets/icons/glassware/fill-white/boston__pint-glass.svg";
+import bostonPintEmpty from "../assets/icons/glassware/empty/boston__pint-glass.svg";
 
 import collinsEmptyBlack from "../assets/icons/glassware/empty-black/collins.svg";
 import collinsEmptyWhite from "../assets/icons/glassware/empty-white/collins.svg";
 import collinsFillBlack from "../assets/icons/glassware/fill-black/collins.svg";
 import collinsFillWhite from "../assets/icons/glassware/fill-white/collins.svg";
+import collinsEmpty from "../assets/icons/glassware/empty/collins.svg";
 
 import copitaSherryEmptyBlack from "../assets/icons/glassware/empty-black/copita__sherry-glass.svg";
 import copitaSherryEmptyWhite from "../assets/icons/glassware/empty-white/copita__sherry-glass.svg";
 import copitaSherryFillBlack from "../assets/icons/glassware/fill-black/copita__sherry-glass.svg";
 import copitaSherryFillWhite from "../assets/icons/glassware/fill-white/copita__sherry-glass.svg";
+import copitaSherryEmpty from "../assets/icons/glassware/empty/copita__sherry-glass.svg";
 
 import coupeCoupetteChampagneEmptyBlack from "../assets/icons/glassware/empty-black/coupe__coupette__champagne-saucer.svg";
 import coupeCoupetteChampagneEmptyWhite from "../assets/icons/glassware/empty-white/coupe__coupette__champagne-saucer.svg";
 import coupeCoupetteChampagneFillBlack from "../assets/icons/glassware/fill-black/coupe__coupette__champagne-saucer.svg";
 import coupeCoupetteChampagneFillWhite from "../assets/icons/glassware/fill-white/coupe__coupette__champagne-saucer.svg";
+import coupeCoupetteChampagneEmpty from "../assets/icons/glassware/empty/coupe__coupette__champagne-saucer.svg";
 
 import doubleOldFashionedEmptyBlack from "../assets/icons/glassware/empty-black/double-old-fashioned.svg";
 import doubleOldFashionedEmptyWhite from "../assets/icons/glassware/empty-white/double-old-fashioned.svg";
 import doubleOldFashionedFillBlack from "../assets/icons/glassware/fill-black/double-old-fashioned.svg";
 import doubleOldFashionedFillWhite from "../assets/icons/glassware/fill-white/double-old-fashioned.svg";
+import doubleOldFashionedEmpty from "../assets/icons/glassware/empty/double-old-fashioned.svg";
 
 import fluteEmptyBlack from "../assets/icons/glassware/empty-black/flute.svg";
 import fluteEmptyWhite from "../assets/icons/glassware/empty-white/flute.svg";
 import fluteFillBlack from "../assets/icons/glassware/fill-black/flute.svg";
 import fluteFillWhite from "../assets/icons/glassware/fill-white/flute.svg";
+import fluteEmpty from "../assets/icons/glassware/empty/flute.svg";
 
 import globetWineEmptyBlack from "../assets/icons/glassware/empty-black/globet__wine-glass.svg";
 import globetWineEmptyWhite from "../assets/icons/glassware/empty-white/globet__wine-glass.svg";
 import globetWineFillBlack from "../assets/icons/glassware/fill-black/globet__wine-glass.svg";
 import globetWineFillWhite from "../assets/icons/glassware/fill-white/globet__wine-glass.svg";
+import globetWineEmpty from "../assets/icons/glassware/empty/globet__wine-glass.svg";
 
 import highballHiballEmptyBlack from "../assets/icons/glassware/empty-black/highball__hi-ball.svg";
 import highballHiballEmptyWhite from "../assets/icons/glassware/empty-white/highball__hi-ball.svg";
 import highballHiballFillBlack from "../assets/icons/glassware/fill-black/highball__hi-ball.svg";
 import highballHiballFillWhite from "../assets/icons/glassware/fill-white/highball__hi-ball.svg";
+import highballHiballEmpty from "../assets/icons/glassware/empty/highball__hi-ball.svg";
 
 import hurricaneEmptyBlack from "../assets/icons/glassware/empty-black/hurricane-glass.svg";
 import hurricaneEmptyWhite from "../assets/icons/glassware/empty-white/hurricane-glass.svg";
 import hurricaneFillBlack from "../assets/icons/glassware/fill-black/hurricane-glass.svg";
 import hurricaneFillWhite from "../assets/icons/glassware/fill-white/hurricane-glass.svg";
+import hurricaneEmpty from "../assets/icons/glassware/empty/hurricane-glass.svg";
 
 import julepEmptyBlack from "../assets/icons/glassware/empty-black/julep-cup.svg";
 import julepEmptyWhite from "../assets/icons/glassware/empty-white/julep-cup.svg";
 import julepFillBlack from "../assets/icons/glassware/fill-black/julep-cup.svg";
 import julepFillWhite from "../assets/icons/glassware/fill-white/julep-cup.svg";
+import julepEmpty from "../assets/icons/glassware/empty/julep-cup.svg";
 
 import margaritaEmptyBlack from "../assets/icons/glassware/empty-black/margarita-glass.svg";
 import margaritaEmptyWhite from "../assets/icons/glassware/empty-white/margarita-glass.svg";
 import margaritaFillBlack from "../assets/icons/glassware/fill-black/margarita-glass.svg";
 import margaritaFillWhite from "../assets/icons/glassware/fill-white/margarita-glass.svg";
+import margaritaEmpty from "../assets/icons/glassware/empty/margarita-glass.svg";
 
 import martiniEmptyBlack from "../assets/icons/glassware/empty-black/martini.svg";
 import martiniEmptyWhite from "../assets/icons/glassware/empty-white/martini.svg";
 import martiniFillBlack from "../assets/icons/glassware/fill-black/martini.svg";
 import martiniFillWhite from "../assets/icons/glassware/fill-white/martini.svg";
+import martiniEmpty from "../assets/icons/glassware/empty/martini.svg";
 
 import muleEmptyBlack from "../assets/icons/glassware/empty-black/mule-mug.svg";
 import muleEmptyWhite from "../assets/icons/glassware/empty-white/mule-mug.svg";
 import muleFillBlack from "../assets/icons/glassware/fill-black/mule-mug.svg";
 import muleFillWhite from "../assets/icons/glassware/fill-white/mule-mug.svg";
+import muleEmpty from "../assets/icons/glassware/empty/mule-mug.svg";
 
 import nickAndNoraEmptyBlack from "../assets/icons/glassware/empty-black/nick-and-nora.svg";
 import nickAndNoraEmptyWhite from "../assets/icons/glassware/empty-white/nick-and-nora.svg";
 import nickAndNoraFillBlack from "../assets/icons/glassware/fill-black/nick-and-nora.svg";
 import nickAndNoraFillWhite from "../assets/icons/glassware/fill-white/nick-and-nora.svg";
+import nickAndNoraEmpty from "../assets/icons/glassware/empty/nick-and-nora.svg";
 
 import oldFashionedEmptyBlack from "../assets/icons/glassware/empty-black/old-fashioned.svg";
 import oldFashionedEmptyWhite from "../assets/icons/glassware/empty-white/old-fashioned.svg";
 import oldFashionedFillBlack from "../assets/icons/glassware/fill-black/old-fashioned.svg";
 import oldFashionedFillWhite from "../assets/icons/glassware/fill-white/old-fashioned.svg";
+import oldFashionedEmpty from "../assets/icons/glassware/empty/old-fashioned.svg";
 
 import pocoGrandePinaColadaEmptyBlack from "../assets/icons/glassware/empty-black/poco-grande__piña-colada-glass.svg";
 import pocoGrandePinaColadaEmptyWhite from "../assets/icons/glassware/empty-white/poco-grande__piña-colada-glass.svg";
 import pocoGrandePinaColadaFillBlack from "../assets/icons/glassware/fill-black/poco-grande__piña-colada-glass.svg";
 import pocoGrandePinaColadaFillWhite from "../assets/icons/glassware/fill-white/poco-grande__piña-colada-glass.svg";
+import pocoGrandePinaColadaEmpty from "../assets/icons/glassware/empty/poco-grande__piña-colada-glass.svg";
 
 import rocksEmptyBlack from "../assets/icons/glassware/empty-black/rocks.svg";
 import rocksEmptyWhite from "../assets/icons/glassware/empty-white/rocks.svg";
 import rocksFillBlack from "../assets/icons/glassware/fill-black/rocks.svg";
 import rocksFillWhite from "../assets/icons/glassware/fill-white/rocks.svg";
+import rocksEmpty from "../assets/icons/glassware/empty/rocks.svg";
 
 import shotEmptyBlack from "../assets/icons/glassware/empty-black/shot-glass.svg";
 import shotEmptyWhite from "../assets/icons/glassware/empty-white/shot-glass.svg";
 import shotFillBlack from "../assets/icons/glassware/fill-black/shot-glass.svg";
 import shotFillWhite from "../assets/icons/glassware/fill-white/shot-glass.svg";
+import shotEmpty from "../assets/icons/glassware/empty/shot-glass.svg";
 
 import slingEmptyBlack from "../assets/icons/glassware/empty-black/sling.svg";
 import slingEmptyWhite from "../assets/icons/glassware/empty-white/sling.svg";
 import slingFillBlack from "../assets/icons/glassware/fill-black/sling.svg";
 import slingFillWhite from "../assets/icons/glassware/fill-white/sling.svg";
+import slingEmpty from "../assets/icons/glassware/empty/sling.svg";
 
 import sniferBrandyEmptyBlack from "../assets/icons/glassware/empty-black/snifer__brandy-ballon.svg";
 import sniferBrandyEmptyWhite from "../assets/icons/glassware/empty-white/snifer__brandy-ballon.svg";
 import sniferBrandyFillBlack from "../assets/icons/glassware/fill-black/snifer__brandy-ballon.svg";
 import sniferBrandyFillWhite from "../assets/icons/glassware/fill-white/snifer__brandy-ballon.svg";
+import sniferBrandyEmpty from "../assets/icons/glassware/empty/snifer__brandy-ballon.svg";
 
 import sourEmptyBlack from "../assets/icons/glassware/empty-black/sour-glass.svg";
 import sourEmptyWhite from "../assets/icons/glassware/empty-white/sour-glass.svg";
 import sourFillBlack from "../assets/icons/glassware/fill-black/sour-glass.svg";
 import sourFillWhite from "../assets/icons/glassware/fill-white/sour-glass.svg";
+import sourEmpty from "../assets/icons/glassware/empty/sour-glass.svg";
 
 import teaCupEmptyBlack from "../assets/icons/glassware/empty-black/tea-cup.svg";
 import teaCupEmptyWhite from "../assets/icons/glassware/empty-white/tea-cup.svg";
 import teaCupFillBlack from "../assets/icons/glassware/fill-black/tea-cup.svg";
 import teaCupFillWhite from "../assets/icons/glassware/fill-white/tea-cup.svg";
+import teaCupEmpty from "../assets/icons/glassware/empty/tea-cup.svg";
 
 import tikiEmptyBlack from "../assets/icons/glassware/empty-black/tiki-mug.svg";
 import tikiEmptyWhite from "../assets/icons/glassware/empty-white/tiki-mug.svg";
 import tikiFillBlack from "../assets/icons/glassware/fill-black/tiki-mug.svg";
 import tikiFillWhite from "../assets/icons/glassware/fill-white/tiki-mug.svg";
+import tikiEmpty from "../assets/icons/glassware/empty/tiki-mug.svg";
 
 import toddyEmptyBlack from "../assets/icons/glassware/empty-black/toddy-glass.svg";
 import toddyEmptyWhite from "../assets/icons/glassware/empty-white/toddy-glass.svg";
 import toddyFillBlack from "../assets/icons/glassware/fill-black/toddy-glass.svg";
 import toddyFillWhite from "../assets/icons/glassware/fill-white/toddy-glass.svg";
+import toddyEmpty from "../assets/icons/glassware/empty/toddy-glass.svg";
 
 const glassware = {
-    "absinthe": {
-        fillBlack: absintheFillBlack,
-        fillWhite: absintheFillWhite,
-        emptyBlack: absintheEmptyBlack,
-        emptyWhite: absintheEmptyWhite,
-    },
-    "boston - pint": {
-        fillBlack: bostonPintFillBlack,
-        fillWhite: bostonPintFillWhite,
-        emptyBlack: bostonPintEmptyBlack,
-        emptyWhite: bostonPintEmptyWhite,
-    },
-    "collins": {
-        fillBlack: collinsFillBlack,
-        fillWhite: collinsFillWhite,
-        emptyBlack: collinsEmptyBlack,
-        emptyWhite: collinsEmptyWhite,
-    },
-    "copita - sherry": {
-        fillBlack: copitaSherryFillBlack,
-        fillWhite: copitaSherryFillWhite,
-        emptyBlack: copitaSherryEmptyBlack,
-        emptyWhite: copitaSherryEmptyWhite,
-    },
-    "coupe - coupette - champagne": {
-        fillBlack: coupeCoupetteChampagneFillBlack,
-        fillWhite: coupeCoupetteChampagneFillWhite,
-        emptyBlack: coupeCoupetteChampagneEmptyBlack,
-        emptyWhite: coupeCoupetteChampagneEmptyWhite,
-    },
-    "double old fashioned": {
-        fillBlack: doubleOldFashionedFillBlack,
-        fillWhite: doubleOldFashionedFillWhite,
-        emptyBlack: doubleOldFashionedEmptyBlack,
-        emptyWhite: doubleOldFashionedEmptyWhite,
-    },
-    "flute": {
-        fillBlack: fluteFillBlack,
-        fillWhite: fluteFillWhite,
-        emptyBlack: fluteEmptyBlack,
-        emptyWhite: fluteEmptyWhite,
-    },
-    "globet - wine": {
-        fillBlack: globetWineFillBlack,
-        fillWhite: globetWineFillWhite,
-        emptyBlack: globetWineEmptyBlack,
-        emptyWhite: globetWineEmptyWhite,
-    },
-    "highball - hi ball": {
-        fillBlack: highballHiballFillBlack,
-        fillWhite: highballHiballFillWhite,
-        emptyBlack: highballHiballEmptyBlack,
-        emptyWhite: highballHiballEmptyWhite,
-    },
-    "hurricane": {
-        fillBlack: hurricaneFillBlack,
-        fillWhite: hurricaneFillWhite,
-        emptyBlack: hurricaneEmptyBlack,
-        emptyWhite: hurricaneEmptyWhite,
-    },
-    "julep": {
-        fillBlack: julepFillBlack,
-        fillWhite: julepFillWhite,
-        emptyBlack: julepEmptyBlack,
-        emptyWhite: julepEmptyWhite,
-    },
-    "margarita": {
-        fillBlack: margaritaFillBlack,
-        fillWhite: margaritaFillWhite,
-        emptyBlack: margaritaEmptyBlack,
-        emptyWhite: margaritaEmptyWhite,
-    },
-    "martini": {
-        fillBlack: martiniFillBlack,
-        fillWhite: martiniFillWhite,
-        emptyBlack: martiniEmptyBlack,
-        emptyWhite: martiniEmptyWhite,
-    },
-    "mule": {
-        fillBlack: muleFillBlack,
-        fillWhite: muleFillWhite,
-        emptyBlack: muleEmptyBlack,
-        emptyWhite: muleEmptyWhite,
-    },
-    "nick & nora": {
-        fillBlack: nickAndNoraFillBlack,
-        fillWhite: nickAndNoraFillWhite,
-        emptyBlack: nickAndNoraEmptyBlack,
-        emptyWhite: nickAndNoraEmptyWhite,
-    },
-    "old fashioned": {
-        fillBlack: oldFashionedFillBlack,
-        fillWhite: oldFashionedFillWhite,
-        emptyBlack: oldFashionedEmptyBlack,
-        emptyWhite: oldFashionedEmptyWhite,
-    },
-    "poco grande - piña colada": {
-        fillBlack: pocoGrandePinaColadaFillBlack,
-        fillWhite: pocoGrandePinaColadaFillWhite,
-        emptyBlack: pocoGrandePinaColadaEmptyBlack,
-        emptyWhite: pocoGrandePinaColadaEmptyWhite,
-    },
-    "rocks": {
-        fillBlack: rocksFillBlack,
-        fillWhite: rocksFillWhite,
-        emptyBlack: rocksEmptyBlack,
-        emptyWhite: rocksEmptyWhite,
-    },
-    "shot": {
-        fillBlack: shotFillBlack,
-        fillWhite: shotFillWhite,
-        emptyBlack: shotEmptyBlack,
-        emptyWhite: shotEmptyWhite,
-    },
-    "sling": {
-        fillBlack: slingFillBlack,
-        fillWhite: slingFillWhite,
-        emptyBlack: slingEmptyBlack,
-        emptyWhite: slingEmptyWhite,
-    },
-    "snifer - brandy": {
-        fillBlack: sniferBrandyFillBlack,
-        fillWhite: sniferBrandyFillWhite,
-        emptyBlack: sniferBrandyEmptyBlack,
-        emptyWhite: sniferBrandyEmptyWhite,
-    },
-    "sour": {
-        fillBlack: sourFillBlack,
-        fillWhite: sourFillWhite,
-        emptyBlack: sourEmptyBlack,
-        emptyWhite: sourEmptyWhite,
-    },
-    "tea cup": {
-        fillBlack: teaCupFillBlack,
-        fillWhite: teaCupFillWhite,
-        emptyBlack: teaCupEmptyBlack,
-        emptyWhite: teaCupEmptyWhite,
-    },
-    "tiki": {
-        fillBlack: tikiFillBlack,
-        fillWhite: tikiFillWhite,
-        emptyBlack: tikiEmptyBlack,
-        emptyWhite: tikiEmptyWhite,
-    },
-    "toddy": {
-        fillBlack: toddyFillBlack,
-        fillWhite: toddyFillWhite,
-        emptyBlack: toddyEmptyBlack,
-        emptyWhite: toddyEmptyWhite,
-    },
+	"absinthe": {
+		fillBlack: absintheFillBlack,
+		fillWhite: absintheFillWhite,
+		emptyBlack: absintheEmptyBlack,
+		emptyWhite: absintheEmptyWhite,
+		empty: absintheEmpty,
+		liquid: {
+			path: "M20 106C20 107.438 28 113 46 113C64 113 72 107.438 72 106C72 104.562 92 0 92 0H0C0 0 20 104.562 20 106Z",
+			width: "90px",
+			height: "174px",
+			marginTop: "20px",
+		},
+	},
+	"boston - pint": {
+		fillBlack: bostonPintFillBlack,
+		fillWhite: bostonPintFillWhite,
+		emptyBlack: bostonPintEmptyBlack,
+		emptyWhite: bostonPintEmptyWhite,
+		empty: bostonPintEmpty,
+		liquid: {
+			path: "M11 168C11 172 11 174 45 174C79 174 79 172 79 168C79 164 90 0 90 0H0C0 0 11 164 11 168Z",
+			width: "90px",
+			height: "174px",
+			marginTop: "20px",
+		},
+	},
+	"collins": {
+		fillBlack: collinsFillBlack,
+		fillWhite: collinsFillWhite,
+		emptyBlack: collinsEmptyBlack,
+		emptyWhite: collinsEmptyWhite,
+		empty: collinsEmpty,
+		liquid: {
+			path: "M7 123C7 123 8 146 37 146C66 146 67 123 67 123L74 0H0L7 123Z",
+			width: "74px",
+			height: "146px",
+			marginTop: "20px",
+		},
+	},
+	"copita - sherry": {
+		fillBlack: copitaSherryFillBlack,
+		fillWhite: copitaSherryFillWhite,
+		emptyBlack: copitaSherryEmptyBlack,
+		emptyWhite: copitaSherryEmptyWhite,
+		empty: copitaSherryEmpty,
+		liquid: {
+			path: "M56.6177 119.002C51.6461 122.124 45.2065 124 36.855 124C28.5036 124 22.064 122.124 17.0923 119.002C12.1208 115.88 8.42333 111.391 5.75249 105.854C0.356285 94.6646 -0.734701 79.4304 0.40972 63.7178C1.54789 48.0911 4.86193 32.4079 7.90875 20.5928C9.42968 14.6948 10.8787 9.78172 11.9459 6.34766C12.3679 4.98944 13.572 0.863453 13.855 0H59.855C60.138 0.863484 61.3421 4.98932 61.7642 6.34766C62.8313 9.78173 64.2804 14.6948 65.8013 20.5928C68.8481 32.4079 72.1622 48.0911 73.3004 63.7178C74.4448 79.4304 73.3538 94.6646 67.9576 105.854C65.2867 111.391 61.5893 115.88 56.6177 119.002Z",
+			width: "74px",
+			height: "124px",
+			marginTop: "20px",
+		},
+	},
+	"coupe - coupette - champagne": {
+		fillBlack: coupeCoupetteChampagneFillBlack,
+		fillWhite: coupeCoupetteChampagneFillWhite,
+		emptyBlack: coupeCoupetteChampagneEmptyBlack,
+		emptyWhite: coupeCoupetteChampagneEmptyWhite,
+		empty: coupeCoupetteChampagneEmpty,
+		liquid: {
+			path: "M96.2149 52.5967C94.4501 53.9158 92.6008 55.1236 90.6621 56.3662C90.404 56.5317 90.1439 56.698 89.8821 56.8653C89.8821 56.8653 79 64 57 64C35 64 24.1402 56.8652 24.1402 56.8652C23.8785 56.6979 23.6185 56.5316 23.3604 56.3662C21.4217 55.1236 19.5714 53.9158 17.8067 52.5967C11.3527 47.7723 7.07454 42.6238 4.32326 36.7705C1.56002 30.8918 0.249467 24.1159 0.00978504 15.9121C-0.0733325 13.0659 0.385808 9.30079 0.90334 6.12109C1.09491 4.94416 1.83151 0.875481 2 0H112C112.168 0.875483 112.928 4.94417 113.119 6.12109C113.637 9.30078 114.096 13.0659 114.013 15.9121C113.773 24.1159 112.462 30.8918 109.699 36.7705C106.948 42.6239 102.669 47.7722 96.2149 52.5967Z",
+			width: "115px",
+			height: "64px",
+			marginTop: "20px",
+		},
+	},
+	"double old fashioned": {
+		fillBlack: doubleOldFashionedFillBlack,
+		fillWhite: doubleOldFashionedFillWhite,
+		emptyBlack: doubleOldFashionedEmptyBlack,
+		emptyWhite: doubleOldFashionedEmptyWhite,
+		empty: doubleOldFashionedEmpty,
+		liquid: {
+			path: "M0 0H158L133 103C133 103 116.5 130.5 79 130.5C41.5 130.5 25 103 25 103L0 0Z",
+			width: "158px",
+			height: "130px",
+			marginTop: "20px",
+		},
+	},
+	"flute": {
+		fillBlack: fluteFillBlack,
+		fillWhite: fluteFillWhite,
+		emptyBlack: fluteEmptyBlack,
+		emptyWhite: fluteEmptyWhite,
+		empty: fluteEmpty,
+		liquid: {
+			path: "M19.4 102C24.8915 102 29.3593 97.3271 32.7125 87.6143C35.9721 78.1727 37.6269 65.3837 38.3415 52.3359C39.053 39.3423 38.8216 26.3218 38.4098 16.5322C38.2041 11.6422 37.9541 7.56867 37.7555 4.72069C37.7111 4.08439 37.4381 0.509148 37.4 1.22313e-07L1.39996 3.26953e-06C1.36185 0.509143 1.0879 4.08441 1.04353 4.72069C0.844947 7.56868 0.594928 11.6422 0.389237 16.5322C-0.0225477 26.3218 -0.253954 39.3423 0.457599 52.3359C1.17212 65.3837 2.82794 78.1727 6.08749 87.6143C9.44079 97.3273 13.9084 102 19.4 102Z",
+			width: "39px",
+			height: "102px",
+			marginTop: "20px",
+		},
+	},
+	"globet - wine": {
+		fillBlack: globetWineFillBlack,
+		fillWhite: globetWineFillWhite,
+		emptyBlack: globetWineEmptyBlack,
+		emptyWhite: globetWineEmptyWhite,
+		empty: globetWineEmpty,
+		liquid: {
+			path: "M45.2627 98.5537L45.2373 98.5713C45.2332 98.5743 45.2205 98.5835 45.2129 98.5889C45.1856 98.608 45.1383 98.6407 45.0732 98.6846C44.9427 98.7727 44.7395 98.9067 44.4736 99.0703C43.9398 99.3988 43.1638 99.8418 42.2217 100.285C40.2936 101.192 37.8779 102 35.499 102C33.0876 102 30.3964 101.176 28.1631 100.235C27.0769 99.778 26.161 99.3191 25.5205 98.9775C25.2015 98.8074 24.9532 98.6684 24.79 98.5742C24.7404 98.5456 24.6988 98.5208 24.6654 98.5009L24.6377 98.4844C24.6002 98.4575 24.5486 98.4199 24.4834 98.3721C24.3166 98.2495 24.0617 98.0584 23.7314 97.7998C23.0708 97.2825 22.1097 96.4961 20.9482 95.4463C18.6227 93.3443 15.5086 90.2015 12.3945 86.0693C6.18776 77.8334 0.0438616 65.7589 0 50.168C1.82147 34.1318 4.28806 21.8121 6.29395 13.5176C7.3004 9.35581 8.19077 6.20737 8.8252 4.11133C8.94552 3.71378 9.05843 3.35466 9.1595 3.03314L10 0H60L60.8384 3.03264C60.9395 3.35429 61.0525 3.71358 61.1729 4.11133C61.8073 6.20737 62.6976 9.35581 63.7041 13.5176C65.71 21.8121 68.1756 34.1319 69.9971 50.168C69.9532 65.7589 63.8103 77.8334 57.6035 86.0693C54.4894 90.2015 51.3754 93.3443 49.0498 95.4463C47.8884 96.4961 46.9273 97.2825 46.2666 97.7998C45.9364 98.0584 45.6815 98.2495 45.5146 98.3721C45.4313 98.4333 45.3698 98.478 45.332 98.5049C45.3134 98.5181 45.2979 98.5284 45.291 98.5332L45.2627 98.5537Z",
+			width: "70px",
+			height: "102px",
+			marginTop: "20px",
+		},
+	},
+	"highball - hi ball": {
+		fillBlack: highballHiballFillBlack,
+		fillWhite: highballHiballFillWhite,
+		emptyBlack: highballHiballEmptyBlack,
+		emptyWhite: highballHiballEmptyWhite,
+		empty: highballHiballEmpty,
+		liquid: {
+			path: "M9.83784 127.212C9.83784 127.212 11.2432 151 52 151C92.7568 151 94.1622 127.212 94.1622 127.212L104 0H0L9.83784 127.212Z",
+			width: "104px",
+			height: "151px",
+			marginTop: "20px",
+		},
+	},
+	"hurricane": {
+		fillBlack: hurricaneFillBlack,
+		fillWhite: hurricaneFillWhite,
+		emptyBlack: hurricaneEmptyBlack,
+		emptyWhite: hurricaneEmptyWhite,
+		empty: hurricaneEmpty,
+		liquid: {
+			path: "M58.6953 10.1865C55.8407 17.7124 53 28.574 53 42C53 55.4618 55.862 65.4386 58.626 74.6729C58.712 74.9601 58.7978 75.2466 58.8834 75.5322C58.8874 75.5456 58.8915 75.559 58.8955 75.5724C61.5579 84.4555 64 92.6037 64 103C64 115.27 56.2239 124.784 47.3682 130.477L38.7754 136C38.7754 136 36 137.815 32 137.815C28 137.815 25.2246 136 25.2246 136L16.6318 130.477C7.7761 124.784 0 115.27 0 103C0 92.6037 2.44215 84.4554 5.10454 75.5724C5.19415 75.2734 5.284 74.9736 5.37402 74.6729C8.13801 65.4386 11 55.4618 11 42C11 28.574 8.1593 17.7124 5.30469 10.1865C4.20326 7.28275 0.94666 1.87279 0 0H64C63.0533 1.87279 59.7967 7.28275 58.6953 10.1865Z",
+			width: "64px",
+			height: "138px",
+			marginTop: "20px",
+		},
+	},
+	"julep": {
+		fillBlack: julepFillBlack,
+		fillWhite: julepFillWhite,
+		emptyBlack: julepEmptyBlack,
+		emptyWhite: julepEmptyWhite,
+		empty: julepEmpty,
+		liquid: {
+			path: "M0 0H122L95 160H27L0 0Z",
+			width: "122px",
+			height: "160px",
+			marginTop: "20px",
+		},
+	},
+	"margarita": {
+		fillBlack: margaritaFillBlack,
+		fillWhite: margaritaFillWhite,
+		emptyBlack: margaritaEmptyBlack,
+		emptyWhite: margaritaEmptyWhite,
+		empty: margaritaEmpty,
+		liquid: {
+			path: "M124 0C123.886 1.55185 123.649 6.6844 123.161 9.01758C122.159 13.8119 120.197 18.9549 116.559 21.9639C114.818 23.4029 112.586 24.1179 110.437 24.6914C107.86 25.3599 105.065 25.7708 102.311 26.2041C98.8914 26.7419 94.4066 27.0807 91.8164 29.7168C90.8732 30.6767 90.3193 31.9139 90.3193 33.3262C90.3193 39.1807 90.1151 45.0344 89.7422 50.877C89.4285 55.791 88.9542 57.8834 88.2666 59.9834C87.5601 62.141 86.3927 64.9039 84.9316 70.2646C84.3034 72.5694 82.5263 75.6308 80.7334 78.291C79.717 79.799 78.6479 81.2766 77.5117 82.6973L77.501 82.7119C75.9615 84.4251 73.8319 85.7835 71.6025 86.3369C68.4958 87.1077 65.2007 88 62 88C58.7043 88 55.2588 87.1067 52.0645 86.2529C49.9912 85.6615 48.0597 84.3985 46.5811 82.8252C45.5613 81.2692 44.2902 79.8416 43.2451 78.291C41.4522 75.6308 39.6761 72.5694 39.0479 70.2646C37.5886 64.9106 36.4245 62.1399 35.7246 59.9883C35.0414 57.8876 34.5717 55.7938 34.2578 50.877C33.8849 45.0344 33.6807 39.1807 33.6807 33.3262C33.6807 31.9139 33.1268 30.6767 32.1836 29.7168C29.5934 27.0807 25.1086 26.7419 21.6895 26.2041C19.2792 25.825 16.8386 25.464 14.54 24.9316C12.0596 24.3222 9.44745 23.6224 7.44141 21.9639C3.80266 18.9549 1.84106 13.8119 0.838867 9.01758C0.351205 6.6844 0.113544 1.55185 0 0H124Z",
+			width: "124px",
+			height: "88px",
+			marginTop: "20px",
+		},
+	},
+	"martini": {
+		fillBlack: martiniFillBlack,
+		fillWhite: martiniFillWhite,
+		emptyBlack: martiniEmptyBlack,
+		emptyWhite: martiniEmptyWhite,
+		empty: martiniEmpty,
+		liquid: {
+			path: "M6.41992 8.74902C4.96897 6.52116 1.05362 1.58329 0 0H94C92.9464 1.58329 89.031 6.52116 87.5801 8.74902C83.4084 15.1544 77.8213 23.9516 72.168 33.5068C66.5196 43.0537 61.4631 52.5022 57 62C57 62 52.0012 70 47 70C41.9988 70 37 62 37 62C32.5369 52.5022 27.4804 43.0537 21.832 33.5068C16.1787 23.9516 10.5916 15.1544 6.41992 8.74902Z",
+			width: "94px",
+			height: "70px",
+			marginTop: "20px",
+		},
+	},
+	"mule": {
+		fillBlack: muleFillBlack,
+		fillWhite: muleFillWhite,
+		emptyBlack: muleEmptyBlack,
+		emptyWhite: muleEmptyWhite,
+		empty: muleEmpty,
+		liquid: {
+			path: "M0 0H94V90C94 93.866 90.866 97 87 97H7C3.13401 97 0 93.866 0 90V0Z",
+			width: "94px",
+			height: "97px",
+			marginTop: "100px",
+			marginLeft: "-60px",
+		},
+	},
+	"nick & nora": {
+		fillBlack: nickAndNoraFillBlack,
+		fillWhite: nickAndNoraFillWhite,
+		emptyBlack: nickAndNoraEmptyBlack,
+		emptyWhite: nickAndNoraEmptyWhite,
+		empty: nickAndNoraEmpty,
+		liquid: {
+			path: "M76.7123 46.8691C73.7437 54.16 69.509 58.5068 65.3813 61.6641C63.5352 63.0761 61.7272 64.2399 59.9746 65.3681L59.9744 65.3682C59.9744 65.3682 51.9823 72 41.9823 72C31.9823 72 23.9982 65.3627 23.9982 65.3627C22.248 64.2362 20.4422 63.0739 18.599 61.6641C14.4715 58.5068 10.2374 54.1597 7.26896 46.8691C3.41346 37.3998 1.57154 25.747 0.711338 16.3174C0.283847 11.6311 0.10301 7.55064 0.0296977 4.64551C0.0149772 4.06216 0.00713395 3.52652 5.8477e-05 3.0433C-4.76983e-05 3.03605 1.1845e-05 2.27666 7.13026e-05 1.51835C7.13878e-05 1.51727 7.14731e-05 1.51618 7.15583e-05 1.51509L8.45272e-05 0H83.9506C83.9434 0.49446 83.9658 4.04466 83.9506 4.64551C83.8773 7.55064 83.6974 11.6311 83.2699 16.3174C82.4097 25.747 80.5678 37.3998 76.7123 46.8691Z",
+			width: "84px",
+			height: "72px",
+			marginTop: "20px",
+		},
+	},
+	"old fashioned": {
+		fillBlack: oldFashionedFillBlack,
+		fillWhite: oldFashionedFillWhite,
+		emptyBlack: oldFashionedEmptyBlack,
+		emptyWhite: oldFashionedEmptyWhite,
+		empty: oldFashionedEmpty,
+		liquid: {
+			path: "M0 0H130L123 111C123 111 109.494 114.325 101 117C86.612 121.531 82.5 131 65 131C47.5 131 43.388 121.531 29 117C20.5059 114.325 7 111 7 111L0 0Z",
+			width: "130px",
+			height: "131px",
+			marginTop: "20px",
+		},
+	},
+	"poco grande - piña colada": {
+		fillBlack: pocoGrandePinaColadaFillBlack,
+		fillWhite: pocoGrandePinaColadaFillWhite,
+		emptyBlack: pocoGrandePinaColadaEmptyBlack,
+		emptyWhite: pocoGrandePinaColadaEmptyWhite,
+		empty: pocoGrandePinaColadaEmpty,
+		liquid: {
+			path: "M61.6367 6.10547C60.3728 10.15 59 15.517 59 20C59 22.4612 59.6766 25.3181 60.5244 28.2539C61.3673 31.1728 62.5502 34.7078 63.6309 38.25C65.8567 45.5458 68 53.9535 68 63C68 71.0309 62.5016 77.377 55.9219 82.4336C52.7569 84.8659 49.5209 86.8649 46.8201 88.5333L46.82 88.5333L46.6416 88.6436C46.6416 88.6436 42.5 91 33 91C23.5 91 21.3584 88.6436 21.3584 88.6436L21.18 88.5333L21.1799 88.5333C18.4791 86.8649 15.2431 84.8659 12.0781 82.4336C5.49845 77.377 1.43774e-05 71.0309 0 63C-1.4305e-05 53.9535 2.14331 45.5458 4.36914 38.25C5.44981 34.7078 6.63268 31.1728 7.47559 28.2539C8.32335 25.3181 9 22.4612 9 20C9 15.517 7.62719 10.15 6.36328 6.10547C6.0112 4.9788 4.32549 0.929962 4 0H64C63.6745 0.929962 61.9888 4.9788 61.6367 6.10547Z",
+			width: "68px",
+			height: "91px",
+			marginTop: "20px",
+		},
+	},
+	"rocks": {
+		fillBlack: rocksFillBlack,
+		fillWhite: rocksFillWhite,
+		emptyBlack: rocksEmptyBlack,
+		emptyWhite: rocksEmptyWhite,
+		empty: rocksEmpty,
+		liquid: {
+			path: "M154.5 95C154.5 80.064 156.27 66.1641 158.036 56.0098C158.92 50.9283 159.805 46.7738 160.47 43.8848C160.802 42.4406 161.08 41.3112 161.275 40.5391C161.374 40.1498 161.453 39.8518 161.505 39.6543C161.51 39.6334 161.515 39.6131 161.521 39.5938L164 0H0L2.47656 39.5615L2.51855 39.7041V39.7441C2.56962 39.9379 2.63986 40.2048 2.72461 40.5391C2.9204 41.3112 3.19793 42.4406 3.53027 43.8848C4.19514 46.7738 5.08013 50.9283 5.96387 56.0098C7.72981 66.1641 9.5 80.064 9.5 95C9.5 109.723 9.74937 123.452 9.99902 133.501C10.1238 138.524 10.2482 142.627 10.3418 145.473C10.3886 146.896 10.4278 148.005 10.4551 148.757C10.4686 149.131 10.4798 149.415 10.4873 149.612C10.4944 149.801 10.4909 149.719 10.4951 149.83C10.4953 149.834 10.4958 149.839 10.4961 149.844C10.4964 149.85 10.4967 149.859 10.4971 149.868L10.5 150H153.502V149.868C153.502 149.859 153.504 149.85 153.504 149.844C153.504 149.839 153.505 149.834 153.505 149.83C153.509 149.719 153.506 149.801 153.513 149.612C153.52 149.415 153.531 149.131 153.545 148.757C153.572 148.005 153.611 146.896 153.658 145.473C153.752 142.627 153.876 138.524 154.001 133.501C154.251 123.452 154.5 109.723 154.5 95Z",
+			width: "164px",
+			height: "150px",
+			marginTop: "20px",
+		},
+	},
+	"shot": {
+		fillBlack: shotFillBlack,
+		fillWhite: shotFillWhite,
+		emptyBlack: shotEmptyBlack,
+		emptyWhite: shotEmptyWhite,
+		empty: shotEmpty,
+		liquid: {
+			path: "M14 139C14 139 16.5 146 49 146C81.5 146 84 139 84 139L98 0H0L14 139Z",
+			width: "98px",
+			height: "146px",
+			marginTop: "20px",
+		},
+	},
+	"sling": {
+		fillBlack: slingFillBlack,
+		fillWhite: slingFillWhite,
+		emptyBlack: slingEmptyBlack,
+		emptyWhite: slingEmptyWhite,
+		empty: slingEmpty,
+		liquid: {
+			path: "M6 150C6 152 8 153 26 153C44 153 46 152 46 150C46 148 52 0 52 0H0C0 0 6 148 6 150Z",
+			width: "52px",
+			height: "153px",
+			marginTop: "20px",
+		},
+	},
+	"snifer - brandy": {
+		fillBlack: sniferBrandyFillBlack,
+		fillWhite: sniferBrandyFillWhite,
+		emptyBlack: sniferBrandyEmptyBlack,
+		emptyWhite: sniferBrandyEmptyWhite,
+		empty: sniferBrandyEmpty,
+		liquid: {
+			path: "M132 104C132 83.4545 124.9 57.858 117.668 37.1787C114.068 26.8863 110.467 17.8987 107.767 11.4854C106.417 8.27964 105.293 5.71914 104.508 3.96387C104.349 3.60877 103.13 0.287856 103 0H29C28.8699 0.287856 27.651 3.60877 27.4922 3.96387C26.7072 5.71914 25.5834 8.27964 24.2334 11.4854C21.5326 17.8987 17.9317 26.8863 14.332 37.1787C7.09958 57.858 -5.72204e-06 83.4545 0 104C2.14572e-06 112.048 1.67691 117.964 4.72461 122.901C7.80667 127.894 12.4308 132.117 18.7266 136.547C31.4763 145.519 41.0345 146.237 57.1426 147.003C58.8051 147.082 60.9821 147.083 62.7822 147.062C63.6738 147.052 64.4578 147.037 65.0186 147.024C65.2985 147.018 65.5225 147.012 65.6758 147.008C65.7524 147.006 65.8122 147.004 65.8516 147.003C65.871 147.002 65.8859 147.002 65.8955 147.002C65.9002 147.002 65.904 147.002 65.9062 147.002L66 146.999L66.0908 147.001C66.093 147.001 66.0998 147.002 66.1045 147.002C66.1141 147.002 66.129 147.002 66.1484 147.003C66.1878 147.004 66.2476 147.006 66.3242 147.008C66.4775 147.012 66.7015 147.018 66.9814 147.024C67.5422 147.037 68.3262 147.052 69.2178 147.062C71.018 147.083 73.1949 147.082 74.8574 147.003C90.9655 146.237 100.524 145.519 113.273 136.547C119.569 132.117 124.193 127.894 127.275 122.901C130.323 117.964 132 112.048 132 104Z",
+			width: "132px",
+			height: "148px",
+			marginTop: "20px",
+		},
+	},
+	"sour": {
+		fillBlack: sourFillBlack,
+		fillWhite: sourFillWhite,
+		emptyBlack: sourEmptyBlack,
+		emptyWhite: sourEmptyWhite,
+		empty: sourEmpty,
+		liquid: {
+			path: "M64.3672 33.0771C65.0082 58.084 66.1069 73.4505 54.7256 94.5771C54.7256 94.5771 52.3662 102 32.3662 102C12.3662 102 10.0078 94.5771 10.0078 94.5771C-1.37361 73.4504 -0.275709 58.0841 0.365254 33.0771C0.526804 26.7743 1.50465 18.6689 2.45998 12.0625C2.93521 8.77613 3.40093 5.89103 3.74709 3.82812C3.79628 3.53501 4.32217 0.258553 4.36621 0H60.3662C60.4103 0.258559 60.9372 3.535 60.9863 3.82812C61.3325 5.89102 61.7973 8.77621 62.2725 12.0625C63.2278 18.6689 64.2057 26.7743 64.3672 33.0771Z",
+			width: "65px",
+			height: "102px",
+			marginTop: "20px",
+		},
+	},
+	"tea cup": {
+		fillBlack: teaCupFillBlack,
+		fillWhite: teaCupFillWhite,
+		emptyBlack: teaCupEmptyBlack,
+		emptyWhite: teaCupEmptyWhite,
+		empty: teaCupEmpty,
+		liquid: {
+			path: "M0 0C0.0562545 0.939321 0.288848 5.06957 0.382812 6.36035C0.676735 10.3979 1.17181 15.9974 1.97559 22.2422C3.59654 34.8356 6.42949 49.673 11.209 59.71C19.3586 76.8241 27.842 89.2255 30.5303 93H89.4697C92.158 89.2255 100.641 76.8241 108.791 59.71C113.571 49.673 116.403 34.8356 118.024 22.2422C118.828 15.9974 119.323 10.3979 119.617 6.36035C119.711 5.06957 119.944 0.939321 120 0H0Z",
+			width: "120px",
+			height: "93px",
+			marginTop: "104px",
+			marginLeft: "-34px",
+		},
+	},
+	"tiki": {
+		fillBlack: tikiFillBlack,
+		fillWhite: tikiFillWhite,
+		emptyBlack: tikiEmptyBlack,
+		emptyWhite: tikiEmptyWhite,
+		empty: tikiEmpty,
+		liquid: {
+			path: "M0 0H79V176C79 177.105 78.1046 178 77 178H2C0.895432 178 0 177.105 0 176V0Z",
+			width: "79px",
+			height: "178px",
+			marginTop: "19px",
+		},
+	},
+	"toddy": {
+		fillBlack: toddyFillBlack,
+		fillWhite: toddyFillWhite,
+		emptyBlack: toddyEmptyBlack,
+		emptyWhite: toddyEmptyWhite,
+		empty: toddyEmpty,
+		liquid: {
+			path: "M93.7939 78.1182C93.3235 80.3763 93 82.4212 93 84V118C92.9971 118.066 92.9836 118.283 92.9326 118.538C92.9073 118.664 92.8757 118.768 92.8477 118.849C92.7815 118.872 92.6814 118.905 92.5371 118.934C92.3702 118.967 92.2118 118.984 92.0977 118.993C92.0428 118.997 92.0033 118.999 91.9844 119H89V125H21V119H18.0156C17.9967 118.999 17.9571 118.997 17.9023 118.993C17.7882 118.984 17.6298 118.967 17.4629 118.934C17.318 118.905 17.2175 118.872 17.1514 118.849C17.1234 118.768 17.0927 118.664 17.0674 118.538C17.0112 118.257 17.0015 118.017 17 117.98L17 84C17 82.4212 16.6765 80.3763 16.2061 78.1182C15.725 75.8087 15.0451 73.0741 14.2441 70.0391C13.4763 67.1297 12.5874 63.9044 11.6404 60.4686L11.5137 60.0088C10.5175 56.3942 9.45851 52.544 8.40039 48.5449C4.4378 33.5686 0.512389 13.7951 0 0H110C109.488 13.7951 105.562 33.5686 101.6 48.5449C100.541 52.544 99.4825 56.3942 98.4863 60.0088L98.3594 60.4692C97.4129 63.9035 96.5234 67.1307 95.7559 70.0391C94.9549 73.0741 94.275 75.8087 93.7939 78.1182Z",
+			width: "110px",
+			height: "125px",
+			marginTop: "59px",
+			marginLeft: "-44px",
+		},
+	},
 };
 
 export default glassware;

@@ -1,4 +1,4 @@
-.card {
+.list {
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
@@ -14,44 +14,15 @@
   transition: all 0.3s ease;
   cursor: pointer;
 }
-.card:hover {
+.list:hover {
   border-radius: 3rem;
   background: #fff;
   box-shadow: 1px 1px 2px 0 rgba(255, 255, 255, 0.3), -1px -1px 2px 0 rgba(230, 230, 230, 0.5), -15px 15px 30px 0 rgba(230, 230, 230, 0.2) inset, 15px -15px 30px 0 rgba(230, 230, 230, 0.2) inset, -15px -15px 30px 0 rgba(255, 255, 255, 0.9) inset, 15px 15px 38px 0 rgba(230, 230, 230, 0.9) inset;
 }
-.card-viewer {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: center;
-  gap: 0rem;
-  width: 20rem;
-  height: 20rem;
+.list:hover .list-viewer {
+  transform: scale(1.1);
 }
-.card-viewer img {
-  width: 20rem;
-  height: 20rem;
-  position: absolute;
-  z-index: 0;
-  transition: all 0.3s ease;
-}
-.card-viewer-liquid {
-  z-index: 1;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: center;
-  gap: 0rem;
-}
-.card-info {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: flex-start;
-  gap: 2rem;
-  width: 100%;
-}
-.card-info h3 {
+.list:hover .list-info h3 {
   font-size: 4.8rem;
   font-weight: 900;
   line-height: normal;
@@ -60,37 +31,8 @@
   margin: 0;
   padding: 0;
 }
-.card-info-ingredients {
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
-  align-items: center;
-  gap: 5rem;
-  flex-wrap: wrap;
-}
-.card-info-ingredients-element {
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
-  align-items: center;
-  gap: 2rem;
-  width: 15rem;
-}
-.card-info-ingredients-element-color {
-  width: 2rem;
-  height: 2rem;
-  aspect-ratio: 1/1;
-  border-radius: 50%;
-}
-.card-info-ingredients-element-text {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: flex-start;
-  gap: 0rem;
-}
-.card-info-ingredients-element-text-quantity {
-  font-size: 1.4rem;
+.list:hover .list-info-ingredients-text-quantity {
+  font-size: 1.6rem;
   font-weight: 900;
   line-height: normal;
   letter-spacing: normal;
@@ -98,8 +40,8 @@
   margin: 0;
   padding: 0;
 }
-.card-info-ingredients-element-text-name {
-  font-size: 1.4rem;
+.list:hover .list-info-ingredients-text-name {
+  font-size: 1.6rem;
   font-weight: 400;
   line-height: normal;
   letter-spacing: normal;
@@ -108,7 +50,96 @@
   padding: 0;
   text-transform: capitalize;
 }
-.card-info-ali {
+.list-viewer {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 0rem;
+  width: 20rem;
+  height: 20rem;
+  transition: all 0.3s ease;
+}
+.list-viewer img {
+  width: 20rem;
+  height: 20rem;
+  position: absolute;
+  z-index: 0;
+}
+.list-viewer-liquid {
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 0rem;
+}
+.list-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 2rem;
+  width: 100%;
+}
+.list-info h3 {
+  font-size: 4.8rem;
+  font-weight: 700;
+  line-height: normal;
+  letter-spacing: -0.24rem;
+  color: #333333;
+  margin: 0;
+  padding: 0;
+  transition: all 0.3s ease;
+}
+.list-info-ingredients {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 5rem;
+  flex-wrap: wrap;
+}
+.list-info-ingredients-element {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 2rem;
+  width: 15rem;
+}
+.list-info-ingredients-element-color {
+  width: 2rem;
+  height: 2rem;
+  aspect-ratio: 1/1;
+  border-radius: 50%;
+}
+.list-info-ingredients-element-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 0rem;
+}
+.list-info-ingredients-element-text-quantity {
+  font-size: 1.4rem;
+  font-weight: 750;
+  line-height: normal;
+  letter-spacing: normal;
+  color: #333333;
+  margin: 0;
+  padding: 0;
+}
+.list-info-ingredients-element-text-name {
+  font-size: 1.4rem;
+  font-weight: 400;
+  line-height: normal;
+  letter-spacing: normal;
+  color: #333333;
+  margin: 0;
+  padding: 0;
+}
+.list-info-ali {
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
@@ -120,7 +151,7 @@
   padding-left: 0rem;
   width: calc(100% - 0rem);
 }
-.card-info-ali span {
+.list-info-ali span {
   font-size: 4rem;
   font-weight: 600;
   line-height: normal;
@@ -129,7 +160,7 @@
   margin: 0;
   padding: 0;
 }
-.card-info-ali span span {
+.list-info-ali span span {
   font-size: 2.4rem;
   font-weight: 400;
   line-height: normal;
@@ -137,4 +168,4 @@
   color: #333333;
   margin: 0;
   padding: 0;
-}/*# sourceMappingURL=card.css.map */
+}/*# sourceMappingURL=list.css.map */

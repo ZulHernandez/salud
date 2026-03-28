@@ -1,6 +1,6 @@
 @use "../../tokens/tokens.scss" as *;
 
-.card {
+.list {
     @include fnFlex(row, flex-start, center, 5rem);
     @include fnWidth(5rem, 5rem, 5rem, 5rem, 100%);
     background-color: #fff;
@@ -17,36 +17,46 @@
             15px -15px 30px 0 rgba(230, 230, 230, 0.2) inset,
             -15px -15px 30px 0 rgba(255, 255, 255, 0.9) inset,
             15px 15px 38px 0 rgba(230, 230, 230, 0.9) inset;
+        .list-viewer {
+            transform: scale(1.1);
+        }
+        .list-info {
+            h3 {
+                @include fnFont(4.8rem, 900, normal, -0.24rem, $negro);
+            }
+            &-ingredients-text {
+                &-quantity {
+                    @include fnFont(1.6rem, 900, normal, normal, $negro);
+                }
+                &-name {
+                    @include fnFont(1.6rem, 400, normal, normal, $negro);
+                    text-transform: capitalize;
+                }
+            }
+        }
     }
-    &-viewer{
+    &-viewer {
+        @include fnFlex(column, flex-start, center, 0rem);
         width: 20rem;
         height: 20rem;
-        display: flex;
-        justify-content: center;
-        align-items: center;
+        transition: all 0.3s ease;
         img {
             width: 20rem;
             height: 20rem;
             position: absolute;
             z-index: 0;
-            transition: all 0.3s ease;
         }
-        &-liquid{
-            position: absolute;
+        &-liquid {
             z-index: 1;
-            width: 94px;
-            height: 20rem;
-            display: flex;
-            flex-direction: column;
-            justify-content: flex-end;
-            clip-path: path("M6.41992 8.74902C4.96897 6.52116 1.05362 1.58329 0 0H94C92.9464 1.58329 89.031 6.52116 87.5801 8.74902C83.4084 15.1544 77.8213 23.9516 72.168 33.5068C66.5196 43.0537 61.4631 52.5022 57 62C57 62 52.0012 70 47 70C41.9988 70 37 62 37 62C32.5369 52.5022 27.4804 43.0537 21.832 33.5068C16.1787 23.9516 10.5916 15.1544 6.41992 8.74902Z");
+            @include fnFlex(column, flex-start, center, 0rem);
         }
     }
     &-info {
         @include fnFlex(column, flex-start, flex-start, 2rem);
         width: 100%;
         h3 {
-            @include fnFont(4.8rem, 900, normal, -0.24rem, $negro);
+            @include fnFont(4.8rem, 700, normal, -0.24rem, $negro);
+            transition: all 0.3s ease;
         }
         &-ingredients {
             @include fnFlex(row, flex-start, center, 5rem);
@@ -55,18 +65,18 @@
                 @include fnFlex(row, flex-start, center, 2rem);
                 width: 15rem;
                 &-color {
-                    width: 3rem;
-                    height: 3rem;
+                    width: 2rem;
+                    height: 2rem;
+                    aspect-ratio: 1/1;
                     border-radius: 50%;
                 }
                 &-text {
                     @include fnFlex(column, flex-start, flex-start, 0rem);
                     &-quantity {
-                        @include fnFont(1.4rem, 900, normal, normal, $negro);
+                        @include fnFont(1.4rem, 750, normal, normal, $negro);
                     }
                     &-name {
                         @include fnFont(1.4rem, 400, normal, normal, $negro);
-                        text-transform: capitalize;
                     }
                 }
             }
@@ -74,9 +84,9 @@
         &-ali {
             @include fnFlex(row, flex-start, center, 5rem);
             @include fnWidth(0rem, 0rem, 0rem, 0rem, 100%);
-            span{
+            span {
                 @include fnFont(4rem, 600, normal, normal, $negro);
-                span{
+                span {
                     @include fnFont(2.4rem, 400, normal, normal, $negro);
                 }
             }
