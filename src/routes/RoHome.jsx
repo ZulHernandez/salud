@@ -1,3 +1,5 @@
+import { useView } from "../components/context/ViewContext";
+
 import "../styles/general/route.scss";
 import "../styles/pages/home.scss";
 
@@ -5,6 +7,7 @@ import drinks from "../utils/drinks";
 
 import CoFilters from "../components/home/CoFilters";
 import CoList from "../components/home/CoList";
+import CoCard from "../components/home/CoCard";
 
 const filtros = [
 	"absinthe",
@@ -64,9 +67,6 @@ const groupDrinksByLetter = (obj) => {
 	}, {});
 };
 
-// Uso:
-
-
 // Uso con tu objeto:
 const ordDrinks = sortObjectByKey(drinks);
 const groupDrinks = groupDrinksByLetter(ordDrinks);
@@ -74,15 +74,25 @@ const groupDrinks = groupDrinksByLetter(ordDrinks);
 const infoFinal = groupDrinks;
 
 const RoHome = () => {
+	const { view } = useView();
+
 	return (
 		<div className="main">
 			{filtros.length === 0 ? <></> : <CoFilters filtros={filtros} />}
 			{Object.keys(infoFinal).map((letter) => (
 				<div key={letter}>
 					<h1>{letter}</h1>
-					{Object.keys(infoFinal[letter]).map((key, index) => (
-						<CoList key={index} drink={infoFinal[letter][key]} />
-					))}
+					{view === "tarjetas" ? (
+						<div className="cards-container">
+							{Object.keys(infoFinal[letter]).map((key, index) => (
+								<CoCard key={index} drink={infoFinal[letter][key]} />
+							))}
+						</div>
+					) : (
+						Object.keys(infoFinal[letter]).map((key, index) => (
+							<CoList key={index} drink={infoFinal[letter][key]} />
+						))
+					)}
 				</div>
 			))}
 		</div>

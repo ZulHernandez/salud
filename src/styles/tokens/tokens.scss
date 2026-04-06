@@ -1,4 +1,4 @@
-$rojo: #ff3f3f;
+$rojo: var(--color-dinamico, #ff3f3f);
 $negro: #333333;
 
 @mixin fnFlex($direction, $justify, $align, $gap) {

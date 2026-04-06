@@ -112,11 +112,10 @@ input[type="text"] {
     position: absolute;
     top: 100%;
     left: 0%;
-    transform: translateX(-50%);
     transform-origin: top center;
     overflow-y: auto;
     width: 10rem;
-    max-height: 10rem;
+    max-height: 15rem;
     margin-top: 1rem;
     padding: 1rem 2rem;
     border-radius: 1rem;
@@ -124,20 +123,50 @@ input[type="text"] {
     backdrop-filter: blur(7px);
     color: #fff;
     z-index: 10000;
-    hr{
+    hr {
         width: 100%;
         border: none;
         border-top: 1px solid rgba(#fff, 0.5);
     }
+    &-selected-color {
+        @include fnFlex(row, center, center, 0.5rem);
+        width: 100%;
+        height: 2.5rem;
+        border-radius: 1rem;
+        text-align: center;
+        @include fnFont(1.2rem, 600, normal, normal, "#fff");
+    }
     &-option {
-        @include fnFont(1.5rem, 400, normal, normal, "#fff");
+        @include fnFlex(row, center, center, 0.5rem);
         cursor: pointer;
         width: 100%;
         text-align: center;
         transition: all 0.3s ease;
+        span {
+            @include fnFont(1.5rem, 400, normal, normal, "#fff");
+        }
         &:hover {
             text-decoration: underline;
             font-weight: 600;
+        }
+    }
+
+    &-pallete {
+        @include fnFlex(row, center, center, 1rem);
+        width: 100%;
+        flex-wrap: wrap;
+
+        &-color {
+            width: 1.5rem;
+            height: 1.5rem;
+            border-radius: 50%;
+            aspect-ratio: 1/1;
+            cursor: pointer;
+            transition: all 0.1s ease;
+            &:hover {
+                transform: scale(1.1);
+                outline: #fff solid 2px;
+            }
         }
     }
 }

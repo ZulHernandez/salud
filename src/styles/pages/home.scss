@@ -7,3 +7,14 @@
     overflow-x: scroll;
     height: 10rem;
 }
+
+.cards-container {
+    @include fnFlex(row, flex-start, flex-start, 2rem);
+    width: 100%;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    padding-bottom: 2rem;
+    &::-webkit-scrollbar {
+        display: none;
+    }
+}

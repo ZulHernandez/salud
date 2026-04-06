@@ -1,8 +1,9 @@
 @use "../../tokens/tokens.scss" as *;
 
-.list {
-    @include fnFlex(row, flex-start, center, 5rem);
-    @include fnWidth(5rem, 5rem, 5rem, 5rem, 100%);
+
+.card {
+    @include fnFlex(column, flex-start, center, 5rem);
+    @include fnWidth(5rem, 5rem, 5rem, 5rem, 50rem);
     background-color: #fff;
     border-radius: 3rem;
     transition: all 0.3s ease;
@@ -17,13 +18,13 @@
             15px -15px 30px 0 rgba(230, 230, 230, 0.2) inset,
             -15px -15px 30px 0 rgba(255, 255, 255, 0.9) inset,
             15px 15px 38px 0 rgba(230, 230, 230, 0.9) inset;
-        .list-viewer {
+        h3 {
+            @include fnFont(4.8rem, 900, normal, -0.24rem, $negro);
+        }
+        .card-viewer {
             transform: scale(1.1);
         }
-        .list-info {
-            h3 {
-                @include fnFont(4.8rem, 900, normal, -0.24rem, $negro);
-            }
+        .card-info {
             &-ingredients-text {
                 &-quantity {
                     @include fnFont(1.6rem, 900, normal, normal, $negro);
@@ -34,12 +35,16 @@
                 }
             }
             &-ali span {
-                @include fnFont(4.4rem, 900, normal, normal, $negro);
+                @include fnFont(3rem, 900, normal, normal, $negro);
                 span {
-                    @include fnFont(2.6rem, 400, normal, normal, $negro);
+                    @include fnFont(2.4rem, 400, normal, normal, $negro);
                 }
             }
         }
+    }
+    h3 {
+        @include fnFont(4.8rem, 700, normal, -0.24rem, $negro);
+        transition: all 0.3s ease;
     }
     &-viewer {
         @include fnFlex(column, flex-start, center, 0rem);
@@ -58,18 +63,14 @@
         }
     }
     &-info {
-        @include fnFlex(column, flex-start, flex-start, 2rem);
+        @include fnFlex(column, center, flex-start, 5rem);
         width: 100%;
-        h3 {
-            @include fnFont(4.8rem, 700, normal, -0.24rem, $negro);
-            transition: all 0.3s ease;
-        }
         &-ingredients {
-            @include fnFlex(row, flex-start, center, 5rem);
+            @include fnFlex(row, center, flex-start, 1rem);
             flex-wrap: wrap;
             &-element {
-                @include fnFlex(row, flex-start, center, 2rem);
-                width: 15rem;
+                @include fnFlex(column, flex-start, center, 2rem);
+                width: 8rem;
                 &-color {
                     width: 2rem;
                     height: 2rem;
@@ -77,21 +78,23 @@
                     border-radius: 50%;
                 }
                 &-text {
-                    @include fnFlex(column, flex-start, flex-start, 0rem);
+                    @include fnFlex(column, center, center, 0rem);
                     &-quantity {
                         @include fnFont(1.4rem, 750, normal, normal, $negro);
+                        text-align: center
                     }
                     &-name {
                         @include fnFont(1.4rem, 400, normal, normal, $negro);
+                        text-align: center
                     }
                 }
             }
         }
         &-ali {
-            @include fnFlex(row, flex-start, center, 5rem);
+            @include fnFlex(row, space-between, center, 1rem);
             @include fnWidth(0rem, 0rem, 0rem, 0rem, 100%);
             span {
-                @include fnFont(4rem, 600, normal, normal, $negro);
+                @include fnFont(3rem, 600, normal, normal, $negro);
                 transition: all 0.3s ease;
                 span {
                     @include fnFont(2.4rem, 400, normal, normal, $negro);

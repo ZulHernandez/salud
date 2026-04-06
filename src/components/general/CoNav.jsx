@@ -1,5 +1,9 @@
 import React, { useState, useEffect, useRef } from "react";
 import { useLanguage } from "../context/LanguageContext";
+import { useView } from "../context/ViewContext";
+import { useTheme } from "../context/ThemeContext"; // <--- AGREGA ESTA LÍNEA
+
+// ... resto de tus imports (iconos, estilos, etc.)
 
 import "../../styles/general/CoNav.scss";
 
@@ -8,7 +12,8 @@ import icon_random from "../../assets/icons/random.svg";
 import icon_lenguaje from "../../assets/icons/lenguaje.svg";
 import icon_perso from "../../assets/icons/perso.svg";
 import icon_buscar from "../../assets/icons/buscar.svg";
-import icon_vista from "../../assets/icons/vista.svg";
+import icon_list from "../../assets/icons/list.svg";
+import icon_card from "../../assets/icons/card.svg";
 import icon_filtros from "../../assets/icons/filtros.svg";
 import icon_navegador from "../../assets/icons/navegador.svg";
 
@@ -17,39 +22,96 @@ const idiomas = [
 	{ name: "english", value: "EN" },
 	{ name: "日本語", value: "JP" },
 	{ name: "français", value: "FR" },
+	{ name: "русский", value: "RS" },
 ];
 
 const CoDropMenu = ({ list, action, closeMenu }) => {
 	const { setLanguage } = useLanguage();
+	const { accentColor, setAccentColor } = useTheme();
+	const { t } = useLanguage();
 
-	return (
-		<div className="drop-menu">
-			{list.map((item, index) => (
-				<React.Fragment key={item.value}>
-					<div
-						className="drop-menu-option"
-						onClick={(e) => {
-							e.stopPropagation(); // Evita que el clic active el link padre
-							if (action === "language") {
-								setLanguage(item.value);
-							}
-							closeMenu(); // Cerramos después de seleccionar
-						}}
-					>
-						{item.name}
+	switch (action) {
+		case "color":
+			return (
+				<div className="drop-menu">
+					<div className="drop-menu-pallete">
+						{list.map((item, index) => (
+							<div
+								className="drop-menu-pallete-color"
+								key={item.value}
+								style={{ backgroundColor: item.value }}
+								onClick={(e) => {
+									e.stopPropagation();
+									if (action === "language") {
+										setLanguage(item.value);
+									} else if (action === "color") {
+										// Usamos el contexto para que se guarde en la URL
+										setAccentColor(item.value);
+									}
+									closeMenu();
+								}}
+							></div>
+						))}
 					</div>
-					{index < list.length - 1 && <hr className="drop-menu-separator" />}
-				</React.Fragment>
-			))}
-		</div>
-	);
+					<hr />
+					<div className="drop-menu-selected-color" style={{backgroundColor: accentColor}}>
+						{(() => {
+							const colorEncontrado = list.find(
+								(c) => c.value.toLowerCase() === accentColor.toLowerCase(),
+							);
+
+							// Si lo encuentra, le pasamos solo el nombre (ej. "pitaya") a t()
+							// La función t() ahora buscará automáticamente en translations[language].themeColors["pitaya"]
+							return colorEncontrado
+								? t(colorEncontrado.name)
+								: "Personalizado";
+						})()}
+					</div>
+				</div>
+			);
+			break;
+		default:
+			return (
+				<div className="drop-menu">
+					{list.map((item, index) => (
+						<React.Fragment key={item.value}>
+							<div
+								className="drop-menu-option"
+								onClick={(e) => {
+									e.stopPropagation();
+									if (action === "language") {
+										setLanguage(item.value);
+									}
+								}}
+							>
+								{action === "color" && (
+									<div
+										style={{
+											backgroundColor: item.value,
+											width: "1.2rem",
+											height: "1.2rem",
+											borderRadius: "50%",
+											marginRight: "0.5rem",
+											aspectRatio: "1 / 1",
+										}}
+									></div>
+								)}
+								<span>{item.name}</span>
+							</div>
+							<hr />
+						</React.Fragment>
+					))}
+				</div>
+			);
+			break;
+	}
 };
 
 const CoNavLink = ({ name, path, icon, list, action }) => {
 	const [isOpen, setIsOpen] = useState(false);
-	const containerRef = useRef(null); // Referencia a este componente
+	const containerRef = useRef(null);
+	const { view, setView } = useView();
 
-	// Lógica para cerrar al hacer clic fuera
 	useEffect(() => {
 		const handleClickOutside = (event) => {
 			if (
@@ -76,9 +138,16 @@ const CoNavLink = ({ name, path, icon, list, action }) => {
 				href={path || "#"}
 				className="nav-link-wrapper"
 				onClick={(e) => {
+					e.preventDefault();
+
+					if (action === "toggleView") {
+						// Simplemente disparamos el cambio, el Contexto hará el resto con la URL
+						const nextView = view === "lista" ? "tarjetas" : "lista";
+						setView(nextView);
+					}
+
 					if (list) {
-						e.preventDefault(); // No navega si tiene menú
-						setIsOpen(!isOpen); // Abre/Cierra
+						setIsOpen(!isOpen);
 					}
 				}}
 			>
@@ -113,17 +182,54 @@ const CoInput = ({ placeholder }) => {
 
 const CoNav = () => {
 	const { t } = useLanguage();
+	const { view } = useView();
+
+	// 1. PRIMERO definimos el array de colores con sus traducciones
+	const colores = [
+		{ name: "granada", value: "#FF3F3F" },
+		{ name: "mandarina", value: "#FF783F" },
+		{ name: "mango", value: "#D59900" },
+		{ name: "manzana", value: "#51BA00" },
+		{ name: "menta", value: "#00BB7C" },
+		{ name: "mora", value: "#00B4C5" },
+		{ name: "arandano", value: "#3F88FF" },
+		{ name: "zarzamora", value: "#653FFF" },
+		{ name: "uva", value: "#CF3FFF" },
+		{ name: "pitaya", value: "#FF3F8C" },
+		{ name: "higo", value: "#333333" },
+	];
+
+	// 2. DESPUÉS definimos los links que usan ese array
+	const navHeadLinks = [
+		{
+			name: t("navbar-head-links__personalizacion"),
+			list: colores, // Ahora 'colores' ya existe
+			icon: icon_perso,
+			action: "color",
+		},
+		{
+			name: t("navbar-head-links__idioma"),
+			list: idiomas,
+			icon: icon_lenguaje,
+			action: "language",
+		},
+		{ name: t("navbar-head-links__aleatorio"), icon: icon_random },
+	];
 
 	const navBrowseLinks = [
-	{ name: t("navbar-browse-links__vista"), path: "/", icon: icon_vista, list: null },
-	{ name: t("navbar-browse-links__filtros"), path: "/", icon: icon_filtros, list: null },
-	{ name: "", path: "/", icon: icon_navegador, list: null },
-];
-
-	const navHeadLinks = [
-		{ name: t("navbar-head-links__aleatorio"), icon: icon_random },
-		{ name: t("navbar-head-links__personalizacion"), icon: icon_perso },
-		{ name: t("navbar-head-links__idioma"), list: idiomas, icon: icon_lenguaje, action: "language" },
+		{
+			name: t(`navbar-browse-links__${view}`),
+			path: "/",
+			icon: view === "lista" ? icon_list : icon_card,
+			action: "toggleView",
+		},
+		{
+			name: t("navbar-browse-links__filtros"),
+			path: "/",
+			icon: icon_filtros,
+			list: null,
+		},
+		{ name: "", path: "/", icon: icon_navegador, list: null },
 	];
 
 	return (
@@ -136,7 +242,7 @@ const CoNav = () => {
 				<div className="navbar-head-links">
 					{navHeadLinks.map((link) => (
 						<CoNavLink
-							key={link.name} // Key único para el link
+							key={link.name}
 							name={link.name}
 							path={link.path}
 							icon={link.icon}
@@ -152,11 +258,12 @@ const CoNav = () => {
 				<div className="navbar-browse-links">
 					{navBrowseLinks.map((link, index) => (
 						<CoNavLink
-							key={index} // Key único basado en índice o nombre
+							key={index}
 							name={link.name}
 							path={link.path}
 							icon={link.icon}
 							list={link.list}
+							action={link.action}
 						/>
 					))}
 				</div>

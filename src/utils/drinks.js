@@ -2,7 +2,7 @@ import glassware from "./glassware";
 import licours from "./licours";
 
 const drinks = {
-	negroni: {
+	"negroni": {
 		name: "negroni",
 		glass: {
 			name: "old fashioned",
@@ -56,7 +56,7 @@ const drinks = {
 			alcVol: 17.65,
 		},
 	},
-	daiquiri: {
+	"daiquiri": {
 		name: "daiquiri",
 		glass: {
 			name: "coupe - coupette - champagne",
@@ -74,7 +74,7 @@ const drinks = {
 			alcVol: 17.84,
 		},
 	},
-	penicillin: {
+	"penicillin": {
 		name: "penicillin",
 		glass: {
 			name: "old fashioned",
@@ -144,7 +144,7 @@ const drinks = {
 			alcVol: 21.59,
 		},
 	},
-	sabot: {
+	"sabot": {
 		name: "sabot",
 		glass: {
 			name: "coupe - coupette - champagne",
@@ -211,7 +211,6 @@ const drinks = {
 			{ alcohol: licours["luxardo maraschino"], quantity: 10 },
 			{ alcohol: licours["amer picon"], quantity: 10 },
 			{ alcohol: licours["rosso vermouth"], quantity: 15 },
-			{ alcohol: licours["vermouth"], quantity: 15 },
 			{ alcohol: licours["whiskey"], quantity: 45 },
 		],
 		unity: "ml",

@@ -8,4 +8,19 @@
   clip-path: fill-box;
   overflow-x: scroll;
   height: 10rem;
+}
+
+.cards-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 2rem;
+  width: 100%;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  padding-bottom: 2rem;
+}
+.cards-container::-webkit-scrollbar {
+  display: none;
 }/*# sourceMappingURL=home.css.map */
