@@ -1,41 +1,17 @@
 import { useView } from "../components/context/ViewContext";
+import { useLanguage } from "../components/context/LanguageContext";
 
 import "../styles/general/route.scss";
 import "../styles/pages/home.scss";
 
 import drinks from "../utils/drinks";
+import glassware from "../utils/glassware";
 
 import CoFilters from "../components/home/CoFilters";
 import CoList from "../components/home/CoList";
 import CoCard from "../components/home/CoCard";
 
-const filtros = [
-	"absinthe",
-	"boston - pint",
-	"collins",
-	"copita - sherry",
-	"coupe - coupette - champagne",
-	"double old fashioned",
-	"flute",
-	"globet - wine",
-	"highball - hi ball",
-	"hurricane",
-	"julep",
-	"margarita",
-	"martini",
-	"mule",
-	"nick & nora",
-	"old fashioned",
-	"poco grande - piña colada",
-	"rocks",
-	"shot",
-	"sling",
-	"snifer - brandy",
-	"sour",
-	"tea cup",
-	"tiki",
-	"toddy",
-];
+const filterGlassware = Object.keys(glassware);
 
 const sortObjectByKey = (obj) => {
 	return Object.keys(obj)
@@ -75,13 +51,24 @@ const infoFinal = groupDrinks;
 
 const RoHome = () => {
 	const { view } = useView();
+	const { t } = useLanguage();
 
 	return (
 		<div className="main">
-			{filtros.length === 0 ? <></> : <CoFilters filtros={filtros} />}
+			{filterGlassware.length === 0 ? <></> : <CoFilters filtros={filterGlassware} />}
 			{Object.keys(infoFinal).map((letter) => (
 				<div key={letter}>
-					<h1>{letter}</h1>
+					<h1>
+						{letter} (
+						{(() => {
+							let conta = Object.keys(infoFinal[letter]).length;
+							if (conta === 1) {
+								return "1 " + t("main__bebida");
+							} else {
+								return `${conta} ` + t("main__bebidas");
+							}
+						})()})
+					</h1>
 					{view === "tarjetas" ? (
 						<div className="cards-container">
 							{Object.keys(infoFinal[letter]).map((key, index) => (

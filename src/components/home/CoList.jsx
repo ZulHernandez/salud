@@ -1,7 +1,4 @@
 import "../../styles/pages/home/list.scss";
-import drinks from "../../utils/drinks";
-
-console.log(drinks);
 
 const GEOMETRIA_MARGARITA = {
 	// Dónde cambia de forma la copa (del 0 al 1)

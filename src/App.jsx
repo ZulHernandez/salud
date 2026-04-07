@@ -7,21 +7,20 @@ import { ViewContextProvider } from "./components/context/ViewContext";
 import { ThemeContextProvider } from "./components/context/ThemeContext";
 
 import CoNav from "./components/general/CoNav";
+import CoFilterMenu from "./components/general/CoFilterMenu";
 import RoHome from "./routes/RoHome";
 import RoCarga from "./routes/RoCarga";
 
 function App() {
 	return (
-		/* Colocamos los Providers aquí para que persistan mientras el usuario navega entre diferentes vistas.
-        */
+
 		<LanguageContextProvider>
 			<ViewContextProvider>
 				<ThemeContextProvider>
 					<Routes>
-						{/* Redirección inicial */}
 						<Route
 							path="/"
-							element={<Navigate to="/home/es/lista" replace />}
+							element={<Navigate to="/home/es/lista?color=FF3F3F" replace />}
 						/>
 
 						{/* Ruta dinámica con Idioma y Vista */}
@@ -29,6 +28,7 @@ function App() {
 							path="/home/:lang/:view"
 							element={
 								<>
+									{/* <CoFilterMenu/> */}
 									<CoNav />
 									<Suspense fallback={<RoCarga />}>
 										<RoHome />
@@ -40,7 +40,7 @@ function App() {
 						{/* Fallback para rutas no encontradas */}
 						<Route
 							path="*"
-							element={<Navigate to="/home/es/lista" replace />}
+							element={<Navigate to="/home/es/lista?color=FF3F3F" replace />}
 						/>
 					</Routes>
 				</ThemeContextProvider>

@@ -1,0 +1,29 @@
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 3rem;
+  padding-top: 5rem;
+  padding-right: 5rem;
+  padding-bottom: 5rem;
+  padding-left: 5rem;
+  width: 20rem;
+  position: fixed;
+  top: 0;
+  right: 0;
+  height: 100vh;
+  background: #f4f4f4;
+  box-shadow: 2px 2px 3px 0 rgba(255, 255, 255, 0.3) inset, -2px -2px 3px 0 rgba(146, 146, 146, 0.5) inset, -50px 50px 100px 0 rgba(146, 146, 146, 0.2), 50px -50px 100px 0 rgba(146, 146, 146, 0.2), -50px -50px 100px 0 rgba(255, 255, 255, 0.9), 50px 50px 125px 0 rgba(146, 146, 146, 0.9);
+  z-index: 1000;
+}
+.sidebar h1 {
+  font-size: 3rem;
+  font-weight: 900;
+  line-height: normal;
+  letter-spacing: normal;
+  color: #333333;
+  margin: 0;
+  padding: 0;
+  margin-bottom: 2rem;
+}/*# sourceMappingURL=CoFilterMenu.css.map */

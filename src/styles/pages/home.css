@@ -17,10 +17,7 @@
   align-items: flex-start;
   gap: 2rem;
   width: 100%;
-  flex-wrap: wrap;
-  justify-content: flex-start;
   padding-bottom: 2rem;
-}
-.cards-container::-webkit-scrollbar {
-  display: none;
+  overflow-x: scroll;
+  -webkit-overflow-scrolling: touch;
 }/*# sourceMappingURL=home.css.map */

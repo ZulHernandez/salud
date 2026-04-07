@@ -1,9 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import { useLanguage } from "../context/LanguageContext";
 import { useView } from "../context/ViewContext";
-import { useTheme } from "../context/ThemeContext"; // <--- AGREGA ESTA LÍNEA
-
-// ... resto de tus imports (iconos, estilos, etc.)
+import { useTheme } from "../context/ThemeContext";
 
 import "../../styles/general/CoNav.scss";
 
@@ -253,7 +251,7 @@ const CoNav = () => {
 				</div>
 			</div>
 
-			<div className="navbar-browse">
+			{/* <div className="navbar-browse">
 				<CoInput placeholder={t("navbar-browse-input__placeholder")} />
 				<div className="navbar-browse-links">
 					{navBrowseLinks.map((link, index) => (
@@ -267,7 +265,7 @@ const CoNav = () => {
 						/>
 					))}
 				</div>
-			</div>
+			</div> */}
 		</div>
 	);
 };

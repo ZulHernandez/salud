@@ -22,7 +22,7 @@ html {
   mix-blend-mode: exclusion;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background-color: rgba(var(--color-dinamico, #ff3f3f), 1);
+  background-color: var(--color-dinamico, #ff3f3f);
 }
 
 ::-moz-selection {

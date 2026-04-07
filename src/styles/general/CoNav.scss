@@ -3,12 +3,12 @@
 .navbar {
     @include fnFlex(column, space-between, center, 2.5rem);
     position: fixed;
-    @include fnWidth(2rem, 5rem, 4rem, 5rem, 100%);
+    @include fnWidth(2rem, 5rem, 2rem, 5rem, 100%);
     transition: all 0.3s ease;
     background-color: #fff;
     top: -0px;
     @media (max-width: 660px) {
-        @include fnWidth(2rem, 3rem, 4rem, 3rem, 100%);
+        @include fnWidth(2rem, 3rem, 2rem, 3rem, 100%);
     }
     z-index: 100;
 

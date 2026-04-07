@@ -9,6 +9,9 @@ export const translations = {
 		"navbar-browse-links__lista": "lista",
 		"navbar-browse-links__tarjetas": "tarjetas",
 		"navbar-browse-links__filtros": "filtros",
+		"main__bebida": " bebida",
+		"main__bebidas": " bebidas",
+		"sidebar-head__h2": "filtros",
 		glassware: {
 			"absinthe": "absenta",
 			"boston - pint": "cerveza - pinta",
@@ -60,6 +63,9 @@ export const translations = {
 		"navbar-browse-links__lista": "list",
 		"navbar-browse-links__tarjetas": "cards",
 		"navbar-browse-links__filtros": "filters",
+		"main__bebida": " drink",
+		"main__bebidas": " drinks",
+		"sidebar-head__h2": "filters",
 		glassware: {
 			"absinthe": "absinthe",
 			"boston - pint": "boston - pint",
@@ -111,6 +117,9 @@ export const translations = {
 		"navbar-browse-links__lista": "リスト",
 		"navbar-browse-links__tarjetas": "カード",
 		"navbar-browse-links__filtros": "フィルター",
+		"main__bebida": " ドリンク",
+		"main__bebidas": " ドリンク",
+		"sidebar-head__h2": "フィルター",
 		glassware: {
 			"absinthe": "アブサン",
 			"boston - pint": "ボストン - パイント",
@@ -162,6 +171,9 @@ export const translations = {
 		"navbar-browse-links__lista": "liste",
 		"navbar-browse-links__tarjetas": "cartes",
 		"navbar-browse-links__filtros": "filtres",
+		"main__bebida": " boisson",
+		"main__bebidas": " boissons",
+		"sidebar-head__h2": "filtres",
 		glassware: {
 			"absinthe": "absinthe",
 			"boston - pint": "boston - pinte",
@@ -213,6 +225,9 @@ export const translations = {
 		"navbar-browse-links__lista": "списак",
 		"navbar-browse-links__tarjetas": "карты",
 		"navbar-browse-links__filtros": "фильтры",
+		"main__bebida": " напиток",
+		"main__bebidas": " напитков",
+		"sidebar-head__h2": "фильтры",
 		glassware: {
 			"absinthe": "апсент",
 			"boston - pint": "бостон - пинта",

@@ -21,7 +21,7 @@ html {
     border-color: transparent;
     mix-blend-mode: exclusion;
     &:hover {
-        background-color: rgba($rojo, 1);
+        background-color: $rojo;
     }
 }
 

@@ -35,7 +35,7 @@ export const ThemeContextProvider = ({ children }) => {
 
 	const value = useMemo(
 		() => ({ accentColor, setAccentColor }),
-		[accentColor, location.pathname],
+		[accentColor],
 	);
 
 	return (
