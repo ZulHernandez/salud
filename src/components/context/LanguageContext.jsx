@@ -22,6 +22,7 @@ export const LanguageContextProvider = ({ children }) => {
 			translations[language]?.[key] ||
 			translations[language]?.glassware?.[key] ||
 			translations[language]?.themeColors?.[key] || // Buscamos en el nuevo objeto de colores
+			translations[language]?.licours?.[key] || // Buscamos en el nuevo objeto de filtros
 			key
 		);
 	};

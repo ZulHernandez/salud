@@ -2,11 +2,11 @@
 
 .sidebar {
     @include fnFlex(column, flex-start, center, 3rem);
-    @include fnWidth(5rem, 5rem, 5rem, 5rem, 30rem);
+    @include fnWidth(3rem, 3rem, 3rem, 3rem, 40rem);
     position: fixed;
     top: 0;
-    right: 0;
-    height: 100vh;
+    right: 0rem;
+    height: 97dvh;
     background: #f4f4f4;
     box-shadow:
         2px 2px 3px 0 rgba(255, 255, 255, 0.3) inset,
@@ -16,8 +16,103 @@
         -50px -50px 100px 0 rgba(255, 255, 255, 0.9),
         50px 50px 125px 0 rgba(146, 146, 146, 0.9);
     z-index: 1000;
-    h1 {
-        @include fnFont(3rem, 900, normal, normal, $negro);
-        margin-bottom: 2rem;
+    gap: 2rem;
+    transition: all 0.5s ease;
+    overflow-y: auto;
+    &-head {
+        @include fnFlex(row, space-between, center, 0);
+        width: 100%;
+        h2 {
+            @include fnFont(3rem, 900, normal, normal, $rojo);
+        }
+        svg {
+            cursor: pointer;
+            transition: transform 0.3s ease;
+            &:hover {
+                transform: rotate(90deg);
+            }
+        }
+    }
+    &-body {
+        @include fnFlex(column, flex-start, center, 3rem);
+        width: 100%;
+        height: 100%;
+        overflow-y: auto;
+    }
+    &--close {
+        @include fnFlex(column, flex-start, center, 3rem);
+        @include fnWidth(3rem, 3rem, 3rem, 3rem, 40rem);
+        position: fixed;
+        top: 0;
+        right: -100rem;
+        height: 98dvh;
+        background: #f4f4f4;
+        box-shadow:
+            2px 2px 3px 0 rgba(255, 255, 255, 0.3) inset,
+            -2px -2px 3px 0 rgba(146, 146, 146, 0.5) inset,
+            -50px 50px 100px 0 rgba(146, 146, 146, 0.2),
+            50px -50px 100px 0 rgba(146, 146, 146, 0.2),
+            -50px -50px 100px 0 rgba(255, 255, 255, 0.9),
+            50px 50px 125px 0 rgba(146, 146, 146, 0.9);
+        z-index: 1000;
+        gap: 2rem;
+        transition: all 0.5s ease;
+        &-head {
+            @include fnFlex(row, space-between, center, 0);
+            width: 100%;
+            h2 {
+                @include fnFont(3rem, 900, normal, normal, $negro);
+                color: $rojo;
+            }
+            svg {
+                cursor: pointer;
+                transition: transform 0.3s ease;
+                &:hover {
+                    transform: rotate(90deg);
+                }
+            }
+        }
+    }
+}
+
+.colapsable {
+    @include fnFlex(column, flex-start, center, 2rem);
+    width: 100%;
+    &-desc {
+        width: 100%;
+        @include fnFont(1.6rem, 400, normal, normal, $negro);
+    }
+    &-header {
+        @include fnFlex(row, space-between, center, 0);
+        width: 100%;
+        cursor: pointer;
+        h3 {
+            @include fnFont(1.8rem, 600, normal, normal, $negro);
+        }
+        img {
+            width: 2rem;
+            transition: transform 0.3s ease;
+            cursor: pointer;
+        }
+    }
+    &-content {
+        @include fnFlex(row, flex-start, flex-start, 1rem);
+        width: 100%;
+        flex-wrap: wrap;
+    }
+    .filter-toogle {
+        zoom: 0.8;
+        border: $negro 3px solid;
+        span {
+            font-weight: 500;
+        }
+    }
+
+    .filter-toogle--active {
+        zoom: 0.8;
+        border: $rojo 3px solid;
+        span {
+            font-weight: 500;
+        }
     }
 }

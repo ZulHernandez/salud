@@ -40,6 +40,7 @@
             }
             &-close {
                 display: none;
+                cursor: pointer;
             }
         }
     }
@@ -54,6 +55,7 @@
     padding: 1rem 1.5rem;
     width: fit-content;
     color: #fff;
+    cursor: pointer;
     span{
         width: max-content;
     }

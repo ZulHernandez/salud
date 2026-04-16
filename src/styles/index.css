@@ -3,6 +3,11 @@ html {
   font-size: 10px;
   height: 100vh;
 }
+@media (max-width: 768px) {
+  html {
+    font-size: 8px;
+  }
+}
 
 ::-webkit-scrollbar {
   width: 7.5px;
@@ -67,11 +72,17 @@ body::before {
   position: fixed;
   top: 0;
   left: 0;
-  width: 100vw;
-  height: 100vh;
+  width: 100dvw;
+  height: 150dvh;
+}
+@media (max-width: 768px) {
+  body::before {
+    display: none;
+  }
+}
+body::before {
   /* Ruido de alto contraste (blanco y negro) */
   background-image: repeating-radial-gradient(#000 0 0.0001%, #fff 0 0.0002%), repeating-conic-gradient(#000 0 0.0001%, #fff 0 0.0002%);
-  background-size: 200px 200px; /* Tamaño mucho más pequeño para que sea visible */
   background-blend-mode: difference;
   /* Bajamos la opacidad aquí para que sea 'ligero' */
   opacity: 0.05;
@@ -124,7 +135,7 @@ input[type=text]:focus {
   gap: 0.1rem;
   position: absolute;
   top: 100%;
-  left: 0%;
+  right: 0%;
   transform-origin: top center;
   overflow-y: auto;
   width: 10rem;
@@ -135,7 +146,7 @@ input[type=text]:focus {
   background-color: rgba(51, 51, 51, 0.75);
   backdrop-filter: blur(7px);
   color: #fff;
-  z-index: 10000;
+  z-index: 100;
 }
 .drop-menu hr {
   width: 100%;
@@ -204,4 +215,44 @@ input[type=text]:focus {
 .drop-menu-pallete-color:hover {
   transform: scale(1.1);
   outline: #fff solid 2px;
+}
+
+.filters {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 2.5rem;
+  padding-top: 2rem;
+  padding-right: 5rem;
+  padding-bottom: 2rem;
+  padding-left: 5rem;
+  width: calc(100% - 10rem);
+  position: fixed;
+  z-index: 99;
+  transition: all 0.3s ease;
+  background-color: #fff;
+  overflow-x: auto;
+  top: 17.2rem;
+}
+
+.filters--hidden {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 2.5rem;
+  padding-top: 2rem;
+  padding-right: 5rem;
+  padding-bottom: 2rem;
+  padding-left: 5rem;
+  width: calc(100% - 10rem);
+  position: fixed;
+  z-index: 99;
+  transition: all 0.3s ease;
+  background-color: #fff;
+  overflow-x: auto;
+  top: 17.2rem;
+  translate: 0 -400%;
+  filter: blur(50px);
 }/*# sourceMappingURL=index.css.map */

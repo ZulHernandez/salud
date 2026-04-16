@@ -1,23 +1,10 @@
-.filters {
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
-  align-items: center;
-  gap: 2rem;
-  width: 100%;
-  clip-path: fill-box;
-  overflow-x: scroll;
-  height: 10rem;
-}
-
 .cards-container {
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
   align-items: flex-start;
-  gap: 2rem;
+  gap: 3rem;
   width: 100%;
-  padding-bottom: 2rem;
+  padding: 3rem 0;
   overflow-x: scroll;
-  -webkit-overflow-scrolling: touch;
 }/*# sourceMappingURL=home.css.map */

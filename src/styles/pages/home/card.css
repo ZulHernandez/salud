@@ -11,10 +11,24 @@
   width: 40rem;
   min-width: 50rem;
   max-width: 50rem;
+}
+@media (max-width: 768px) {
+  .card {
+    padding-top: 5rem;
+    padding-right: 5rem;
+    padding-bottom: 5rem;
+    padding-left: 5rem;
+    width: calc(60dvw - 10rem);
+    min-width: 60dvw;
+    max-width: 60dvw;
+  }
+}
+.card {
   background-color: #fff;
   border-radius: 3rem;
   transition: all 0.3s ease;
   cursor: pointer;
+  box-shadow: 1px 1px 2px 0 rgba(255, 255, 255, 0.075), -1px -1px 2px 0 rgba(230, 230, 230, 0.125), -15px 15px 30px 0 rgba(230, 230, 230, 0.05) inset, 15px -15px 30px 0 rgba(230, 230, 230, 0.05) inset, -15px -15px 30px 0 rgba(255, 255, 255, 0.225) inset, 15px 15px 38px 0 rgba(230, 230, 230, 0.225) inset;
 }
 .card:hover {
   border-radius: 3rem;
@@ -98,6 +112,7 @@
   z-index: 0;
 }
 .card-viewer-liquid {
+  mix-blend-mode: multiply;
   z-index: 1;
   position: relative;
   display: flex;
@@ -107,6 +122,22 @@
   gap: 0rem;
   width: 20rem;
   height: 20rem;
+  aspect-ratio: 1/1;
+}
+@media (max-width: 768px) {
+  .card-viewer-liquid {
+    zoom: 0.8;
+  }
+}
+.card-viewer-ganish {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 0rem;
+  position: relative;
+}
+.card-viewer-ganish img {
   aspect-ratio: 1/1;
 }
 .card-info {
@@ -138,6 +169,7 @@
   height: 2rem;
   aspect-ratio: 1/1;
   border-radius: 50%;
+  border: #333333 dashed 2px;
 }
 .card-info-ingredients-element-text {
   display: flex;

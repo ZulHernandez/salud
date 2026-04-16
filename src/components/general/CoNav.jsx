@@ -2,8 +2,11 @@ import React, { useState, useEffect, useRef } from "react";
 import { useLanguage } from "../context/LanguageContext";
 import { useView } from "../context/ViewContext";
 import { useTheme } from "../context/ThemeContext";
+import { useUI } from "../context/UIContext";
+import { useGlassFilter } from "../context/GlassFilterContext";
 
 import "../../styles/general/CoNav.scss";
+import colores from "../../utils/colorTheme";
 
 // Imports de iconos (asumiendo tu estructura de carpetas)
 import icon_random from "../../assets/icons/random.svg";
@@ -12,8 +15,9 @@ import icon_perso from "../../assets/icons/perso.svg";
 import icon_buscar from "../../assets/icons/buscar.svg";
 import icon_list from "../../assets/icons/list.svg";
 import icon_card from "../../assets/icons/card.svg";
+import icon_grid from "../../assets/icons/grid.svg";
 import icon_filtros from "../../assets/icons/filtros.svg";
-import icon_navegador from "../../assets/icons/navegador.svg";
+import { useLocation } from "react-router-dom";
 
 const idiomas = [
 	{ name: "español", value: "ES" },
@@ -33,7 +37,7 @@ const CoDropMenu = ({ list, action, closeMenu }) => {
 			return (
 				<div className="drop-menu">
 					<div className="drop-menu-pallete">
-						{list.map((item, index) => (
+						{list.map((item) => (
 							<div
 								className="drop-menu-pallete-color"
 								key={item.value}
@@ -44,7 +48,7 @@ const CoDropMenu = ({ list, action, closeMenu }) => {
 										setLanguage(item.value);
 									} else if (action === "color") {
 										// Usamos el contexto para que se guarde en la URL
-										setAccentColor(item.value);
+										setAccentColor(item.name);
 									}
 									closeMenu();
 								}}
@@ -52,7 +56,10 @@ const CoDropMenu = ({ list, action, closeMenu }) => {
 						))}
 					</div>
 					<hr />
-					<div className="drop-menu-selected-color" style={{backgroundColor: accentColor}}>
+					<div
+						className="drop-menu-selected-color"
+						style={{ backgroundColor: accentColor }}
+					>
 						{(() => {
 							const colorEncontrado = list.find(
 								(c) => c.value.toLowerCase() === accentColor.toLowerCase(),
@@ -67,11 +74,10 @@ const CoDropMenu = ({ list, action, closeMenu }) => {
 					</div>
 				</div>
 			);
-			break;
 		default:
 			return (
 				<div className="drop-menu">
-					{list.map((item, index) => (
+					{list.map((item) => (
 						<React.Fragment key={item.value}>
 							<div
 								className="drop-menu-option"
@@ -101,7 +107,6 @@ const CoDropMenu = ({ list, action, closeMenu }) => {
 					))}
 				</div>
 			);
-			break;
 	}
 };
 
@@ -109,6 +114,7 @@ const CoNavLink = ({ name, path, icon, list, action }) => {
 	const [isOpen, setIsOpen] = useState(false);
 	const containerRef = useRef(null);
 	const { view, setView } = useView();
+	const { toggleSidebar } = useUI();
 
 	useEffect(() => {
 		const handleClickOutside = (event) => {
@@ -140,8 +146,17 @@ const CoNavLink = ({ name, path, icon, list, action }) => {
 
 					if (action === "toggleView") {
 						// Simplemente disparamos el cambio, el Contexto hará el resto con la URL
-						const nextView = view === "lista" ? "tarjetas" : "lista";
+						const nextView =
+							view === "lista"
+								? "tarjetas"
+								: view === "tarjetas"
+									? "cuadricula"
+									: "lista";
+						console.log(nextView);
+
 						setView(nextView);
+					} else if (action === "toggleSidebar") {
+						toggleSidebar();
 					}
 
 					if (list) {
@@ -170,9 +185,18 @@ const CoNavLink = ({ name, path, icon, list, action }) => {
 };
 
 const CoInput = ({ placeholder }) => {
+
+	const { searchQuery, setSearchQuery } = useGlassFilter();
+	
 	return (
 		<div className="navbar-browse-input">
-			<input type="text" placeholder={placeholder} />
+			<input
+				type="text"
+				value={searchQuery}
+				onChange={(e) => setSearchQuery(e.target.value)}
+				placeholder="Buscar cóctel..."
+				placeholder={placeholder}
+			/>
 			<img src={icon_buscar} alt={placeholder} />
 		</div>
 	);
@@ -180,22 +204,11 @@ const CoInput = ({ placeholder }) => {
 
 const CoNav = () => {
 	const { t } = useLanguage();
-	const { view } = useView();
-
-	// 1. PRIMERO definimos el array de colores con sus traducciones
-	const colores = [
-		{ name: "granada", value: "#FF3F3F" },
-		{ name: "mandarina", value: "#FF783F" },
-		{ name: "mango", value: "#D59900" },
-		{ name: "manzana", value: "#51BA00" },
-		{ name: "menta", value: "#00BB7C" },
-		{ name: "mora", value: "#00B4C5" },
-		{ name: "arandano", value: "#3F88FF" },
-		{ name: "zarzamora", value: "#653FFF" },
-		{ name: "uva", value: "#CF3FFF" },
-		{ name: "pitaya", value: "#FF3F8C" },
-		{ name: "higo", value: "#333333" },
-	];
+	const { view, setView } = useView();
+	const location = useLocation();
+	const { isNavVisible, viewport } = useUI();
+	const isHome = location.pathname.startsWith("/home");
+	const { activeGlass, activeSpirits, totalFilters } = useGlassFilter();
 
 	// 2. DESPUÉS definimos los links que usan ese array
 	const navHeadLinks = [
@@ -214,24 +227,36 @@ const CoNav = () => {
 		{ name: t("navbar-head-links__aleatorio"), icon: icon_random },
 	];
 
-	const navBrowseLinks = [
-		{
+	// SUSTITUYE las líneas de splice y setView por esto:
+	const navBrowseLinks = [];
+
+	// 1. Solo añadimos el botón de vista si NO es móvil
+	if (!viewport.isMobile) {
+		navBrowseLinks.push({
 			name: t(`navbar-browse-links__${view}`),
-			path: "/",
-			icon: view === "lista" ? icon_list : icon_card,
+			path: "/", // Este path no se usa por el e.preventDefault()
+			icon:
+				view === "lista"
+					? icon_list
+					: view === "tarjetas"
+						? icon_card
+						: icon_grid,
 			action: "toggleView",
-		},
-		{
-			name: t("navbar-browse-links__filtros"),
-			path: "/",
-			icon: icon_filtros,
-			list: null,
-		},
-		{ name: "", path: "/", icon: icon_navegador, list: null },
-	];
+		});
+	}
+
+	// 2. Botón de filtros (siempre va)
+	navBrowseLinks.push({
+		name:
+			t("navbar-browse-links__filtros") +
+			(totalFilters > 0 ? ` (${totalFilters})` : ""),
+		path: "/",
+		icon: icon_filtros,
+		action: "toggleSidebar",
+	});
 
 	return (
-		<div className="navbar">
+		<div className={`navbar${isNavVisible ? "" : "--hidden"}`}>
 			<div className="navbar-head">
 				<div className="navbar-head-logo">
 					<h1>{t("navbar-head-logo__h1")}</h1>
@@ -250,22 +275,23 @@ const CoNav = () => {
 					))}
 				</div>
 			</div>
-
-			{/* <div className="navbar-browse">
-				<CoInput placeholder={t("navbar-browse-input__placeholder")} />
-				<div className="navbar-browse-links">
-					{navBrowseLinks.map((link, index) => (
-						<CoNavLink
-							key={index}
-							name={link.name}
-							path={link.path}
-							icon={link.icon}
-							list={link.list}
-							action={link.action}
-						/>
-					))}
+			{isHome && (
+				<div className="navbar-browse">
+					<CoInput placeholder={t("navbar-browse-input__placeholder")} />
+					<div className="navbar-browse-links">
+						{navBrowseLinks.map((link, index) => (
+							<CoNavLink
+								key={index}
+								name={link.name}
+								path={link.path}
+								icon={link.icon}
+								list={link.list}
+								action={link.action}
+							/>
+						))}
+					</div>
 				</div>
-			</div> */}
+			)}
 		</div>
 	);
 };

@@ -44,6 +44,7 @@
 }
 .filter-toogle:hover .filter-toogle-close {
   display: none;
+  cursor: pointer;
 }
 
 .filter-toogle--active {
@@ -53,13 +54,14 @@
   align-items: center;
   gap: 0.5rem;
   border-radius: 1rem;
-  background-color: #ff3f3f;
+  background-color: var(--color-dinamico, #ff3f3f);
   border-radius: 1rem;
-  border: #ff3f3f 0.2rem solid;
+  border: var(--color-dinamico, #ff3f3f) 0.2rem solid;
   padding: 1rem 1.5rem;
   width: -moz-fit-content;
   width: fit-content;
   color: #fff;
+  cursor: pointer;
 }
 .filter-toogle--active span {
   width: -moz-max-content;

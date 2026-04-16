@@ -1,6 +1,38 @@
+@use "../tokens/tokens.scss" as *;
+
 .main {
-    padding: 18rem 5rem;
+    @include fnFlex(column, flex-start, flex-start, 3rem);
+    padding: 2rem 5rem;
+    h1 {
+        margin: 0;
+    }
     @media (max-width: 660px) {
         padding: 18rem 3rem;
+    }
+    &-tarjetas {
+        width: 100%;
+    }
+    &-lista {
+        width: 100%;
+    }
+    &-cuadricula {
+        @include fnFlex(row, center, flex-start, 3rem);
+        width: 100%;
+        flex-wrap: wrap;
+        @media (max-width: 660px) {
+            @include fnFlex(row, center, flex-start, 3rem);
+        }
+    }
+    &-no-results {
+        @include fnFlex(column, center, center, 1rem);
+        width: 100%;
+        height: 50dvh;
+        h2 {
+            @include fnFont(3rem, 900, normal, normal, rgba($negro, 0.4));
+            margin-top: 4rem;
+        }
+        span{
+            @include fnFont(1.5rem, 600, normal, normal, rgba($negro, 0.4));
+        }
     }
 }

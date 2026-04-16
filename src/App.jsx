@@ -6,46 +6,48 @@ import { LanguageContextProvider } from "./components/context/LanguageContext";
 import { ViewContextProvider } from "./components/context/ViewContext";
 import { ThemeContextProvider } from "./components/context/ThemeContext";
 
+import { useGlassFilter } from "./components/context/GlassFilterContext";
+import { useUI } from "./components/context/UIContext";
+
 import CoNav from "./components/general/CoNav";
 import CoFilterMenu from "./components/general/CoFilterMenu";
+import CoFilters from "./components/general/CoFilters";
 import RoHome from "./routes/RoHome";
 import RoCarga from "./routes/RoCarga";
 
+// App.jsx
 function App() {
+	const { allFilters, activeSpirits, activeGlass } = useGlassFilter();
+	const { viewport } = useUI();
+
 	return (
+		<Routes>
+			<Route
+				path="/"
+				element={<Navigate to="/home/es/lista?color=granada" replace />}
+			/>
 
-		<LanguageContextProvider>
-			<ViewContextProvider>
-				<ThemeContextProvider>
-					<Routes>
-						<Route
-							path="/"
-							element={<Navigate to="/home/es/lista?color=FF3F3F" replace />}
-						/>
+			<Route
+				path="/home/:lang/:view"
+				element={
+					<>
+						<CoNav />
+						<CoFilterMenu />
+						{allFilters.length > 0 && !viewport.isMobile && (
+							<CoFilters filtros={allFilters} />
+						)}
+						<Suspense fallback={<RoCarga />}>
+							<RoHome />
+						</Suspense>
+					</>
+				}
+			/>
 
-						{/* Ruta dinámica con Idioma y Vista */}
-						<Route
-							path="/home/:lang/:view"
-							element={
-								<>
-									{/* <CoFilterMenu/> */}
-									<CoNav />
-									<Suspense fallback={<RoCarga />}>
-										<RoHome />
-									</Suspense>
-								</>
-							}
-						/>
-
-						{/* Fallback para rutas no encontradas */}
-						<Route
-							path="*"
-							element={<Navigate to="/home/es/lista?color=FF3F3F" replace />}
-						/>
-					</Routes>
-				</ThemeContextProvider>
-			</ViewContextProvider>
-		</LanguageContextProvider>
+			<Route
+				path="*"
+				element={<Navigate to="/home/es/lista?color=granada" replace />}
+			/>
+		</Routes>
 	);
 }
 

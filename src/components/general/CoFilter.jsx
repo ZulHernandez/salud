@@ -1,39 +1,67 @@
 import close from "../../assets/icons/close--white.svg";
 import "../../styles/general/CoFilter.scss";
 
-import glasswareAssets from "../../utils/glassware"; // El objeto con los imports de SVGs
+import glassware from "../../utils/glassware"; // El objeto con los imports de SVGs
+import licours from "../../utils/licours";
 import { useLanguage } from "../context/LanguageContext";
+import { useGlassFilter } from "../context/GlassFilterContext";
 
-const CoFilter = ({ text }) => {
-    const { t } = useLanguage();
+const CoFilter = ({ text, type }) => {
+	const { t } = useLanguage();
+	const { toggleGlass, toggleSpirit, allFilters } = useGlassFilter();
 
-    // 1. Buscamos las imágenes usando el 'text' como llave técnica.
-    // Usamos toLowerCase() solo si tus llaves en glassware.js están en minúsculas.
-    const technicalKey = text?.toLowerCase();
-    const iconEntry = glasswareAssets[technicalKey];
+	const technicalKey = text?.toLowerCase();
 
-    const black = iconEntry?.fillBlack;
-    const white = iconEntry?.fillWhite;
+	// 1. Decidimos qué icono o color mostrar
+	const iconEntry = glassware[technicalKey];
+	const licourEntry = licours[technicalKey];
 
-    return (
-        <div className="filter-toogle--active">
-            {!black || !white ? (
-                <>
-                    {/* Si no hay icono, traducimos el texto directamente */}
-                    <span>{t(technicalKey)}</span>
-                    <img className="filter-toogle-close" src={close} alt="close" />
-                </>
-            ) : (
-                <>
-                    <img className="filter-toogle-icon" src={black} alt={t(technicalKey)} />
-                    <img className="filter-toogle-icon--white" src={white} alt={t(technicalKey)} />
-                    {/* Traducimos el nombre de la copa */}
-                    <span>{t(technicalKey)}</span> 
-                    <img className="filter-toogle-close" src={close} alt="close" />
-                </>
-            )}
-        </div>
-    );
+	// 2. Verificamos si este filtro específico está activo
+	const isActive = allFilters.some((f) => f.text === text);
+
+	// 3. LA CLAVE: Seleccionar la función de toggle correcta según el tipo
+	const handleToggle = () => {
+		if (type === "licours") {
+			toggleSpirit(text);
+		} else {
+			toggleGlass(text);
+		}
+	};
+
+	return (
+		<div
+			className={`filter-toogle${isActive ? "--active" : ""}`}
+			onClick={handleToggle} // <--- Ahora sí sabe qué filtrar
+		>
+			{type === "licours" ? (
+				<div
+					style={{
+						backgroundColor: licourEntry?.color || "#ccc",
+						width: "1rem",
+						height: "1rem",
+						borderRadius: "50%",
+						border: "#333 dashed 3px",
+						flexShrink: 0,
+					}}
+				></div>
+			) : (
+				<>
+					<img
+						className="filter-toogle-icon--white"
+						src={iconEntry?.fillWhite}
+						alt={t(technicalKey)}
+					/>
+					<img
+						className="filter-toogle-icon"
+						src={iconEntry?.fillBlack}
+						alt={t(technicalKey)}
+					/>
+				</>
+			)}
+			<span>{t(technicalKey)}</span>
+			<img className="filter-toogle-close" src={close} alt="close" />
+		</div>
+	);
 };
 
 export default CoFilter;

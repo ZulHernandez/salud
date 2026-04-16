@@ -15,20 +15,20 @@ const licours = {
 		name: "agua",
 		color: "#add8e6",
 	},
-	"jugo de limón": {
-		name: "jugo de limón",
+	"jugo de limon": {
+		name: "jugo de limon",
 		color: "#fffacd",
 	},
 	"luxardo maraschino": {
 		name: "luxardo maraschino",
 		color: "#ffeef6",
 	},
-	"licór de hierbas": {
+	"licor de hierbas": {
 		name: "licór de hierbas",
 		color: "#8fbc8f",
 	},
-	"licór de génépi": {
-		name: "licór de génépi",
+	"licor de genepi": {
+		name: "licor de genepi",
 		color: "#556b2f",
 	},
 	"aperol": {
@@ -95,8 +95,8 @@ const licours = {
 		name: "vino blanco",
 		color: "#f5f5dc",
 	},
-	"licor de flor de saucó": {
-		name: "licor de flor de saucó",
+	"licor de flor de sauco": {
+		name: "licor de flor de sauco",
 		color: "#e6e6fa",
 	},
 	"carpano": {
@@ -135,8 +135,8 @@ const licours = {
 		name: "bourbon",
 		color: "#f4a460",
 	},
-	"licór de kummel": {
-		name: "licór de kummel",
+	"licor de kummel": {
+		name: "licor de kummel",
 		color: "#f5deb3",
 	},
 	"tequila blanco": {
@@ -151,6 +151,12 @@ const licours = {
 		name: "vodka",
 		color: "#e9e9e9",
 	},
+	"vermouth seco": {
+		name: "vermouth seco",
+		color: "#deb887",
+	},
 };
 
 export default licours;
+
+export const licoursNames = Object.keys(licours);

@@ -3,14 +3,13 @@
 .navbar {
     @include fnFlex(column, space-between, center, 2.5rem);
     position: fixed;
-    @include fnWidth(2rem, 5rem, 2rem, 5rem, 100%);
-    transition: all 0.3s ease;
-    background-color: #fff;
-    top: -0px;
-    @media (max-width: 660px) {
-        @include fnWidth(2rem, 3rem, 2rem, 3rem, 100%);
-    }
     z-index: 100;
+    @include fnWidth(2rem, 5rem, 3rem, 5rem, 100dvw);
+    transition: translate 0.3s ease;
+    background-color: #fff;
+    @media (max-width: 768px) {
+        @include fnWidth(2rem, 3rem, 2rem, 3rem, 100dvw);
+    }
 
     .navbar-head {
         @include fnFlex(row, space-between, center, 0);
@@ -70,4 +69,73 @@
             @include fnFlex(row, space-between, center, 2rem);
         }
     }
+}
+
+.navbar--hidden {
+    @include fnFlex(column, space-between, center, 2.5rem);
+    position: fixed;
+    z-index: 100;
+    @include fnWidth(2rem, 5rem, 3rem, 5rem, 100dvw);
+    transition: translate 0.3s ease, filter 0.3s ease;
+    background-color: #fff;
+    .navbar-head {
+        @include fnFlex(row, space-between, center, 0);
+        width: 100%;
+        padding-bottom: 1rem;
+        border-bottom: $rojo 2px solid;
+        &-logo {
+            @include fnFlex(column, center, center, 0px);
+            h1 {
+                @include fnFont(4.8rem, 900, normal, 0.48rem, $rojo);
+            }
+            h3 {
+                display: none;
+            }
+        }
+        &-links {
+            @include fnFlex(row, space-between, flex-end, 2rem);
+            &-element {
+                @include fnFlex(column, center, center, 0.5rem);
+                position: relative;
+                cursor: pointer;
+                &-info {
+                    @include fnFlex(row, flex-end, center, 0.5rem);
+                    cursor: pointer;
+                    transition: all 0.3s ease;
+                    @media (max-width: 660px) {
+                        span {
+                            display: none;
+                        }
+                    }
+                    img {
+                        width: 1.8rem;
+                    }
+                }
+            }
+        }
+    }
+
+    .navbar-browse {
+        @include fnFlex(row, space-between, center, 3rem);
+        width: 100%;
+
+        &-input {
+            @include fnFlex(row, center, center, 1rem);
+            width: 100%;
+            max-width: 50rem;
+            border-bottom: $negro 2px solid;
+            input {
+                width: 100%;
+            }
+            img {
+                cursor: pointer;
+            }
+        }
+
+        &-links {
+            @include fnFlex(row, space-between, center, 2rem);
+        }
+    }
+    translate: 0 -100%;
+    filter: blur(50px);
 }

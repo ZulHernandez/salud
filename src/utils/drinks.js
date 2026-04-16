@@ -1,36 +1,61 @@
 import glassware from "./glassware";
 import licours from "./licours";
 
+let vaso = ["double old fashioned",
+	"coupe - coupette - champagne",
+	"coupe - coupette - champagne",
+	"coupe - coupette - champagne",
+	"old fashioned",
+	"rocks",
+	"collins",
+	"rocks",
+	"coupe - coupette - champagne",
+	"coupe - coupette - champagne",
+	"coupe - coupette - champagne",
+	"coupe - coupette - champagne",
+	"martini",
+	"old fashioned",
+	"coupe - coupette - champagne",
+	"coupe - coupette - champagne",
+];
+
 const drinks = {
 	"negroni": {
 		name: "negroni",
 		glass: {
-			name: "old fashioned",
-			glass: glassware["old fashioned"],
+			name: vaso[0],
+			glass: glassware[vaso[0]],
 		},
 		ingredients: [
 			{ alcohol: licours["rosso vermouth"], quantity: 30 },
 			{ alcohol: licours["campari"], quantity: 30 },
 			{ alcohol: licours["gin"], quantity: 30 },
 		],
+		ganish: [
+			glassware[vaso[0]].ganish.orange,
+			glassware[vaso[0]].ganish.ice_cube,
+		],
 		unity: "ml",
 		infoAli: {
 			calories: 183,
 			alcVol: 21.57,
-		},
+		}
 	},
 	"last word": {
 		name: "last word",
 		glass: {
-			name: "coupe - coupette - champagne",
-			glass: glassware["coupe - coupette - champagne"],
+			name: vaso[1],
+			glass: glassware[vaso[1]],
 		},
 		ingredients: [
-			{ alcohol: licours["agua"], quantity: 10 },
-			{ alcohol: licours["jugo de limón"], quantity: 20 },
+			{ alcohol: licours["agua"], quantity: 10, chill: true },
+			{ alcohol: licours["jugo de limon"], quantity: 20 },
 			{ alcohol: licours["luxardo maraschino"], quantity: 20 },
-			{ alcohol: licours["licór de hierbas"], quantity: 20 },
+			{ alcohol: licours["licor de hierbas"], quantity: 20 },
 			{ alcohol: licours["gin"], quantity: 30 },
+		],
+		ganish: [
+			glassware[vaso[1]].ganish.cherries,
 		],
 		unity: "ml",
 		infoAli: {
@@ -41,14 +66,17 @@ const drinks = {
 	"naked & famous": {
 		name: "naked & famous",
 		glass: {
-			name: "coupe - coupette - champagne",
-			glass: glassware["coupe - coupette - champagne"],
+			name: vaso[2],
+			glass: glassware[vaso[2]],
 		},
 		ingredients: [
-			{ alcohol: licours["jugo de limón"], quantity: 22.5 },
-			{ alcohol: licours["licór de génépi"], quantity: 22.5 },
+			{ alcohol: licours["jugo de limon"], quantity: 22.5 },
+			{ alcohol: licours["licor de genepi"], quantity: 22.5 },
 			{ alcohol: licours["aperol"], quantity: 22.5 },
 			{ alcohol: licours["mezcal"], quantity: 22.5 },
+		],
+		ganish: [
+			glassware[vaso[2]].ganish.lemon,
 		],
 		unity: "ml",
 		infoAli: {
@@ -59,14 +87,17 @@ const drinks = {
 	"daiquiri": {
 		name: "daiquiri",
 		glass: {
-			name: "coupe - coupette - champagne",
-			glass: glassware["coupe - coupette - champagne"],
+			name: vaso[3],
+			glass: glassware[vaso[3]],
 		},
 		ingredients: [
-			{ alcohol: licours["agua"], quantity: 7.5 },
+			{ alcohol: licours["agua"], quantity: 7.5, chill: true },
 			{ alcohol: licours["sirope de azucar"], quantity: 10 },
-			{ alcohol: licours["jugo de limón"], quantity: 15 },
+			{ alcohol: licours["jugo de limon"], quantity: 15 },
 			{ alcohol: licours["ron blanco"], quantity: 50 },
+		],
+		ganish: [
+			glassware[vaso[3]].ganish.lemon,
 		],
 		unity: "ml",
 		infoAli: {
@@ -77,15 +108,19 @@ const drinks = {
 	"penicillin": {
 		name: "penicillin",
 		glass: {
-			name: "old fashioned",
-			glass: glassware["old fashioned"],
+			name: vaso[4],
+			glass: glassware[vaso[4]],
 		},
 		ingredients: [
 			{ alcohol: licours["sirope de miel"], quantity: 20 },
-			{ alcohol: licours["jugo de limón"], quantity: 20 },
+			{ alcohol: licours["jugo de limon"], quantity: 20 },
 			{ alcohol: licours["single malt whisky"], quantity: 10 },
 			{ alcohol: licours["licor de gengibre"], quantity: 15 },
 			{ alcohol: licours["blended whisky"], quantity: 45 },
+		],
+		ganish: [
+			glassware[vaso[4]].ganish.ice_cube,
+			glassware[vaso[4]].ganish.ginger,
 		],
 		unity: "ml",
 		infoAli: {
@@ -96,14 +131,18 @@ const drinks = {
 	"margarita en las rocas": {
 		name: "margarita en las rocas",
 		glass: {
-			name: "rocks",
-			glass: glassware["rocks"],
+			name: vaso[5],
+			glass: glassware[vaso[5]],
 		},
 		ingredients: [
 			{ alcohol: licours["sirope de agave"], quantity: 5 },
-			{ alcohol: licours["jugo de limón"], quantity: 22.5 },
+			{ alcohol: licours["jugo de limon"], quantity: 22.5 },
 			{ alcohol: licours["triple sec"], quantity: 22.5 },
 			{ alcohol: licours["tequila"], quantity: 45 },
+		],
+		ganish: [
+			glassware[vaso[5]].ganish.ice_cube,
+			glassware[vaso[5]].ganish.lemon,
 		],
 		unity: "ml",
 		infoAli: {
@@ -114,14 +153,19 @@ const drinks = {
 	"south side rickey": {
 		name: "south side rickey",
 		glass: {
-			name: "collins",
-			glass: glassware["collins"],
+			name: vaso[6],
+			glass: glassware[vaso[6]],
 		},
 		ingredients: [
 			{ alcohol: licours["agua mineral"], quantity: 40 },
 			{ alcohol: licours["sirope de azucar"], quantity: 22.5 },
-			{ alcohol: licours["jugo de limón"], quantity: 30 },
+			{ alcohol: licours["jugo de limon"], quantity: 30 },
 			{ alcohol: licours["gin"], quantity: 60 },
+		],
+		ganish: [
+			glassware[vaso[6]].ganish.ice_cube,
+			glassware[vaso[6]].ganish.lemon,
+			glassware[vaso[6]].ganish.mint,
 		],
 		unity: "ml",
 		infoAli: null,
@@ -129,14 +173,18 @@ const drinks = {
 	"mezcal margarita": {
 		name: "mezcal margarita",
 		glass: {
-			name: "rocks",
-			glass: glassware["rocks"],
+			name: vaso[7],
+			glass: glassware[vaso[7]],
 		},
 		ingredients: [
 			{ alcohol: licours["sirope de agave"], quantity: 5 },
-			{ alcohol: licours["jugo de limón"], quantity: 22.5 },
+			{ alcohol: licours["jugo de limon"], quantity: 22.5 },
 			{ alcohol: licours["triple sec"], quantity: 22.5 },
 			{ alcohol: licours["mezcal"], quantity: 45 },
+		],
+		ganish: [
+			glassware[vaso[7]].ganish.lemon,
+			glassware[vaso[7]].ganish.ice_cube,
 		],
 		unity: "ml",
 		infoAli: {
@@ -147,16 +195,19 @@ const drinks = {
 	"sabot": {
 		name: "sabot",
 		glass: {
-			name: "coupe - coupette - champagne",
-			glass: glassware["coupe - coupette - champagne"],
+			name: vaso[8],
+			glass: glassware[vaso[8]],
 		},
 		ingredients: [
 			{ alcohol: licours["champagne"], quantity: 22.5 },
 			{ alcohol: licours["clara de huevo"], quantity: 15 },
 			{ alcohol: licours["sirope de azucar"], quantity: 10 },
-			{ alcohol: licours["jugo de limón"], quantity: 22.5 },
+			{ alcohol: licours["jugo de limon"], quantity: 22.5 },
 			{ alcohol: licours["triple sec"], quantity: 22.5 },
 			{ alcohol: licours["gin"], quantity: 45 },
+		],
+		ganish: [
+			glassware[vaso[8]].ganish.lemon,
 		],
 		unity: "ml",
 		infoAli: {
@@ -167,14 +218,17 @@ const drinks = {
 	"left bank martini": {
 		name: "left bank martini",
 		glass: {
-			name: "coupe - coupette - champagne",
-			glass: glassware["coupe - coupette - champagne"],
+			name: vaso[9],
+			glass: glassware[vaso[9]],
 		},
 		ingredients: [
 			{ alcohol: licours["vermouth"], quantity: 7.5 },
 			{ alcohol: licours["vino blanco"], quantity: 15 },
-			{ alcohol: licours["licor de flor de saucó"], quantity: 15 },
+			{ alcohol: licours["licor de flor de sauco"], quantity: 15 },
 			{ alcohol: licours["gin"], quantity: 60 },
+		],
+		ganish: [
+			glassware[vaso[9]].ganish.lemon,
 		],
 		unity: "ml",
 		infoAli: {
@@ -185,14 +239,17 @@ const drinks = {
 	"new york minute": {
 		name: "new york minute",
 		glass: {
-			name: "coupe - coupette - champagne",
-			glass: glassware["coupe - coupette - champagne"],
+			name: vaso[10],
+			glass: glassware[vaso[10]],
 		},
 		ingredients: [
 			{ alcohol: licours["sirope de azucar"], quantity: 5 },
 			{ alcohol: licours["luxardo maraschino"], quantity: 15 },
 			{ alcohol: licours["carpano"], quantity: 20 },
 			{ alcohol: licours["tequila"], quantity: 52.5 },
+		],
+		ganish: [
+			glassware[vaso[10]].ganish.coffe_beans,
 		],
 		unity: "ml",
 		infoAli: {
@@ -203,15 +260,19 @@ const drinks = {
 	"brooklyn": {
 		name: "brooklyn",
 		glass: {
-			name: "coupe - coupette - champagne",
-			glass: glassware["coupe - coupette - champagne"],
+			name: vaso[11],
+			glass: glassware[vaso[11]],
 		},
 		ingredients: [
-			{ alcohol: licours["agua"], quantity: 10 },
+			{ alcohol: licours["agua"], quantity: 10, chill: true },
 			{ alcohol: licours["luxardo maraschino"], quantity: 10 },
 			{ alcohol: licours["amer picon"], quantity: 10 },
 			{ alcohol: licours["rosso vermouth"], quantity: 15 },
+			{ alcohol: licours["vermouth seco"], quantity: 15 },
 			{ alcohol: licours["whiskey"], quantity: 45 },
+		],
+		ganish: [
+			glassware[vaso[11]].ganish.cherries,
 		],
 		unity: "ml",
 		infoAli: {
@@ -222,8 +283,8 @@ const drinks = {
 	"dam it jimmy": {
 		name: "dam it jimmy",
 		glass: {
-			name: "martini",
-			glass: glassware["martini"],
+			name: vaso[12],
+			glass: glassware[vaso[12]],
 		},
 		ingredients: [
 			{ alcohol: licours["sirope de azucar"], quantity: 5 },
@@ -231,6 +292,9 @@ const drinks = {
 			{ alcohol: licours["fino sherry"], quantity: 7.5 },
 			{ alcohol: licours["ron blanco"], quantity: 45 },
 			{ alcohol: licours["sake"], quantity: 45 },
+		],
+		ganish: [
+			glassware[vaso[12]].ganish.olives_chesse,
 		],
 		unity: "ml",
 		infoAli: {
@@ -241,8 +305,8 @@ const drinks = {
 	"madurised old fashined godfather": {
 		name: "madurised old fashined godfather",
 		glass: {
-			name: "old fashioned",
-			glass: glassware["old fashioned"],
+			name: vaso[13],
+			glass: glassware[vaso[13]],
 		},
 		ingredients: [
 			{ alcohol: licours["vino tinto"], quantity: 15 },
@@ -250,6 +314,9 @@ const drinks = {
 			{ alcohol: licours["blended whisky"], quantity: 15 },
 			{ alcohol: licours["whiskey"], quantity: 15 },
 			{ alcohol: licours["bourbon"], quantity: 15 },
+		],
+		ganish: [
+			glassware[vaso[13]].ganish.almond,
 		],
 		unity: "ml",
 		infoAli: {
@@ -260,15 +327,18 @@ const drinks = {
 	"the dante": {
 		name: "the dante",
 		glass: {
-			name: "coupe - coupette - champagne",
-			glass: glassware["coupe - coupette - champagne"],
+			name: vaso[14],
+			glass: glassware[vaso[14]],
 		},
 		ingredients: [
-			{ alcohol: licours["jugo de limón"], quantity: 20 },
+			{ alcohol: licours["jugo de limon"], quantity: 20 },
 			{ alcohol: licours["sirope de azucar"], quantity: 10 },
-			{ alcohol: licours["licór de kummel"], quantity: 10 },
-			{ alcohol: licours["licór de hierbas"], quantity: 10 },
+			{ alcohol: licours["licor de kummel"], quantity: 10 },
+			{ alcohol: licours["licor de hierbas"], quantity: 10 },
 			{ alcohol: licours["tequila blanco"], quantity: 40 },
+		],
+		ganish: [
+			//glassware[vaso[14]].ganish.basil,
 		],
 		unity: "ml",
 		infoAli: {
@@ -279,16 +349,19 @@ const drinks = {
 	"mezcal dante": {
 		name: "mezcal dante",
 		glass: {
-			name: "coupe - coupette - champagne",
-			glass: glassware["coupe - coupette - champagne"],
+			name: vaso[15],
+			glass: glassware[vaso[15]],
 		},
 		ingredients: [
-			{ alcohol: licours["jugo de limón"], quantity: 20 },
+			{ alcohol: licours["jugo de limon"], quantity: 20 },
 			{ alcohol: licours["sirope de agave"], quantity: 10 },
-			{ alcohol: licours["licór de kummel"], quantity: 7.5 },
-			{ alcohol: licours["licór de hierbas"], quantity: 10 },
+			{ alcohol: licours["licor de kummel"], quantity: 7.5 },
+			{ alcohol: licours["licor de hierbas"], quantity: 10 },
 			{ alcohol: licours["tequila blanco"], quantity: 15 },
 			{ alcohol: licours["mezcal"], quantity: 30 },
+		],
+		ganish: [
+			glassware[vaso[15]].ganish.basil,
 		],
 		unity: "ml",
 		infoAli: {
@@ -306,6 +379,9 @@ const drinks = {
 			{ alcohol: licours["fino sherry"], quantity: 5 },
 			{ alcohol: licours["ambrato"], quantity: 15 },
 			{ alcohol: licours["vodka"], quantity: 30 },
+		],
+		ganish: [
+			glassware["shot"].ganish.olives_chesse,
 		],
 		unity: "ml",
 		infoAli: {
