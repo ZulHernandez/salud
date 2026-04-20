@@ -17,6 +17,7 @@ let vaso = ["double old fashioned",
 	"old fashioned",
 	"coupe - coupette - champagne",
 	"coupe - coupette - champagne",
+	"coupe - coupette - champagne",
 ];
 
 const drinks = {
@@ -39,7 +40,8 @@ const drinks = {
 		infoAli: {
 			calories: 183,
 			alcVol: 21.57,
-		}
+		},
+		mix_color: "#D55633",
 	},
 	"last word": {
 		name: "last word",
@@ -62,6 +64,7 @@ const drinks = {
 			calories: 185,
 			alcVol: 21.88,
 		},
+		mix_color: "#D1CAAA",
 	},
 	"naked & famous": {
 		name: "naked & famous",
@@ -83,6 +86,7 @@ const drinks = {
 			calories: 179,
 			alcVol: 17.65,
 		},
+		mix_color: "#FE4D02",
 	},
 	"daiquiri": {
 		name: "daiquiri",
@@ -104,6 +108,7 @@ const drinks = {
 			calories: 139,
 			alcVol: 17.84,
 		},
+		mix_color: "#E2DDD2",
 	},
 	"penicillin": {
 		name: "penicillin",
@@ -127,6 +132,7 @@ const drinks = {
 			calories: 220,
 			alcVol: 17.91,
 		},
+		mix_color: "#B6A269",
 	},
 	"margarita en las rocas": {
 		name: "margarita en las rocas",
@@ -149,6 +155,7 @@ const drinks = {
 			calories: 167,
 			alcVol: 20.9,
 		},
+		mix_color: "#C8C0AA",
 	},
 	"south side rickey": {
 		name: "south side rickey",
@@ -169,6 +176,7 @@ const drinks = {
 		],
 		unity: "ml",
 		infoAli: null,
+		mix_color: "#E8E2C3",
 	},
 	"mezcal margarita": {
 		name: "mezcal margarita",
@@ -191,6 +199,7 @@ const drinks = {
 			calories: 163,
 			alcVol: 21.59,
 		},
+		mix_color: "#DDDCC8",
 	},
 	"sabot": {
 		name: "sabot",
@@ -214,6 +223,7 @@ const drinks = {
 			calories: 209,
 			alcVol: 16.17,
 		},
+		mix_color: "#CFC9B9",
 	},
 	"left bank martini": {
 		name: "left bank martini",
@@ -235,6 +245,7 @@ const drinks = {
 			calories: 190,
 			alcVol: 24.93,
 		},
+		mix_color: "#D5CAB8",
 	},
 	"new york minute": {
 		name: "new york minute",
@@ -256,6 +267,7 @@ const drinks = {
 			calories: 201,
 			alcVol: 24.74,
 		},
+		mix_color: "#C73A02",
 	},
 	"brooklyn": {
 		name: "brooklyn",
@@ -279,6 +291,7 @@ const drinks = {
 			calories: 199,
 			alcVol: 24.71,
 		},
+		mix_color: "#890B08",
 	},
 	"dam it jimmy": {
 		name: "dam it jimmy",
@@ -301,9 +314,10 @@ const drinks = {
 			calories: 175,
 			alcVol: 19.81,
 		},
+		mix_color: "#D1C4A6",
 	},
-	"madurised old fashined godfather": {
-		name: "madurised old fashined godfather",
+	"maduraised old fashioned godfather": {
+		name: "maduraised old fashioned godfather",
 		glass: {
 			name: vaso[13],
 			glass: glassware[vaso[13]],
@@ -317,12 +331,14 @@ const drinks = {
 		],
 		ganish: [
 			glassware[vaso[13]].ganish.almond,
+			glassware[vaso[13]].ganish.ice_cube,
 		],
 		unity: "ml",
 		infoAli: {
 			calories: 180,
 			alcVol: 28.52,
 		},
+		mix_color: "#CB7802",
 	},
 	"the dante": {
 		name: "the dante",
@@ -338,13 +354,14 @@ const drinks = {
 			{ alcohol: licours["tequila blanco"], quantity: 40 },
 		],
 		ganish: [
-			//glassware[vaso[14]].ganish.basil,
+			glassware[vaso[14]].ganish.basil,
 		],
 		unity: "ml",
 		infoAli: {
 			calories: 186,
 			alcVol: 20.67,
 		},
+		mix_color: "#AAAA81",
 	},
 	"mezcal dante": {
 		name: "mezcal dante",
@@ -368,6 +385,7 @@ const drinks = {
 			calories: null,
 			alcVol: 21.42,
 		},
+		mix_color: "#C3BD8C",
 	},
 	"martini de un trago": {
 		name: "martini de un trago",
@@ -388,6 +406,28 @@ const drinks = {
 			calories: 91,
 			alcVol: 24.34,
 		},
+		mix_color: "#BFB9BF",
+	},
+	"daiquiri No.1": {
+		name: "daiquiri No.1",
+		glass: {
+			name: vaso[3],
+			glass: glassware[vaso[3]],
+		},
+		ingredients: [
+			{ alcohol: licours["sirope de azucar"], quantity: 10 },
+			{ alcohol: licours["jugo de limon"], quantity: 20 },
+			{ alcohol: licours["ron añejo"], quantity: 50 },
+		],
+		ganish: [
+			glassware[vaso[3]].ganish.lemon,
+		],
+		unity: "ml",
+		infoAli: {
+			calories: 139,
+			alcVol: 17.84,
+		},
+		mix_color: "#E9E0C3",
 	},
 };
 

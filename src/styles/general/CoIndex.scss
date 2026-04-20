@@ -1,0 +1,42 @@
+@use "../tokens/tokens.scss" as *;
+
+.index {
+    @include fnFlex(column, space-around, center, 0rem);
+    @include fnWidth(17.2rem, 1rem, 3rem, 5rem, 8rem);
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: calc(100dvh - 20.2rem);
+    background-color: white;
+    z-index: 20;
+    transition: all 0.3s ease;
+    a {
+        @include fnFont(2rem, 600, normal, normal, rgba($negro, 0.75));
+        text-decoration: none;
+        &:hover {
+            @include fnFont(2rem, 900, normal, normal, $rojo);
+        }
+    }
+}
+
+.index--short {
+    @include fnFlex(column, space-around, center, 0rem);
+    @include fnWidth(17.2rem, 1rem, 3rem, 5rem, 8rem);
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: calc(100dvh - 20.2rem);
+    background-color: white;
+    z-index: 20;
+    transition: all 0.3s ease;
+    padding-top: 3rem;
+    align-items: center;
+    height: calc(100dvh - 6rem);
+    a {
+        @include fnFont(2rem, 600, normal, normal, rgba($negro, 0.75));
+        text-decoration: none;
+        &:hover {
+            @include fnFont(2rem, 900, normal, normal, $rojo);
+        }
+    }
+}

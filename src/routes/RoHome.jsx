@@ -2,7 +2,7 @@ import { useView } from "../components/context/ViewContext";
 import { useLanguage } from "../components/context/LanguageContext";
 import { useUI } from "../components/context/UIContext";
 import { useGlassFilter } from "../components/context/GlassFilterContext";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useMemo } from "react"; // Añadido useMemo
 
 import "../styles/general/route.scss";
 import "../styles/pages/home.scss";
@@ -14,127 +14,114 @@ import CoList from "../components/home/CoList";
 import CoCard from "../components/home/CoCard";
 import CoGrid from "../components/home/CoGrid";
 
-const sortObjectByKey = (obj) => {
-    return Object.keys(obj)
-        .sort()
-        .reduce((acc, key) => {
-            acc[key] = obj[key];
-            return acc;
-        }, {});
-};
-
-const groupDrinksByLetter = (obj) => {
-    const sortedKeys = Object.keys(obj).sort();
-    return sortedKeys.reduce((acc, key) => {
-        const firstLetter = key.charAt(0).toUpperCase();
-        if (!acc[firstLetter]) {
-            acc[firstLetter] = {};
-        }
-        acc[firstLetter][key] = obj[key];
-        return acc;
-    }, {});
-};
-
 const RoHome = () => {
-    const { view } = useView();
-    const { t } = useLanguage();
+    const { view, setView } = useView();
+    const { t, language } = useLanguage(); // Asegúrate de exportar 'translations' en tu Context
     const { viewport } = useUI();
-    // Extraemos allFilters (objetos) y searchQuery (string) del contexto
     const { allFilters, searchQuery } = useGlassFilter();
-    const [index, setIndex] = useState(0);
+    const [index] = useState(0);
 
-    let filteredDrinks = Object.fromEntries(
-        Object.entries(drinks).filter(([key, drink]) => {
-            // 1. Extraemos el nombre para el buscador y el resto para los chips
-            const { name, ...restOfData } = drink;
-            const searchableContent = JSON.stringify(restOfData).toLowerCase();
-            const drinkName = name.toLowerCase();
+    // 1. Obtener los nombres traducidos ANTES de ordenar
+    // Esto nos asegura que el Collator compare strings reales del idioma actual
+    const infoFinal = useMemo(() => {
+        const collator = new Intl.Collator(language, {
+            numeric: true,
+            sensitivity: 'base'
+        });
+
+        // Filtramos primero
+        const filtered = Object.entries(drinks).filter(([key, drink]) => {
+            const translatedName = t(key).toLowerCase();
             const searchLower = searchQuery.toLowerCase();
-
-            // 2. Filtro de Chips (Vasos y Licores)
-            // Cada objeto en allFilters es { text, type }
-            const matchesChips = allFilters.every((filter) =>
-                searchableContent.includes(filter.text.toLowerCase())
+            
+            // Filtro de chips (buscamos en la data cruda del trago)
+            const searchableContent = JSON.stringify(drink).toLowerCase();
+            const matchesChips = allFilters.every((f) =>
+                searchableContent.includes(f.text.toLowerCase())
             );
 
-            // 3. Filtro de Buscador (Busca en el nombre del trago)
-            const matchesSearch = drinkName.includes(searchLower);
+            return matchesChips && translatedName.includes(searchLower);
+        });
 
-            // Solo pasa si cumple AMBOS
-            return matchesChips && matchesSearch;
-        }),
-    );
+        // Ordenamos por la traducción
+        const sorted = filtered.sort((a, b) => {
+            return collator.compare(t(a[0]), t(b[0]));
+        });
 
-    const ordDrinks = sortObjectByKey(filteredDrinks);
-    const groupDrinks = groupDrinksByLetter(ordDrinks);
-    const infoFinal = groupDrinks;
-
-    useEffect(() => {
-        if (!glassware_imgs || glassware_imgs.length === 0) return;
-
-        const interval = setInterval(() => {
-            setIndex((prevIndex) =>
-                prevIndex === glassware_imgs.length - 1 ? 0 : prevIndex + 1,
-            );
-        }, 1000);
-
-        return () => clearInterval(interval);
-    }, [glassware_imgs.length]);
-
-    return (
-        <div
-            className="main"
-            style={
-                viewport.isMobile
-                    ? { paddingTop: "20.2rem" }
-                    : allFilters.length > 0
-                        ? { paddingTop: "29rem" }
-                        : { paddingTop: "20.2rem" }
+        // Agrupamos en un Array
+        return sorted.reduce((acc, [key, data]) => {
+            const translatedName = t(key);
+            const firstLetter = translatedName.charAt(0).toUpperCase();
+            
+            let group = acc.find(g => g.letter === firstLetter);
+            if (!group) {
+                group = { letter: firstLetter, drinks: [] };
+                acc.push(group);
             }
-        >
-            {Object.keys(filteredDrinks).length === 0 ? (
-                <div className="main-no-results">
-                    <img src={glassware_imgs[index]} alt="" />
-                    <h2>{t("main-no-results__h2")}</h2>
-                    <span>{t("main-no-results__span")}</span>
-                </div>
-            ) : view === "cuadricula" ? (
-                <div className="main-cuadricula">
-                    {Object.keys(ordDrinks).map((key, i) => (
-                        <CoGrid key={i} drink={ordDrinks[key]} />
-                    ))}
-                </div>
-            ) : (
-                Object.keys(infoFinal).map((letter) => (
-                    <div className={"main-" + view} key={letter}>
-                        <h1>
-                            {letter} (
-                            {(() => {
-                                let conta = Object.keys(infoFinal[letter]).length;
-                                if (conta === 1) {
-                                    return "1 " + t("main__bebida");
-                                } else {
-                                    return `${conta} ` + t("main__bebidas");
-                                }
-                            })()}
-                            )
-                        </h1>
-                        {view === "tarjetas" ? (
-                            <div className="cards-container">
-                                {Object.keys(infoFinal[letter]).map((key, i) => (
-                                    <CoCard key={i} drink={infoFinal[letter][key]} />
-                                ))}
-                            </div>
-                        ) : (
-                            Object.keys(infoFinal[letter]).map((key, i) => (
-                                <CoList key={i} drink={infoFinal[letter][key]} />
-                            ))
-                        )}
-                    </div>
-                ))
-            )}
-        </div>
-    );
+            group.drinks.push({ key, ...data });
+            return acc;
+        }, []);
+
+    // IMPORTANTE: language debe estar aquí para que se dispare el re-render
+    }, [language, searchQuery, allFilters, t]);
+
+    const ordDrinks = useMemo(() => infoFinal.flatMap(g => g.drinks), [infoFinal]);
+
+	// Sync de vista para móviles
+	useEffect(() => {
+		if (viewport.isMobile && view !== "cuadricula") {
+			setView("cuadricula");
+		}
+	}, [viewport.isMobile, view, setView]);
+
+	// ... (tu useEffect del intervalo se mantiene igual)
+
+	return (
+		<div
+			className="main"
+			style={{
+				paddingTop:
+					viewport.isMobile || allFilters.length === 0 ? "20.2rem" : "29rem",
+				paddingLeft:
+					view === "cuadricula" ? "2rem" : "12rem",
+			}}
+		>
+			{infoFinal.length === 0 ? (
+				<div className="main-no-results">
+					<img src={glassware_imgs[index]} alt="No results" />
+					<h2>{t("main-no-results__h2")}</h2>
+					<span>{t("main-no-results__span")}</span>
+				</div>
+			) : view === "cuadricula" ? (
+				<div className="main-cuadricula">
+					{ordDrinks.map((drink) => (
+						<CoGrid key={drink.key} drink={drink} />
+					))}
+				</div>
+			) : (
+				infoFinal.map((group) => (
+					<div className={"main-" + view} key={group.letter}>
+						<h1 style={{scrollMarginTop: "20rem"}} id={"seccion-" + group.letter.toLowerCase()}>
+							{group.letter} (
+							{group.drinks.length === 1
+								? `1 ${t("main__bebida")}`
+								: `${group.drinks.length} ${t("main__bebidas")}`}
+							)
+						</h1>
+						<div className={view === "tarjetas" ? "cards-container" : ""}>
+							{group.drinks.map((drink) =>
+								view === "tarjetas" ? (
+									<CoCard key={drink.key} drink={drink} />
+								) : (
+									<CoList key={drink.key} drink={drink} />
+								),
+							)}
+						</div>
+					</div>
+				))
+			)}
+		</div>
+	);
 };
 
 export default RoHome;

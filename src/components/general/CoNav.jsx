@@ -20,11 +20,11 @@ import icon_filtros from "../../assets/icons/filtros.svg";
 import { useLocation } from "react-router-dom";
 
 const idiomas = [
-	{ name: "español", value: "ES" },
-	{ name: "english", value: "EN" },
-	{ name: "日本語", value: "JP" },
-	{ name: "français", value: "FR" },
-	{ name: "русский", value: "RS" },
+	{ name: "español", value: "es" },
+	{ name: "english", value: "en" },
+	{ name: "日本語", value: "ja" },
+	{ name: "français", value: "fr" },
+	{ name: "русский", value: "ru" },
 ];
 
 const CoDropMenu = ({ list, action, closeMenu }) => {
@@ -194,7 +194,6 @@ const CoInput = ({ placeholder }) => {
 				type="text"
 				value={searchQuery}
 				onChange={(e) => setSearchQuery(e.target.value)}
-				placeholder="Buscar cóctel..."
 				placeholder={placeholder}
 			/>
 			<img src={icon_buscar} alt={placeholder} />
@@ -204,11 +203,11 @@ const CoInput = ({ placeholder }) => {
 
 const CoNav = () => {
 	const { t } = useLanguage();
-	const { view, setView } = useView();
+	const { view } = useView();
 	const location = useLocation();
 	const { isNavVisible, viewport } = useUI();
 	const isHome = location.pathname.startsWith("/home");
-	const { activeGlass, activeSpirits, totalFilters } = useGlassFilter();
+	const {totalFilters } = useGlassFilter();
 
 	// 2. DESPUÉS definimos los links que usan ese array
 	const navHeadLinks = [

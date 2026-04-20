@@ -13,12 +13,12 @@
     transition: all 0.3s ease;
     cursor: pointer;
     box-shadow:
-            1px 1px 2px 0 rgba(255, 255, 255, 0.075),
-            -1px -1px 2px 0 rgba(230, 230, 230, 0.125),
-            -15px 15px 30px 0 rgba(230, 230, 230, 0.05) inset,
-            15px -15px 30px 0 rgba(230, 230, 230, 0.05) inset,
-            -15px -15px 30px 0 rgba(255, 255, 255, 0.225) inset,
-            15px 15px 38px 0 rgba(230, 230, 230, 0.225) inset;
+        1px 1px 2px 0 rgba(255, 255, 255, 0.075),
+        -1px -1px 2px 0 rgba(230, 230, 230, 0.125),
+        -15px 15px 30px 0 rgba(230, 230, 230, 0.05) inset,
+        15px -15px 30px 0 rgba(230, 230, 230, 0.05) inset,
+        -15px -15px 30px 0 rgba(255, 255, 255, 0.225) inset,
+        15px 15px 38px 0 rgba(230, 230, 230, 0.225) inset;
     &:hover {
         border-radius: 3rem;
         background: #fff;
@@ -29,6 +29,10 @@
             15px -15px 30px 0 rgba(230, 230, 230, 0.2) inset,
             -15px -15px 30px 0 rgba(255, 255, 255, 0.9) inset,
             15px 15px 38px 0 rgba(230, 230, 230, 0.9) inset;
+
+        .grid-sticker {
+            opacity: 1;
+        }
         h3 {
             @include fnFont(3.2rem, 900, normal, -0.24rem, $negro);
         }
@@ -57,6 +61,15 @@
         @include fnFont(3rem, 700, normal, -0.24rem, $negro);
         text-align: center;
         transition: all 0.3s ease;
+    }
+    &-sticker {
+        opacity: 0;
+        transition: all 0.3s ease;
+        bottom: -6rem;
+        left: -18rem;
+        display: block;
+        text-align: center;
+        width: 10rem;
     }
     &-viewer {
         @include fnFlex(column, flex-start, center, 0rem);

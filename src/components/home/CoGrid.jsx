@@ -1,11 +1,16 @@
 import "../../styles/pages/home/grid.scss";
+import { useLanguage } from "../context/LanguageContext";
 
 import CoViewer from "./CoViewer";
 
+import chill from "../../assets/icons/chill.svg";
+
 const CoGrid = ({ drink }) => {
+	const { t } = useLanguage();
+
 	return (
 		<div className="grid">
-			<h3>{drink.name}</h3>
+			<h3>{t(drink.name)}</h3>
 			<CoViewer drink={drink} kind={"grid"}/>
 			<div className="grid-info">
 				<div className="grid-info-ingredients">
@@ -17,7 +22,8 @@ const CoGrid = ({ drink }) => {
 							></div>
 							<div className="grid-info-ingredients-element-text">
 								<span className="grid-info-ingredients-element-text-name">
-									{ingredient.alcohol.name}
+									{ingredient.chill && <img style={{width: "1rem"}} src={chill} alt="chill icon" />}
+									&nbsp;{t(ingredient.alcohol.name)}
 								</span>
 							</div>
 						</div>

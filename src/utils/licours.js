@@ -24,7 +24,7 @@ const licours = {
 		color: "#ffeef6",
 	},
 	"licor de hierbas": {
-		name: "licór de hierbas",
+		name: "licor de hierbas",
 		color: "#8fbc8f",
 	},
 	"licor de genepi": {

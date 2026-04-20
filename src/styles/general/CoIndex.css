@@ -1,0 +1,80 @@
+.index {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  gap: 0rem;
+  padding-top: 17.2rem;
+  padding-right: 1rem;
+  padding-bottom: 3rem;
+  padding-left: 5rem;
+  width: 2rem;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: calc(100dvh - 20.2rem);
+  background-color: white;
+  z-index: 20;
+  transition: all 0.3s ease;
+}
+.index a {
+  font-size: 2rem;
+  font-weight: 600;
+  line-height: normal;
+  letter-spacing: normal;
+  color: rgba(51, 51, 51, 0.75);
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+}
+.index a:hover {
+  font-size: 2rem;
+  font-weight: 900;
+  line-height: normal;
+  letter-spacing: normal;
+  color: var(--color-dinamico, #ff3f3f);
+  margin: 0;
+  padding: 0;
+}
+
+.index--short {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  gap: 0rem;
+  padding-top: 17.2rem;
+  padding-right: 1rem;
+  padding-bottom: 3rem;
+  padding-left: 5rem;
+  width: 2rem;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: calc(100dvh - 20.2rem);
+  background-color: white;
+  z-index: 20;
+  transition: all 0.3s ease;
+  padding-top: 3rem;
+  align-items: center;
+  height: calc(100dvh - 6rem);
+}
+.index--short a {
+  font-size: 2rem;
+  font-weight: 600;
+  line-height: normal;
+  letter-spacing: normal;
+  color: rgba(51, 51, 51, 0.75);
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+}
+.index--short a:hover {
+  font-size: 2rem;
+  font-weight: 900;
+  line-height: normal;
+  letter-spacing: normal;
+  color: var(--color-dinamico, #ff3f3f);
+  margin: 0;
+  padding: 0;
+}/*# sourceMappingURL=CoIndex.css.map */

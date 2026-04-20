@@ -13,7 +13,7 @@ import icon_chevron from "../../assets/icons/chevron.svg";
 
 const CoColapsable = ({ title, list, desc, type }) => {
 	const { t } = useLanguage();
-	const [isOpen, setIsOpen] = useState(false);
+	const [isOpen, setIsOpen] = useState(true);
 
 	return (
 		<div className="colapsable">

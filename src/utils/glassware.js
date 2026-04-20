@@ -645,7 +645,7 @@ const glassware = {
 		liquid: {
 			path: "M0 0H158L133 103C133 103 116.5 130.5 79 130.5C41.5 130.5 25 103 25 103L0 0Z",
 			width: "158px",
-			height: "130px",
+			height: "131px",
 			marginTop: "20px",
 		},
 		ganish: {
