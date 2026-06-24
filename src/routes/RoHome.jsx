@@ -15,57 +15,71 @@ import CoCard from "../components/home/CoCard";
 import CoGrid from "../components/home/CoGrid";
 
 const RoHome = () => {
-    const { view, setView } = useView();
-    const { t, language } = useLanguage(); // Asegúrate de exportar 'translations' en tu Context
-    const { viewport } = useUI();
-    const { allFilters, searchQuery } = useGlassFilter();
-    const [index] = useState(0);
+	const { view, setView } = useView();
+	const { t, language } = useLanguage(); // Asegúrate de exportar 'translations' en tu Context
+	const { viewport } = useUI();
+	const { allFilters, searchQuery } = useGlassFilter();
+	const [index, setIndex] = useState(0);
 
-    // 1. Obtener los nombres traducidos ANTES de ordenar
-    // Esto nos asegura que el Collator compare strings reales del idioma actual
-    const infoFinal = useMemo(() => {
-        const collator = new Intl.Collator(language, {
-            numeric: true,
-            sensitivity: 'base'
-        });
+	// 1. Obtener los nombres traducidos ANTES de ordenar
+	// Esto nos asegura que el Collator compare strings reales del idioma actual
+	const infoFinal = useMemo(() => {
+		const collator = new Intl.Collator(language, {
+			numeric: true,
+			sensitivity: "base",
+		});
 
-        // Filtramos primero
-        const filtered = Object.entries(drinks).filter(([key, drink]) => {
-            const translatedName = t(key).toLowerCase();
-            const searchLower = searchQuery.toLowerCase();
-            
-            // Filtro de chips (buscamos en la data cruda del trago)
-            const searchableContent = JSON.stringify(drink).toLowerCase();
-            const matchesChips = allFilters.every((f) =>
-                searchableContent.includes(f.text.toLowerCase())
-            );
+		// Filtramos primero
+		const filtered = Object.entries(drinks).filter(([key, drink]) => {
+			const translatedName = t(key).toLowerCase();
+			const searchLower = searchQuery.toLowerCase();
 
-            return matchesChips && translatedName.includes(searchLower);
-        });
+			// Filtro de chips (buscamos en la data cruda del trago)
+			const searchableContent = JSON.stringify(drink).toLowerCase();
+			const matchesChips = allFilters.every((f) =>
+				searchableContent.includes(f.text.toLowerCase()),
+			);
 
-        // Ordenamos por la traducción
-        const sorted = filtered.sort((a, b) => {
-            return collator.compare(t(a[0]), t(b[0]));
-        });
+			return matchesChips && translatedName.includes(searchLower);
+		});
 
-        // Agrupamos en un Array
-        return sorted.reduce((acc, [key, data]) => {
-            const translatedName = t(key);
-            const firstLetter = translatedName.charAt(0).toUpperCase();
-            
-            let group = acc.find(g => g.letter === firstLetter);
-            if (!group) {
-                group = { letter: firstLetter, drinks: [] };
-                acc.push(group);
-            }
-            group.drinks.push({ key, ...data });
-            return acc;
-        }, []);
+		// Ordenamos por la traducción
+		const sorted = filtered.sort((a, b) => {
+			return collator.compare(t(a[0]), t(b[0]));
+		});
 
-    // IMPORTANTE: language debe estar aquí para que se dispare el re-render
-    }, [language, searchQuery, allFilters, t]);
+		// Agrupamos en un Array
+		return sorted.reduce((acc, [key, data]) => {
+			const translatedName = t(key);
+			const firstLetter = translatedName.charAt(0).toUpperCase();
 
-    const ordDrinks = useMemo(() => infoFinal.flatMap(g => g.drinks), [infoFinal]);
+			let group = acc.find((g) => g.letter === firstLetter);
+			if (!group) {
+				group = { letter: firstLetter, drinks: [] };
+				acc.push(group);
+			}
+			group.drinks.push({ key, ...data });
+			return acc;
+		}, []);
+
+		// IMPORTANTE: language debe estar aquí para que se dispare el re-render
+	}, [language, searchQuery, allFilters, t]);
+
+	const ordDrinks = useMemo(
+		() => infoFinal.flatMap((g) => g.drinks),
+		[infoFinal],
+	);
+
+	const siguienteImagen = () => {
+		setIndex((prevIndex) =>
+			// Si el índice es el último, vuelve a 0; si no, suma 1
+			prevIndex === glassware_imgs.length - 1 ? 0 : prevIndex + 1,
+		);
+	};
+	useEffect(() => {
+		const intervalo = setInterval(siguienteImagen, 1000); // Cambia cada 3 seg
+		return () => clearInterval(intervalo); // Limpieza al desmontar
+	}, []);
 
 	// Sync de vista para móviles
 	useEffect(() => {
@@ -82,8 +96,8 @@ const RoHome = () => {
 			style={{
 				paddingTop:
 					viewport.isMobile || allFilters.length === 0 ? "20.2rem" : "29rem",
-				paddingLeft:
-					view === "cuadricula" ? "2rem" : "12rem",
+				/* paddingLeft: view === "cuadricula" ? "2rem" : "12rem", */
+				paddingLeft: infoFinal.length === 0 ? "0rem" : view === "cuadricula" ? "2rem" : "12rem",
 			}}
 		>
 			{infoFinal.length === 0 ? (
@@ -101,7 +115,10 @@ const RoHome = () => {
 			) : (
 				infoFinal.map((group) => (
 					<div className={"main-" + view} key={group.letter}>
-						<h1 style={{scrollMarginTop: "20rem"}} id={"seccion-" + group.letter.toLowerCase()}>
+						<h1
+							style={{ scrollMarginTop: "20rem" }}
+							id={"seccion-" + group.letter.toLowerCase()}
+						>
 							{group.letter} (
 							{group.drinks.length === 1
 								? `1 ${t("main__bebida")}`

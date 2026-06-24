@@ -185,6 +185,7 @@ const CoViewer = ({ drink, kind }) => {
 						style={{
 							mixBlendMode:
 								ganish.name === "ice cube" ? "soft-light" : "multiply",
+							zIndex: ganish.name === "ice cube" ? 1 : 0,
 						}}
 					>
 						<img

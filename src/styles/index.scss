@@ -53,47 +53,67 @@ body {
     margin: 0;
     margin: 2rem 5rem 12rem 5rem;
     font-family: "Outfit", sans-serif;
-    background-color: #fff;
     position: relative;
     text-transform: lowercase;
     @include fnFont(1.8rem, 400, normal, normal, $negro);
+    -webkit-font-smoothing: antialiased;
 }
 
 body::before {
     content: "";
     position: fixed;
-    top: 0;
-    left: 0;
-    width: 100dvw;
-    height: 150dvh;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+
+    // --- CONFIGURACIÓN PARA DESKTOP ---
+    background-image: 
+        repeating-radial-gradient(#000 0, #000 1px, transparent 1px, transparent 100%),
+        repeating-radial-gradient(#000 0, #000 1px, transparent 1px, transparent 100%);
+    background-size: 8px 8px;
+    background-position: 0 0, 4px 4px;
+    opacity: 0.06;
+    animation: print-shift 0.3s steps(2) infinite;
+    // ----------------------------------
 
     @media (max-width: 768px) {
-        display: none;
+        // 1. Reducimos el tamaño de los puntos a la mitad para que se vea más fino
+        background-size: 4px 4px; 
+        background-position: 0 0, 2px 2px;
+
+        // 2. Bajamos drásticamente la opacidad
+        opacity: 0.04; 
+
+        // 3. Ralentizamos la animación o la quitamos si marea mucho
+        animation: print-shift 0.6s steps(2) infinite;
     }
 
-    /* Ruido de alto contraste (blanco y negro) */
-    background-image:
-        repeating-radial-gradient(#000 0 0.0001%, #fff 0 0.0002%),
-        repeating-conic-gradient(#000 0 0.0001%, #fff 0 0.0002%);
-    background-blend-mode: difference;
-    /* Bajamos la opacidad aquí para que sea 'ligero' */
-    opacity: 0.05;
-
-    /* Animación rápida (como pediste al inicio) pero con saltos */
-    animation: noise-move 0.2s steps(2) infinite;
-
+    transform: rotate(15deg);
+    background-blend-mode: multiply;
     pointer-events: none;
-    z-index: 9999; /* Esto asegura que esté POR ENCIMA de todo */
+    z-index: 9999;
+    will-change: transform;
 }
 
-@keyframes noise-move {
-    0% {
-        background-position: 0 0;
-    }
-    100% {
-        background-position: 10px 10px;
+// Ajustamos el Keyframe para que sea relativo al tamaño de los puntos
+@keyframes print-shift {
+    0% { transform: rotate(15deg) translate(0, 0); }
+    100% { 
+        // En desktop se mueve 2px, en móvil se verá sutil
+        transform: rotate(15deg) translate(1px, 0.5px); 
     }
 }
+
+
+
+
+
+
+
+
+
+
 
 a {
     text-decoration: none;

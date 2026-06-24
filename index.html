@@ -19,5 +19,16 @@
 	<body>
 		<div id="root"></div>
 		<script type="module" src="/src/main.jsx"></script>
+		<svg style="display: none">
+			<filter id="halftone">
+				<feComponentTransfer color-interpolation-filters="sRGB">
+					<feFuncR type="discrete" tableValues="0 1" />
+					<feFuncG type="discrete" tableValues="0 1" />
+					<feFuncB type="discrete" tableValues="0 1" />
+				</feComponentTransfer>
+				<feTile result="dots" />
+				<feComposite operator="in" in="SourceGraphic" in2="dots" />
+			</filter>
+		</svg>
 	</body>
 </html>

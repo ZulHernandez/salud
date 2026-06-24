@@ -23,8 +23,6 @@ const idiomas = [
 	{ name: "español", value: "es" },
 	{ name: "english", value: "en" },
 	{ name: "日本語", value: "ja" },
-	{ name: "français", value: "fr" },
-	{ name: "русский", value: "ru" },
 ];
 
 const CoDropMenu = ({ list, action, closeMenu }) => {

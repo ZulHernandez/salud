@@ -36,13 +36,19 @@ const CoIndex = () => {
 		const sorted = filtered.sort((a, b) => {
 			return collator.compare(t(a[0]), t(b[0]));
 		});
+		
+		let letters = [];
 
 		// Agrupamos en un Array
 		return sorted.reduce((acc, [key, data]) => {
 			const translatedName = t(key);
 			const firstLetter = translatedName.charAt(0).toUpperCase();
 
-			let group = acc.find((g) => g.letter === firstLetter);
+			letters.push(firstLetter.toLowerCase());
+			console.log("letras:", letters);
+
+			let group = acc.find((g) => g.letter === firstLetter);			
+
 			if (!group) {
 				group = { letter: firstLetter, drinks: [] };
 				acc.push(group);
@@ -54,19 +60,13 @@ const CoIndex = () => {
 		// IMPORTANTE: language debe estar aquí para que se dispare el re-render
 	}, [language, searchQuery, allFilters, t]);
 
-	const ordDrinks = useMemo(
-		() => infoFinal.flatMap((g) => g.drinks),
-		[infoFinal],
-	);
-
-    const iniciales = ordDrinks.map(item => item.key[0].toLowerCase());
-    const inicialesUnicas = [...new Set(iniciales)];
+    const inicialesUnicas = [...new Set(infoFinal.map((g) => g.letter))];
 
 	return (
 		<div className={`index${!isNavVisible ? "--short" : ""}`}>
 			{inicialesUnicas.map((letra) => (
                 <a
-                    href={`#seccion-${letra}`}
+                    href={`#seccion-${letra.toLowerCase()}`}
                     key={letra}
                 >
                     {letra.toLowerCase()}

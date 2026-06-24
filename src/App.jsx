@@ -1,5 +1,6 @@
 import { Route, Routes, Navigate } from "react-router-dom";
 import { Suspense } from "react";
+import { useState, useEffect } from "react";
 
 // Contextos
 import { LanguageContextProvider } from "./components/context/LanguageContext";
@@ -17,9 +18,11 @@ import CoIndex from "./components/general/CoIndex";
 import RoHome from "./routes/RoHome";
 import RoCarga from "./routes/RoCarga";
 
+import "./styles/index.scss";
+
 // App.jsx
 function App() {
-	const { allFilters} = useGlassFilter();
+	const { allFilters } = useGlassFilter();
 	const { viewport } = useUI();
 	const { view } = useView();
 
@@ -34,6 +37,7 @@ function App() {
 				path="/home/:lang/:view"
 				element={
 					<>
+						<div className="halftone-overlay"></div>
 						<CoNav />
 						<CoFilterMenu />
 						{view !== "cuadricula" ? <CoIndex /> : null}
