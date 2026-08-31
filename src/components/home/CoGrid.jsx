@@ -1,3 +1,5 @@
+import { memo } from "react";
+
 import "../../styles/pages/home/grid.scss";
 import { useLanguage } from "../context/LanguageContext";
 
@@ -5,11 +7,11 @@ import CoViewer from "./CoViewer";
 
 import chill from "../../assets/icons/chill.svg";
 
-const CoGrid = ({ drink }) => {
+const CoGrid = memo(({ drink }) => {
 	const { t } = useLanguage();
 
 	return (
-		<div className="grid">
+		<div className="grid" tabIndex={0}>
 			<h3>{t(drink.name)}</h3>
 			<CoViewer drink={drink} kind={"grid"}/>
 			<div className="grid-info">
@@ -32,6 +34,6 @@ const CoGrid = ({ drink }) => {
 			</div>
 		</div>
 	);
-};
+});
 
 export default CoGrid;

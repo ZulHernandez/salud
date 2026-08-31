@@ -3,11 +3,11 @@ import ReactDOM from "react-dom/client";
 import { BrowserRouter } from "react-router-dom";
 import ScrollToTop from "./components/context/ScrollToTop";
 
-import { GlassFilterProvider } from "./components/context/GlassFilterContext.jsx";
-import { UIContextProvider } from "./components/context/UIContext.jsx";
-import { LanguageContextProvider } from "./components/context/LanguageContext.jsx";
-import { ViewContextProvider } from "./components/context/ViewContext.jsx";
-import { ThemeContextProvider } from "./components/context/ThemeContext.jsx";
+import { GlassFilterProvider } from "./components/context/GlassFilterProvider.jsx";
+import { UIContextProvider } from "./components/context/UIProvider.jsx";
+import { LanguageContextProvider } from "./components/context/LanguageProvider.jsx";
+import { ViewContextProvider } from "./components/context/ViewProvider.jsx";
+import { ThemeContextProvider } from "./components/context/ThemeProvider.jsx";
 
 import "./styles/index.scss";
 

@@ -2,10 +2,13 @@
 
 .grid {
     @include fnFlex(column, flex-start, center, 3rem);
-    @include fnWidth(3rem, 3rem, 3rem, 3rem, calc(20% - 3rem));
+    // La fila (.main-cuadricula) ya trae un número fijo de tragos por
+    // breakpoint (ver CatalogProvider), así que cada card solo necesita
+    // repartirse el espacio disponible entre sus hermanas de la misma fila.
+    padding: 3rem;
+    flex: 1 1 0;
     min-width: 20rem;
     @media (max-width: 768px) {
-        @include fnWidth(3rem, 3rem, 3rem, 3rem, calc(20% - 3rem));
         min-width: 15rem;
     }
     background-color: #fff;
@@ -19,7 +22,9 @@
         15px -15px 30px 0 rgba(230, 230, 230, 0.05) inset,
         -15px -15px 30px 0 rgba(255, 255, 255, 0.225) inset,
         15px 15px 38px 0 rgba(230, 230, 230, 0.225) inset;
-    &:hover {
+    &:hover,
+    &:focus-within,
+    &:active {
         border-radius: 3rem;
         background: #fff;
         box-shadow:
@@ -30,8 +35,8 @@
             -15px -15px 30px 0 rgba(255, 255, 255, 0.9) inset,
             15px 15px 38px 0 rgba(230, 230, 230, 0.9) inset;
 
-        .grid-sticker {
-            opacity: 1;
+        .grid-viewer-liquid-layer {
+            background-color: transparent !important;
         }
         h3 {
             @include fnFont(3.2rem, 900, normal, -0.24rem, $negro);
@@ -61,15 +66,6 @@
         @include fnFont(3rem, 700, normal, -0.24rem, $negro);
         text-align: center;
         transition: all 0.3s ease;
-    }
-    &-sticker {
-        opacity: 0;
-        transition: all 0.3s ease;
-        bottom: -6rem;
-        left: -18rem;
-        display: block;
-        text-align: center;
-        width: 10rem;
     }
     &-viewer {
         @include fnFlex(column, flex-start, center, 0rem);

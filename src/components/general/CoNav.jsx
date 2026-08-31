@@ -150,7 +150,6 @@ const CoNavLink = ({ name, path, icon, list, action }) => {
 								: view === "tarjetas"
 									? "cuadricula"
 									: "lista";
-						console.log(nextView);
 
 						setView(nextView);
 					} else if (action === "toggleSidebar") {

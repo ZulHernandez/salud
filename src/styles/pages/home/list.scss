@@ -15,7 +15,9 @@
         15px -15px 30px 0 rgba(230, 230, 230, 0.05) inset,
         -15px -15px 30px 0 rgba(255, 255, 255, 0.225) inset,
         15px 15px 38px 0 rgba(230, 230, 230, 0.225) inset;
-    &:hover {
+    &:hover,
+    &:focus-within,
+    &:active {
         border-radius: 3rem;
         background: #fff;
         box-shadow:
@@ -26,8 +28,8 @@
             -15px -15px 30px 0 rgba(255, 255, 255, 0.9) inset,
             15px 15px 38px 0 rgba(230, 230, 230, 0.9) inset;
 
-        .list-sticker {
-            opacity: 1;
+        .list-viewer-liquid-layer {
+            background-color: transparent !important;
         }
 
         .list-viewer {
@@ -53,13 +55,6 @@
                 }
             }
         }
-    }
-    &-sticker {
-        opacity: 0;
-        transition: all 0.3s ease;
-        bottom: 8rem;
-        left: -10rem;
-        display: block;
     }
     &-viewer {
         @include fnFlex(column, flex-start, center, 0rem);

@@ -5,10 +5,20 @@
     @include fnWidth(5rem, 5rem, 5rem, 5rem, 50rem);
     min-width: 50rem;
     max-width: 50rem;
+    // Dentro de "cards-container" (carrusel horizontal) todas las cards de
+    // una letra quedan montadas en el DOM a la vez (ese eje no se virtualiza,
+    // ver useCatalogRows). content-visibility le dice al navegador que se
+    // salte layout y pintado de las cards que están fuera de vista, para que
+    // no se sienta atorado al hacer scroll rápido. El alto es solo un punto
+    // de partida: "auto" hace que el navegador recuerde el alto real luego
+    // del primer render.
+    content-visibility: auto;
+    contain-intrinsic-size: auto 50rem auto 60rem;
     @media (max-width: 768px) {
         @include fnWidth(5rem, 5rem, 5rem, 5rem, 60dvw);
         min-width: 60dvw;
         max-width: 60dvw;
+        contain-intrinsic-size: auto 60dvw auto 60rem;
     }
     background-color: #fff;
     border-radius: 3rem;
@@ -21,7 +31,9 @@
         15px -15px 30px 0 rgba(230, 230, 230, 0.05) inset,
         -15px -15px 30px 0 rgba(255, 255, 255, 0.225) inset,
         15px 15px 38px 0 rgba(230, 230, 230, 0.225) inset;
-    &:hover {
+    &:hover,
+    &:focus-within,
+    &:active {
         border-radius: 3rem;
         background: #fff;
         box-shadow:
@@ -32,8 +44,8 @@
             -15px -15px 30px 0 rgba(255, 255, 255, 0.9) inset,
             15px 15px 38px 0 rgba(230, 230, 230, 0.9) inset;
 
-        .card-sticker {
-            opacity: 1;
+        .card-viewer-liquid-layer {
+            background-color: transparent !important;
         }
         h3 {
             @include fnFont(4.8rem, 900, normal, -0.24rem, $negro);
@@ -63,15 +75,6 @@
         @include fnFont(4.8rem, 700, normal, -0.24rem, $negro);
         text-align: center;
         transition: all 0.3s ease;
-    }
-    &-sticker {
-        opacity: 0;
-        transition: all 0.3s ease;
-        bottom: -6rem;
-        left: -20rem;
-        display: block;
-        text-align: center;
-        width: 10rem;
     }
     &-viewer {
         @include fnFlex(column, flex-start, center, 0rem);

@@ -16,12 +16,11 @@
         width: 100%;
     }
     &-cuadricula {
-        @include fnFlex(row, center, flex-start, 3rem);
+        // Cada fila ya trae exactamente "columns" tragos (los arma
+        // useCatalogRows para la virtualización), así que no hace falta
+        // flex-wrap: la fila siempre cabe.
+        @include fnFlex(row, flex-start, flex-start, 3rem);
         width: 100%;
-        flex-wrap: wrap;
-        @media (max-width: 660px) {
-            @include fnFlex(row, center, flex-start, 3rem);
-        }
     }
     &-no-results {
         @include fnFlex(column, center, center, 1rem);

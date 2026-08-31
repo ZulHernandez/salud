@@ -227,14 +227,3 @@ input[type="text"] {
     filter: blur(50px);
 }
 
-.card-sticker,
-.grid-sticker,
-.list-sticker {
-    @include fnFont(2.2rem, 900, normal, normal, $rojo);
-    font-family: "Story Script", cursive;
-    text-align: center;
-    rotate: -10deg;
-    position: relative;
-    z-index: 2;
-    width: 20rem;
-}

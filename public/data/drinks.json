@@ -1,0 +1,581 @@
+{
+	"negroni": {
+		"glass": "double old fashioned",
+		"ingredients": [
+			{
+				"alcohol": "rosso vermouth",
+				"quantity": 30
+			},
+			{
+				"alcohol": "campari",
+				"quantity": 30
+			},
+			{
+				"alcohol": "gin",
+				"quantity": 30
+			}
+		],
+		"ganish": [
+			"orange",
+			"ice_cube"
+		],
+		"unity": "ml",
+		"infoAli": {
+			"calories": 183,
+			"alcVol": 21.57
+		},
+		"mix_color": "#D55633"
+	},
+	"last word": {
+		"glass": "coupe - coupette - champagne",
+		"ingredients": [
+			{
+				"alcohol": "agua",
+				"quantity": 10,
+				"chill": true
+			},
+			{
+				"alcohol": "jugo de limon",
+				"quantity": 20
+			},
+			{
+				"alcohol": "luxardo maraschino",
+				"quantity": 20
+			},
+			{
+				"alcohol": "licor de hierbas",
+				"quantity": 20
+			},
+			{
+				"alcohol": "gin",
+				"quantity": 30
+			}
+		],
+		"ganish": [
+			"cherries"
+		],
+		"unity": "ml",
+		"infoAli": {
+			"calories": 185,
+			"alcVol": 21.88
+		},
+		"mix_color": "#D1CAAA"
+	},
+	"naked & famous": {
+		"glass": "coupe - coupette - champagne",
+		"ingredients": [
+			{
+				"alcohol": "jugo de limon",
+				"quantity": 22.5
+			},
+			{
+				"alcohol": "licor de genepi",
+				"quantity": 22.5
+			},
+			{
+				"alcohol": "aperol",
+				"quantity": 22.5
+			},
+			{
+				"alcohol": "mezcal",
+				"quantity": 22.5
+			}
+		],
+		"ganish": [
+			"lemon"
+		],
+		"unity": "ml",
+		"infoAli": {
+			"calories": 179,
+			"alcVol": 17.65
+		},
+		"mix_color": "#FE4D02"
+	},
+	"daiquiri": {
+		"glass": "coupe - coupette - champagne",
+		"ingredients": [
+			{
+				"alcohol": "agua",
+				"quantity": 7.5,
+				"chill": true
+			},
+			{
+				"alcohol": "sirope de azucar",
+				"quantity": 10
+			},
+			{
+				"alcohol": "jugo de limon",
+				"quantity": 15
+			},
+			{
+				"alcohol": "ron blanco",
+				"quantity": 50
+			}
+		],
+		"ganish": [
+			"lemon"
+		],
+		"unity": "ml",
+		"infoAli": {
+			"calories": 139,
+			"alcVol": 17.84
+		},
+		"mix_color": "#E2DDD2"
+	},
+	"penicillin": {
+		"glass": "old fashioned",
+		"ingredients": [
+			{
+				"alcohol": "sirope de miel",
+				"quantity": 20
+			},
+			{
+				"alcohol": "jugo de limon",
+				"quantity": 20
+			},
+			{
+				"alcohol": "single malt whisky",
+				"quantity": 10
+			},
+			{
+				"alcohol": "licor de gengibre",
+				"quantity": 15
+			},
+			{
+				"alcohol": "blended whisky",
+				"quantity": 45
+			}
+		],
+		"ganish": [
+			"ice_cube",
+			"ginger"
+		],
+		"unity": "ml",
+		"infoAli": {
+			"calories": 220,
+			"alcVol": 17.91
+		},
+		"mix_color": "#B6A269"
+	},
+	"margarita en las rocas": {
+		"glass": "rocks",
+		"ingredients": [
+			{
+				"alcohol": "sirope de agave",
+				"quantity": 5
+			},
+			{
+				"alcohol": "jugo de limon",
+				"quantity": 22.5
+			},
+			{
+				"alcohol": "triple sec",
+				"quantity": 22.5
+			},
+			{
+				"alcohol": "tequila",
+				"quantity": 45
+			}
+		],
+		"ganish": [
+			"ice_cube",
+			"lemon"
+		],
+		"unity": "ml",
+		"infoAli": {
+			"calories": 167,
+			"alcVol": 20.9
+		},
+		"mix_color": "#C8C0AA"
+	},
+	"south side rickey": {
+		"glass": "collins",
+		"ingredients": [
+			{
+				"alcohol": "agua mineral",
+				"quantity": 40
+			},
+			{
+				"alcohol": "sirope de azucar",
+				"quantity": 22.5
+			},
+			{
+				"alcohol": "jugo de limon",
+				"quantity": 30
+			},
+			{
+				"alcohol": "gin",
+				"quantity": 60
+			}
+		],
+		"ganish": [
+			"ice_cube",
+			"lemon",
+			"mint"
+		],
+		"unity": "ml",
+		"infoAli": null,
+		"mix_color": "#E8E2C3"
+	},
+	"mezcal margarita": {
+		"glass": "rocks",
+		"ingredients": [
+			{
+				"alcohol": "sirope de agave",
+				"quantity": 5
+			},
+			{
+				"alcohol": "jugo de limon",
+				"quantity": 22.5
+			},
+			{
+				"alcohol": "triple sec",
+				"quantity": 22.5
+			},
+			{
+				"alcohol": "mezcal",
+				"quantity": 45
+			}
+		],
+		"ganish": [
+			"lemon",
+			"ice_cube"
+		],
+		"unity": "ml",
+		"infoAli": {
+			"calories": 163,
+			"alcVol": 21.59
+		},
+		"mix_color": "#DDDCC8"
+	},
+	"sabot": {
+		"glass": "coupe - coupette - champagne",
+		"ingredients": [
+			{
+				"alcohol": "champagne",
+				"quantity": 22.5
+			},
+			{
+				"alcohol": "clara de huevo",
+				"quantity": 15
+			},
+			{
+				"alcohol": "sirope de azucar",
+				"quantity": 10
+			},
+			{
+				"alcohol": "jugo de limon",
+				"quantity": 22.5
+			},
+			{
+				"alcohol": "triple sec",
+				"quantity": 22.5
+			},
+			{
+				"alcohol": "gin",
+				"quantity": 45
+			}
+		],
+		"ganish": [
+			"lemon"
+		],
+		"unity": "ml",
+		"infoAli": {
+			"calories": 209,
+			"alcVol": 16.17
+		},
+		"mix_color": "#CFC9B9"
+	},
+	"left bank martini": {
+		"glass": "coupe - coupette - champagne",
+		"ingredients": [
+			{
+				"alcohol": "vermouth",
+				"quantity": 7.5
+			},
+			{
+				"alcohol": "vino blanco",
+				"quantity": 15
+			},
+			{
+				"alcohol": "licor de flor de sauco",
+				"quantity": 15
+			},
+			{
+				"alcohol": "gin",
+				"quantity": 60
+			}
+		],
+		"ganish": [
+			"lemon"
+		],
+		"unity": "ml",
+		"infoAli": {
+			"calories": 190,
+			"alcVol": 24.93
+		},
+		"mix_color": "#D5CAB8"
+	},
+	"new york minute": {
+		"glass": "coupe - coupette - champagne",
+		"ingredients": [
+			{
+				"alcohol": "sirope de azucar",
+				"quantity": 5
+			},
+			{
+				"alcohol": "luxardo maraschino",
+				"quantity": 15
+			},
+			{
+				"alcohol": "carpano",
+				"quantity": 20
+			},
+			{
+				"alcohol": "tequila",
+				"quantity": 52.5
+			}
+		],
+		"ganish": [
+			"coffe_beans"
+		],
+		"unity": "ml",
+		"infoAli": {
+			"calories": 201,
+			"alcVol": 24.74
+		},
+		"mix_color": "#C73A02"
+	},
+	"brooklyn": {
+		"glass": "coupe - coupette - champagne",
+		"ingredients": [
+			{
+				"alcohol": "agua",
+				"quantity": 10,
+				"chill": true
+			},
+			{
+				"alcohol": "luxardo maraschino",
+				"quantity": 10
+			},
+			{
+				"alcohol": "amer picon",
+				"quantity": 10
+			},
+			{
+				"alcohol": "rosso vermouth",
+				"quantity": 15
+			},
+			{
+				"alcohol": "vermouth seco",
+				"quantity": 15
+			},
+			{
+				"alcohol": "whiskey",
+				"quantity": 45
+			}
+		],
+		"ganish": [
+			"cherries"
+		],
+		"unity": "ml",
+		"infoAli": {
+			"calories": 199,
+			"alcVol": 24.71
+		},
+		"mix_color": "#890B08"
+	},
+	"dam it jimmy": {
+		"glass": "martini",
+		"ingredients": [
+			{
+				"alcohol": "sirope de azucar",
+				"quantity": 5
+			},
+			{
+				"alcohol": "vermouth",
+				"quantity": 7.5
+			},
+			{
+				"alcohol": "fino sherry",
+				"quantity": 7.5
+			},
+			{
+				"alcohol": "ron blanco",
+				"quantity": 45
+			},
+			{
+				"alcohol": "sake",
+				"quantity": 45
+			}
+		],
+		"ganish": [
+			"olives_chesse"
+		],
+		"unity": "ml",
+		"infoAli": {
+			"calories": 175,
+			"alcVol": 19.81
+		},
+		"mix_color": "#D1C4A6"
+	},
+	"maduraised old fashioned godfather": {
+		"glass": "old fashioned",
+		"ingredients": [
+			{
+				"alcohol": "vino tinto",
+				"quantity": 15
+			},
+			{
+				"alcohol": "amaretto",
+				"quantity": 15
+			},
+			{
+				"alcohol": "blended whisky",
+				"quantity": 15
+			},
+			{
+				"alcohol": "whiskey",
+				"quantity": 15
+			},
+			{
+				"alcohol": "bourbon",
+				"quantity": 15
+			}
+		],
+		"ganish": [
+			"almond",
+			"ice_cube"
+		],
+		"unity": "ml",
+		"infoAli": {
+			"calories": 180,
+			"alcVol": 28.52
+		},
+		"mix_color": "#CB7802"
+	},
+	"the dante": {
+		"glass": "coupe - coupette - champagne",
+		"ingredients": [
+			{
+				"alcohol": "jugo de limon",
+				"quantity": 20
+			},
+			{
+				"alcohol": "sirope de azucar",
+				"quantity": 10
+			},
+			{
+				"alcohol": "licor de kummel",
+				"quantity": 10
+			},
+			{
+				"alcohol": "licor de hierbas",
+				"quantity": 10
+			},
+			{
+				"alcohol": "tequila blanco",
+				"quantity": 40
+			}
+		],
+		"ganish": [
+			"basil"
+		],
+		"unity": "ml",
+		"infoAli": {
+			"calories": 186,
+			"alcVol": 20.67
+		},
+		"mix_color": "#AAAA81"
+	},
+	"mezcal dante": {
+		"glass": "coupe - coupette - champagne",
+		"ingredients": [
+			{
+				"alcohol": "jugo de limon",
+				"quantity": 20
+			},
+			{
+				"alcohol": "sirope de agave",
+				"quantity": 10
+			},
+			{
+				"alcohol": "licor de kummel",
+				"quantity": 7.5
+			},
+			{
+				"alcohol": "licor de hierbas",
+				"quantity": 10
+			},
+			{
+				"alcohol": "tequila blanco",
+				"quantity": 15
+			},
+			{
+				"alcohol": "mezcal",
+				"quantity": 30
+			}
+		],
+		"ganish": [
+			"basil"
+		],
+		"unity": "ml",
+		"infoAli": {
+			"calories": null,
+			"alcVol": 21.42
+		},
+		"mix_color": "#C3BD8C"
+	},
+	"martini de un trago": {
+		"glass": "shot",
+		"ingredients": [
+			{
+				"alcohol": "fino sherry",
+				"quantity": 5
+			},
+			{
+				"alcohol": "ambrato",
+				"quantity": 15
+			},
+			{
+				"alcohol": "vodka",
+				"quantity": 30
+			}
+		],
+		"ganish": [
+			"olives_chesse"
+		],
+		"unity": "ml",
+		"infoAli": {
+			"calories": 91,
+			"alcVol": 24.34
+		},
+		"mix_color": "#BFB9BF"
+	},
+	"daiquiri No.1": {
+		"glass": "coupe - coupette - champagne",
+		"ingredients": [
+			{
+				"alcohol": "sirope de azucar",
+				"quantity": 10
+			},
+			{
+				"alcohol": "jugo de limon",
+				"quantity": 20
+			},
+			{
+				"alcohol": "ron añejo",
+				"quantity": 50
+			}
+		],
+		"ganish": [
+			"lemon"
+		],
+		"unity": "ml",
+		"infoAli": {
+			"calories": 139,
+			"alcVol": 17.84
+		},
+		"mix_color": "#E9E0C3"
+	}
+}

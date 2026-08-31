@@ -22,3 +22,13 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Sass compilado (se genera al vuelo con el plugin de Vite, no debe versionarse)
+src/styles/**/*.css
+src/styles/**/*.css.map
+
+# Carpeta temporal de limpieza (archivos movidos aqui en vez de borrados, revisar y eliminar)
+/_to_delete/
+
+# Config local de Claude Code (launch.json para levantar el dev server desde el editor)
+.claude/

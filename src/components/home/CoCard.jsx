@@ -1,3 +1,5 @@
+import { memo } from "react";
+
 import "../../styles/pages/home/card.scss";
 import { useLanguage } from "../context/LanguageContext";
 
@@ -5,11 +7,11 @@ import CoViewer from "./CoViewer";
 
 import chill from "../../assets/icons/chill.svg";
 
-const CoCard = ({ drink }) => {
+const CoCard = memo(({ drink }) => {
 	const { t, language } = useLanguage();
 
 	return (
-		<div className="card">
+		<div className="card" tabIndex={0}>
 			<h3>{t(drink.name)}</h3>
 			<CoViewer drink={drink} kind={"card"} />
 			<div className="card-info">
@@ -67,6 +69,6 @@ const CoCard = ({ drink }) => {
 			</div>
 		</div>
 	);
-};
+});
 
 export default CoCard;

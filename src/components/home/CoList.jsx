@@ -1,3 +1,5 @@
+import { memo } from "react";
+
 import "../../styles/pages/home/list.scss";
 import { useLanguage } from "../context/LanguageContext";
 
@@ -5,11 +7,11 @@ import CoViewer from "./CoViewer";
 
 import chill from "../../assets/icons/chill.svg";
 
-const CoList = ({ drink }) => {
+const CoList = memo(({ drink }) => {
 	const { t, language } = useLanguage();
 
 	return (
-		<div className="list">
+		<div className="list" tabIndex={0}>
 			<CoViewer drink={drink} kind={"list"} />
 			<div className="list-info">
 				<h3>{t(drink.name)}</h3>
@@ -61,6 +63,6 @@ const CoList = ({ drink }) => {
 			</div>
 		</div>
 	);
-};
+});
 
 export default CoList;

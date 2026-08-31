@@ -1,11 +1,5 @@
 import { Route, Routes, Navigate } from "react-router-dom";
 import { Suspense } from "react";
-import { useState, useEffect } from "react";
-
-// Contextos
-import { LanguageContextProvider } from "./components/context/LanguageContext";
-import { ViewContextProvider } from "./components/context/ViewContext";
-import { ThemeContextProvider } from "./components/context/ThemeContext";
 
 import { useGlassFilter } from "./components/context/GlassFilterContext";
 import { useUI } from "./components/context/UIContext";
@@ -15,10 +9,10 @@ import CoNav from "./components/general/CoNav";
 import CoFilterMenu from "./components/general/CoFilterMenu";
 import CoFilters from "./components/general/CoFilters";
 import CoIndex from "./components/general/CoIndex";
+import CoErrorBoundary from "./components/general/CoErrorBoundary";
+import { CatalogProvider } from "./components/context/CatalogProvider";
 import RoHome from "./routes/RoHome";
 import RoCarga from "./routes/RoCarga";
-
-import "./styles/index.scss";
 
 // App.jsx
 function App() {
@@ -40,13 +34,20 @@ function App() {
 						<div className="halftone-overlay"></div>
 						<CoNav />
 						<CoFilterMenu />
-						{view !== "cuadricula" ? <CoIndex /> : null}
-						{allFilters.length > 0 && !viewport.isMobile && (
-							<CoFilters filtros={allFilters} />
-						)}
-						<Suspense fallback={<RoCarga />}>
-							<RoHome />
-						</Suspense>
+						{/* El catálogo ahora se carga por fetch (ver drinksSource.js), así
+						que todo lo que depende de él -incluyendo el índice y los filtros-
+						tiene que esperar dentro del mismo Suspense. */}
+						<CoErrorBoundary>
+							<Suspense fallback={<RoCarga />}>
+								<CatalogProvider>
+									{view !== "cuadricula" ? <CoIndex /> : null}
+									{allFilters.length > 0 && !viewport.isMobile && (
+										<CoFilters filtros={allFilters} />
+									)}
+									<RoHome />
+								</CatalogProvider>
+							</Suspense>
+						</CoErrorBoundary>
 					</>
 				}
 			/>

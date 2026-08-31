@@ -2,12 +2,12 @@ import { useView } from "../components/context/ViewContext";
 import { useLanguage } from "../components/context/LanguageContext";
 import { useUI } from "../components/context/UIContext";
 import { useGlassFilter } from "../components/context/GlassFilterContext";
-import { useEffect, useState, useMemo } from "react"; // Añadido useMemo
+import { useCatalog } from "../components/context/CatalogContext";
+import { useEffect, useState } from "react";
 
 import "../styles/general/route.scss";
 import "../styles/pages/home.scss";
 
-import drinks from "../utils/drinks";
 import { glassware_imgs } from "../utils/glassware";
 
 import CoList from "../components/home/CoList";
@@ -16,59 +16,11 @@ import CoGrid from "../components/home/CoGrid";
 
 const RoHome = () => {
 	const { view, setView } = useView();
-	const { t, language } = useLanguage(); // Asegúrate de exportar 'translations' en tu Context
+	const { t } = useLanguage();
 	const { viewport } = useUI();
-	const { allFilters, searchQuery } = useGlassFilter();
+	const { allFilters } = useGlassFilter();
+	const { infoFinal, rows, virtualizer, listRef } = useCatalog();
 	const [index, setIndex] = useState(0);
-
-	// 1. Obtener los nombres traducidos ANTES de ordenar
-	// Esto nos asegura que el Collator compare strings reales del idioma actual
-	const infoFinal = useMemo(() => {
-		const collator = new Intl.Collator(language, {
-			numeric: true,
-			sensitivity: "base",
-		});
-
-		// Filtramos primero
-		const filtered = Object.entries(drinks).filter(([key, drink]) => {
-			const translatedName = t(key).toLowerCase();
-			const searchLower = searchQuery.toLowerCase();
-
-			// Filtro de chips (buscamos en la data cruda del trago)
-			const searchableContent = JSON.stringify(drink).toLowerCase();
-			const matchesChips = allFilters.every((f) =>
-				searchableContent.includes(f.text.toLowerCase()),
-			);
-
-			return matchesChips && translatedName.includes(searchLower);
-		});
-
-		// Ordenamos por la traducción
-		const sorted = filtered.sort((a, b) => {
-			return collator.compare(t(a[0]), t(b[0]));
-		});
-
-		// Agrupamos en un Array
-		return sorted.reduce((acc, [key, data]) => {
-			const translatedName = t(key);
-			const firstLetter = translatedName.charAt(0).toUpperCase();
-
-			let group = acc.find((g) => g.letter === firstLetter);
-			if (!group) {
-				group = { letter: firstLetter, drinks: [] };
-				acc.push(group);
-			}
-			group.drinks.push({ key, ...data });
-			return acc;
-		}, []);
-
-		// IMPORTANTE: language debe estar aquí para que se dispare el re-render
-	}, [language, searchQuery, allFilters, t]);
-
-	const ordDrinks = useMemo(
-		() => infoFinal.flatMap((g) => g.drinks),
-		[infoFinal],
-	);
 
 	const siguienteImagen = () => {
 		setIndex((prevIndex) =>
@@ -88,7 +40,55 @@ const RoHome = () => {
 		}
 	}, [viewport.isMobile, view, setView]);
 
-	// ... (tu useEffect del intervalo se mantiene igual)
+	// Pinta una fila del listado virtualizado según su tipo. La forma de cada
+	// fila la arma useCatalogRows (ver src/hooks) según la vista activa.
+	const renderRow = (row) => {
+		switch (row.type) {
+			case "header":
+				return (
+					<h1>
+						{row.letter} (
+						{row.count === 1
+							? `1 ${t("main__bebida")}`
+							: `${row.count} ${t("main__bebidas")}`}
+						)
+					</h1>
+				);
+			case "drink":
+				return (
+					<div className="main-lista">
+						<CoList drink={row.drink} />
+					</div>
+				);
+			case "letter-section":
+				return (
+					<div className="main-tarjetas">
+						<h1>
+							{row.letter} (
+							{row.drinks.length === 1
+								? `1 ${t("main__bebida")}`
+								: `${row.drinks.length} ${t("main__bebidas")}`}
+							)
+						</h1>
+						<div className="cards-container">
+							{row.drinks.map((drink) => (
+								<CoCard key={drink.key} drink={drink} />
+							))}
+						</div>
+					</div>
+				);
+			case "grid-row":
+				return (
+					<div className="main-cuadricula">
+						{row.drinks.map((drink) => (
+							<CoGrid key={drink.key} drink={drink} />
+						))}
+					</div>
+				);
+			default:
+				return null;
+		}
+	};
 
 	return (
 		<div
@@ -96,8 +96,12 @@ const RoHome = () => {
 			style={{
 				paddingTop:
 					viewport.isMobile || allFilters.length === 0 ? "20.2rem" : "29rem",
-				/* paddingLeft: view === "cuadricula" ? "2rem" : "12rem", */
-				paddingLeft: infoFinal.length === 0 ? "0rem" : view === "cuadricula" ? "2rem" : "12rem",
+				paddingLeft:
+					infoFinal.length === 0
+						? "0rem"
+						: view === "cuadricula"
+							? "2rem"
+							: "12rem",
 			}}
 		>
 			{infoFinal.length === 0 ? (
@@ -106,36 +110,34 @@ const RoHome = () => {
 					<h2>{t("main-no-results__h2")}</h2>
 					<span>{t("main-no-results__span")}</span>
 				</div>
-			) : view === "cuadricula" ? (
-				<div className="main-cuadricula">
-					{ordDrinks.map((drink) => (
-						<CoGrid key={drink.key} drink={drink} />
+			) : (
+				<div
+					ref={listRef}
+					style={{
+						position: "relative",
+						width: "100%",
+						height: virtualizer.getTotalSize(),
+					}}
+				>
+					{virtualizer.getVirtualItems().map((virtualRow) => (
+						<div
+							key={virtualRow.key}
+							data-index={virtualRow.index}
+							ref={virtualizer.measureElement}
+							style={{
+								position: "absolute",
+								top: 0,
+								left: 0,
+								width: "100%",
+								transform: `translateY(${
+									virtualRow.start - virtualizer.options.scrollMargin
+								}px)`,
+							}}
+						>
+							{renderRow(rows[virtualRow.index])}
+						</div>
 					))}
 				</div>
-			) : (
-				infoFinal.map((group) => (
-					<div className={"main-" + view} key={group.letter}>
-						<h1
-							style={{ scrollMarginTop: "20rem" }}
-							id={"seccion-" + group.letter.toLowerCase()}
-						>
-							{group.letter} (
-							{group.drinks.length === 1
-								? `1 ${t("main__bebida")}`
-								: `${group.drinks.length} ${t("main__bebidas")}`}
-							)
-						</h1>
-						<div className={view === "tarjetas" ? "cards-container" : ""}>
-							{group.drinks.map((drink) =>
-								view === "tarjetas" ? (
-									<CoCard key={drink.key} drink={drink} />
-								) : (
-									<CoList key={drink.key} drink={drink} />
-								),
-							)}
-						</div>
-					</div>
-				))
 			)}
 		</div>
 	);

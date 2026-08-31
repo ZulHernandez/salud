@@ -19,7 +19,6 @@ export const translations = {
 		"main-no-results__span": "intenta con otros filtros o sin ellos",
 		"list-info-ali--kcal": "kcal",
 		"list-info-ali--alcVol": "alc./vol.",
-		"viewer-sticker": "¡acercate, véme mezclado!",
 		glassware: {
 			"absinthe": "absenta",
 			"boston - pint": "cerveza - pinta",
@@ -142,7 +141,6 @@ export const translations = {
 		"main-no-results__span": "try with other filters or without them",
 		"list-info-ali--kcal": "kcal",
 		"list-info-ali--alcVol": "alc./vol.",
-		"viewer-sticker": "approach and see me mixed!",
 		glassware: {
 			"absinthe": "absinthe",
 			"boston - pint": "boston - pint",
@@ -265,7 +263,6 @@ export const translations = {
 		"main-no-results__span": "他のフィルターやフィルターなしで試してください",
 		"list-info-ali--kcal": "kcal",
 		"list-info-ali--alcVol": "alc./vol.",
-		"viewer-sticker": "近づいて混ぜてみて！",
 		glassware: {
 			"absinthe": "アブサン",
 			"boston - pint": "ボストン - パイント",
