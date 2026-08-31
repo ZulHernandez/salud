@@ -1,0 +1,37 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  ci:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - run: npm ci
+      - run: npm run lint
+      - run: npm run build
+
+      # Regenera public/data/drinks.json a partir de src/utils/drinks.js y
+      # valida su forma (ver validarRecetas en el script). Si drinks.js
+      # cambió y alguien olvidó correr el script antes de commitear, esto
+      # lo detecta: el diff de abajo falla el job.
+      - name: Compilar y validar catálogo
+        run: node scripts/build-drinks-data.mjs
+
+      - name: Verificar que public/data/drinks.json está al día
+        run: |
+          if ! git diff --quiet -- public/data/drinks.json; then
+            echo "public/data/drinks.json quedó desactualizado respecto a src/utils/drinks.js."
+            echo "Corre 'node scripts/build-drinks-data.mjs' y commitea el resultado."
+            git diff -- public/data/drinks.json
+            exit 1
+          fi

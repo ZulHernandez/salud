@@ -1,0 +1,64 @@
+name: Publicar catálogo en salud-data
+
+# Automatiza lo que describe el README de salud-data: compilar
+# drinks.json, subirlo a ese repo y purgar la caché de jsDelivr. Antes
+# esto era manual (y fácil de olvidar, sobre todo el paso de purga).
+#
+# Requiere un secret SALUD_DATA_TOKEN en este repo: un Personal Access
+# Token (classic, scope "repo") de una cuenta con permiso de escritura en
+# ZulHernandez/salud-data. Configúralo en
+# Settings -> Secrets and variables -> Actions -> New repository secret.
+on:
+  push:
+    branches: [main]
+    paths:
+      - "src/utils/drinks.js"
+      - "src/utils/glassware.js"
+      - "src/utils/licours.js"
+      - "scripts/build-drinks-data.mjs"
+  workflow_dispatch:
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout salud
+        uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - run: npm ci
+
+      - name: Compilar y validar catálogo
+        run: node scripts/build-drinks-data.mjs
+
+      - name: Checkout salud-data
+        uses: actions/checkout@v4
+        with:
+          repository: ZulHernandez/salud-data
+          token: ${{ secrets.SALUD_DATA_TOKEN }}
+          path: salud-data
+
+      - name: Copiar catálogo y publicar si cambió
+        id: publicar
+        run: |
+          cp public/data/drinks.json salud-data/drinks.json
+          cd salud-data
+          if git diff --quiet -- drinks.json; then
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+            echo "drinks.json sin cambios, no hay nada que publicar."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add drinks.json
+          git commit -m "Actualizar catálogo desde ZulHernandez/salud@${GITHUB_SHA::7}"
+          git push
+          echo "changed=true" >> "$GITHUB_OUTPUT"
+
+      - name: Purgar caché de jsDelivr
+        if: steps.publicar.outputs.changed == 'true'
+        run: curl -fsS https://purge.jsdelivr.net/gh/ZulHernandez/salud-data@main/drinks.json

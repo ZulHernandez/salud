@@ -18,6 +18,30 @@ const URL_CATALOGO =
 		? "/data/drinks.json"
 		: "https://cdn.jsdelivr.net/gh/ZulHernandez/salud-data@main/drinks.json");
 
+const CLAVE_CACHE = "salud:catalogo-cache:v1";
+
+// Última copia buena del catálogo (las "recetas" livianas, sin hidratar),
+// para poder seguir mostrando algo si el próximo fetch falla (sin
+// internet, el CDN caído, etc.) en vez de solo un error. No es una fuente
+// de verdad: si el fetch funciona, siempre se usa lo que llegue por red.
+function leerCache() {
+	try {
+		const guardado = localStorage.getItem(CLAVE_CACHE);
+		return guardado ? JSON.parse(guardado) : null;
+	} catch {
+		// Modo privado, cuota llena, localStorage deshabilitado, etc.
+		return null;
+	}
+}
+
+function guardarCache(recetas) {
+	try {
+		localStorage.setItem(CLAVE_CACHE, JSON.stringify(recetas));
+	} catch {
+		// Si no se puede guardar, simplemente no hay fallback la próxima vez.
+	}
+}
+
 // Promesa única y compartida entre toda la app: el fetch se dispara una
 // sola vez por sesión, sin importar cuántos componentes usen `use()` sobre
 // ella (CatalogProvider, y a través suyo, useFilteredDrinks).
@@ -31,6 +55,15 @@ export function getCatalogoPromise() {
 					throw new Error(`No se pudo cargar el catálogo (HTTP ${res.status})`);
 				}
 				return res.json();
+			})
+			.then((recetas) => {
+				guardarCache(recetas);
+				return recetas;
+			})
+			.catch((error) => {
+				const recetasCacheadas = leerCache();
+				if (!recetasCacheadas) throw error;
+				return recetasCacheadas;
 			})
 			.then((recetas) => hydrateDrinks(recetas, { glassware, licours }));
 	}
