@@ -1,9 +1,10 @@
-import { useEffect, useMemo } from "react";
-import { useLocation } from "react-router-dom";
+import { useCallback, useEffect, useMemo } from "react";
+import { useLocation, useNavigate } from "react-router-dom";
 import colores from "../../utils/colorTheme";
 import { ThemeContext } from "./ThemeContext";
 
 export const ThemeContextProvider = ({ children }) => {
+	const navigate = useNavigate();
 	const location = useLocation();
 	const searchParams = new URLSearchParams(location.search);
 
@@ -23,27 +24,21 @@ export const ThemeContextProvider = ({ children }) => {
 		document.documentElement.style.setProperty("--color-dinamico", accentColor);
 	}, [accentColor]);
 
-	// 3. ESCRIBIR: Actualizamos la URL con el nombre sin que React Router se meta
-	const setAccentColor = (newName) => {
-		// 1. Construimos la nueva URL manualmente
-		const searchParams = new URLSearchParams(window.location.search);
-		searchParams.set("color", newName);
-
-		// 2. Obtenemos el path actual (ej: /home/es/cuadricula)
-		const currentPath = window.location.pathname;
-		const newUrl = `${currentPath}?${searchParams.toString()}`;
-
-		// 3. CAMBIO SILENCIOSO: Actualiza la barra de direcciones
-		// sin que React Router se entere. Esto evita que App.jsx
-		// te mande a la vista por defecto "lista".
-		window.history.replaceState(null, "", newUrl);
-
-		// 4. FORZAR ACTUALIZACIÓN DE UI:
-		// Como no usamos navigate, hay que avisarle a React que el color cambió.
-		// Solo necesitamos que este componente se vuelva a renderizar.
-		// Puedes usar un pequeño estado interno si ves que el color no cambia al clickear.
-		window.dispatchEvent(new PopStateEvent('popstate'));
-	};
+	// 3. ESCRIBIR: igual que GlassFilterProvider con sus propios params (g/s/q),
+	// navigate(..., { replace: true }) sobre el mismo pathname: cambia solo
+	// el querystring sin meter una entrada nueva al historial ni tocar la
+	// vista activa (que se calcula aparte, a partir del pathname).
+	const setAccentColor = useCallback(
+		(newName) => {
+			const newParams = new URLSearchParams(location.search);
+			newParams.set("color", newName);
+			navigate(
+				{ pathname: location.pathname, search: newParams.toString() },
+				{ replace: true },
+			);
+		},
+		[location.pathname, location.search, navigate],
+	);
 
 	const value = useMemo(
 		() => ({
@@ -51,7 +46,7 @@ export const ThemeContextProvider = ({ children }) => {
 			colorName, // El nombre ("granada")
 			setAccentColor, // La función para cambiarlo
 		}),
-		[accentColor, colorName],
+		[accentColor, colorName, setAccentColor],
 	);
 
 	return (

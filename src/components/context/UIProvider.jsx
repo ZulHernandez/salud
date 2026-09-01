@@ -43,6 +43,15 @@ export const UIContextProvider = ({ children }) => {
             });
         };
 
+        // La primera medición (arriba, en el useState) puede quedar en 0x0
+        // si el layout todavía no está listo cuando el componente monta
+        // (una pestaña que arranca en segundo plano, por ejemplo): sin este
+        // llamado, isMobile quedaría atorado en "true" para siempre, porque
+        // nada vuelve a medir hasta el próximo resize real. Con esto se
+        // corrige apenas el layout esté listo, sin esperar a que el usuario
+        // mueva la ventana.
+        handleResize();
+
         window.addEventListener("resize", handleResize);
         return () => window.removeEventListener("resize", handleResize);
     }, []);

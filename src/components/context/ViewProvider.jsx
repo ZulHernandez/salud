@@ -16,11 +16,17 @@ export const ViewContextProvider = ({ children }) => {
 
 	// 2. Definimos setView.
 	// USAMOS un callback para que la función no cambie a menos que sea necesario
+	//
+	// { replace: true } es para cambios de vista que el usuario no pidió
+	// (ver el efecto de RoHome que fuerza "cuadricula" en mobile): si eso
+	// empujara una entrada nueva al historial, el botón "atrás" quedaría
+	// atrapado, porque volver a la vista anterior dispararía el mismo
+	// efecto y te mandaría para adelante otra vez.
 	const setView = useCallback(
-		(nextView) => {
+		(nextView, { replace = false } = {}) => {
 			// Importante: No uses location.search aquí directamente si quieres evitar bugs,
 			// pero para mantener filtros está bien.
-			navigate(`/home/${currentLang}/${nextView}${location.search}`);
+			navigate(`/home/${currentLang}/${nextView}${location.search}`, { replace });
 		},
 		[currentLang, location.search, navigate],
 	);

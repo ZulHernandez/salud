@@ -28,10 +28,15 @@ export function useFilteredDrinks() {
 			const translatedName = t(key).toLowerCase();
 			const searchLower = searchQuery.toLowerCase();
 
-			// Filtro de chips (buscamos en la data cruda del trago)
-			const searchableContent = JSON.stringify(drink).toLowerCase();
+			// Filtro de chips: comparamos contra los campos crudos del trago
+			// (glass.name / ingredients[].alcohol.name son las claves de
+			// glassware.js/licours.js, las mismas que arman los chips en
+			// GlassFilterProvider), en vez de buscar un substring sobre todo
+			// el objeto serializado.
 			const matchesChips = allFilters.every((f) =>
-				searchableContent.includes(f.text.toLowerCase()),
+				f.type === "glass"
+					? drink.glass.name === f.text
+					: drink.ingredients.some((ing) => ing.alcohol.name === f.text),
 			);
 
 			return matchesChips && translatedName.includes(searchLower);

@@ -33,10 +33,13 @@ const RoHome = () => {
 		return () => clearInterval(intervalo); // Limpieza al desmontar
 	}, []);
 
-	// Sync de vista para móviles
+	// Sync de vista para móviles. { replace: true } para no ensuciar el
+	// historial: si esto empujara una entrada nueva, el botón "atrás"
+	// quedaría atrapado (volver a la vista anterior re-dispara este mismo
+	// efecto y te manda para adelante otra vez).
 	useEffect(() => {
 		if (viewport.isMobile && view !== "cuadricula") {
-			setView("cuadricula");
+			setView("cuadricula", { replace: true });
 		}
 	}, [viewport.isMobile, view, setView]);
 
