@@ -1,10 +1,38 @@
 <!doctype html>
-<html lang="en">
+<html lang="es">
 	<head>
 		<meta charset="UTF-8" />
 		<link rel="icon" type="image/svg+xml" href="/vite.svg" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>salud</title>
+		<title>¡Salud! — Catálogo de coctelería</title>
+		<meta
+			name="description"
+			content="Catálogo interactivo de coctelería: explora recetas por vaso, licor y sabor, con vista previa 3D de cada trago."
+		/>
+		<meta name="theme-color" content="#EB584F" />
+
+		<!--
+			Nota: falta el dominio real (todavía no está publicado en Hostinger)
+			para poder poner og:url/canonical con una URL absoluta y un
+			sitemap.xml/robots.txt con "Sitemap:". Cuando lo tengan, agregar:
+			<link rel="canonical" href="https://TU-DOMINIO/home/es/lista" />
+			<meta property="og:url" content="https://TU-DOMINIO/home/es/lista" />
+		-->
+		<meta property="og:type" content="website" />
+		<meta property="og:locale" content="es_ES" />
+		<meta property="og:title" content="¡Salud! — Catálogo de coctelería" />
+		<meta
+			property="og:description"
+			content="Catálogo interactivo de coctelería: explora recetas por vaso, licor y sabor, con vista previa 3D de cada trago."
+		/>
+		<!-- TODO: agregar una imagen de vista previa real (og:image / twitter:image), ej. public/og-image.png, antes de compartir el link -->
+		<meta name="twitter:card" content="summary_large_image" />
+		<meta name="twitter:title" content="¡Salud! — Catálogo de coctelería" />
+		<meta
+			name="twitter:description"
+			content="Catálogo interactivo de coctelería: explora recetas por vaso, licor y sabor, con vista previa 3D de cada trago."
+		/>
+
 		<link rel="preconnect" href="https://fonts.googleapis.com" />
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 		<link
@@ -15,19 +43,78 @@
 			href="https://fonts.googleapis.com/css2?family=Story+Script&display=swap"
 			rel="stylesheet"
 		/>
+		<!--
+			Mono técnica: para datos "de ficha" (cantidades, precios, conteos
+			de filtro, número de catálogo de cada trago) en vez de la
+			geométrica Outfit -en un manual impreso real esos datos casi
+			siempre van en una tipografía de máquina de escribir/monoespaciada,
+			no en la misma fuente del cuerpo de texto.
+		-->
+		<link
+			href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400..700&display=swap"
+			rel="stylesheet"
+		/>
 	</head>
 	<body>
 		<div id="root"></div>
 		<script type="module" src="/src/main.jsx"></script>
+		<!--
+			Filtro de semitono real (se usa con la clase .halftone, ver
+			index.scss): en vez de solo posterizar a blanco/negro como el
+			filtro anterior, mide qué tan oscura es cada zona de la fuente y
+			pinta ahí una trama de puntos del color de tinta activo, más
+			densa mientras más oscuro el tono -así se comporta una trama de
+			impresión real, con "ganancia de punto" incluida (los tonos
+			medios se oscurecen más de lo lineal, simulando que la tinta se
+			esparce un poco en el papel).
+		-->
 		<svg style="display: none">
-			<filter id="halftone">
-				<feComponentTransfer color-interpolation-filters="sRGB">
-					<feFuncR type="discrete" tableValues="0 1" />
-					<feFuncG type="discrete" tableValues="0 1" />
-					<feFuncB type="discrete" tableValues="0 1" />
+			<defs>
+				<pattern
+					id="patronDeTrama"
+					width="6"
+					height="6"
+					patternUnits="userSpaceOnUse"
+					patternTransform="rotate(15)"
+				>
+					<circle cx="3" cy="3" r="2.85" fill="black" />
+				</pattern>
+				<rect id="tramaHalftone" width="100%" height="100%" fill="url(#patronDeTrama)" />
+			</defs>
+			<filter
+				id="halftone"
+				x="-20%"
+				y="-20%"
+				width="140%"
+				height="140%"
+				color-interpolation-filters="sRGB"
+			>
+				<!-- 1. Qué tan oscura es cada zona (1 = negro, 0 = blanco) -->
+				<feColorMatrix
+					type="matrix"
+					values="0 0 0 0 0
+					        0 0 0 0 0
+					        0 0 0 0 0
+					        -0.22 -0.72 -0.06 0 1"
+					result="oscuridad"
+				/>
+				<!-- 2. Ganancia de punto: la curva no es lineal, así que los
+				     tonos medios crecen más rápido de lo que deberían -->
+				<feComponentTransfer in="oscuridad" result="tono">
+					<feFuncA type="gamma" amplitude="1" exponent="0.4" offset="0" />
 				</feComponentTransfer>
-				<feTile result="dots" />
-				<feComposite operator="in" in="SourceGraphic" in2="dots" />
+				<!-- 3. Trama de puntos repetida sobre todo el área -->
+				<feImage href="#tramaHalftone" xlink:href="#tramaHalftone" result="trama" />
+				<feTile in="trama" result="tramaTileada" />
+				<!-- 4. Solo se ven los puntos donde el tono lo permite -->
+				<feComposite in="tramaTileada" in2="tono" operator="in" result="puntosVisibles" />
+				<!-- 5. Los puntos se pintan con el color de tinta activo -->
+				<feFlood flood-color="var(--color-dinamico, #eb584f)" result="tinta" />
+				<feComposite in="tinta" in2="puntosVisibles" operator="in" result="puntosDeTinta" />
+				<feMerge>
+					<feMergeNode in="SourceGraphic" />
+					<feMergeNode in="puntosDeTinta" />
+				</feMerge>
 			</filter>
 		</svg>
 	</body>

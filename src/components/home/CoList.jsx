@@ -2,6 +2,7 @@ import { memo } from "react";
 
 import "../../styles/pages/home/list.scss";
 import { useLanguage } from "../context/LanguageContext";
+import { useCatalogNumbers } from "../../hooks/useCatalogNumbers";
 
 import CoViewer from "./CoViewer";
 
@@ -9,11 +10,15 @@ import chill from "../../assets/icons/chill.svg";
 
 const CoList = memo(({ drink }) => {
 	const { t, language } = useLanguage();
+	const numerosDeCatalogo = useCatalogNumbers();
 
 	return (
 		<div className="list" tabIndex={0}>
 			<CoViewer drink={drink} kind={"list"} />
 			<div className="list-info">
+				<p className="list-info-numero">
+					N.{String(numerosDeCatalogo.get(drink.key) ?? 0).padStart(2, "0")}
+				</p>
 				<h3>{t(drink.name)}</h3>
 				<div className="list-info-ingredients">
 					{drink.ingredients.map((ingredient, index) => (

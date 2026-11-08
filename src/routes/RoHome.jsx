@@ -19,7 +19,8 @@ const RoHome = () => {
 	const { t } = useLanguage();
 	const { viewport } = useUI();
 	const { allFilters } = useGlassFilter();
-	const { infoFinal, rows, virtualizer, listRef } = useCatalog();
+	const { infoFinal, rows, virtualizer, listRef, pendingFocusIndex, clearPendingFocus } =
+		useCatalog();
 	const [index, setIndex] = useState(0);
 
 	const siguienteImagen = () => {
@@ -43,13 +44,30 @@ const RoHome = () => {
 		}
 	}, [viewport.isMobile, view, setView]);
 
+	// Después de un salto con scrollToLetter, mueve el foco de teclado al
+	// h1 de esa letra (scrollToIndex solo mueve el scroll). La fila recién
+	// pedida puede no estar montada todavía apenas se llama a scrollToIndex
+	// (el virtualizador necesita otra pasada), así que este efecto -sin
+	// arreglo de dependencias a propósito- reintenta en cada render hasta
+	// que la encuentra, y ahí limpia pendingFocusIndex para dejar de buscar.
+	useEffect(() => {
+		if (pendingFocusIndex == null) return;
+		const encabezado = document.querySelector(
+			`[data-index="${pendingFocusIndex}"] h1`,
+		);
+		if (encabezado) {
+			encabezado.focus();
+			clearPendingFocus();
+		}
+	});
+
 	// Pinta una fila del listado virtualizado según su tipo. La forma de cada
 	// fila la arma useCatalogRows (ver src/hooks) según la vista activa.
 	const renderRow = (row) => {
 		switch (row.type) {
 			case "header":
 				return (
-					<h1>
+					<h1 tabIndex={-1}>
 						{row.letter} (
 						{row.count === 1
 							? `1 ${t("main__bebida")}`
@@ -66,7 +84,7 @@ const RoHome = () => {
 			case "letter-section":
 				return (
 					<div className="main-tarjetas">
-						<h1>
+						<h1 tabIndex={-1}>
 							{row.letter} (
 							{row.drinks.length === 1
 								? `1 ${t("main__bebida")}`

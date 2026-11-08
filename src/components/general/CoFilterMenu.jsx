@@ -3,8 +3,7 @@ import { useLanguage } from "../context/LanguageContext";
 import { useTheme } from "../context/ThemeContext";
 import { useState } from "react";
 
-import { glassware_names } from "../../utils/glassware";
-import licours from "../../utils/licours";
+import { useAvailableFilters } from "../../hooks/useAvailableFilters";
 import { useUI } from "../context/UIContext";
 
 import CoFilter from "./CoFilter";
@@ -15,11 +14,18 @@ const CoColapsable = ({ title, list, desc, type }) => {
 	const { t } = useLanguage();
 	const [isOpen, setIsOpen] = useState(true);
 
+	// Si ninguna opción de esta sección deja resultados con lo que ya está
+	// activo/buscado, no tiene caso mostrar un encabezado colapsable vacío.
+	if (list.length === 0) return null;
+
 	return (
 		<div className="colapsable">
 			{desc && <span className="colapsable-desc">{desc}</span>}
 			<div className="colapsable-header" onClick={() => setIsOpen(!isOpen)}>
-				<h3>{t(title)}</h3>
+				<h3>
+					{t(title)}{" "}
+					<span className="colapsable-header-count">({list.length})</span>
+				</h3>
 				<img
 					style={
 						isOpen
@@ -45,6 +51,7 @@ const CoFilterMenu = () => {
 	const { t } = useLanguage();
 	const { accentColor } = useTheme();
 	const { toggleSidebar, isSidebarOpen } = useUI();
+	const { vasosDisponibles, licoresDisponibles } = useAvailableFilters();
 
 	return (
 		<div className={`sidebar${!isSidebarOpen ? "--close" : ""}`}>
@@ -71,13 +78,13 @@ const CoFilterMenu = () => {
 			<div className="sidebar-body">
 				<CoColapsable
 					title="colapsable-title__vasos"
-					list={glassware_names}
+					list={vasosDisponibles}
 					desc={t("colapsable-desc__general")}
 					type={"glassware"}
 				/>
 				<CoColapsable
 					title="colapsable-title__licores"
-					list={Object.keys(licours)}
+					list={licoresDisponibles}
 					desc={null}
 					type={"licours"}
 				/>

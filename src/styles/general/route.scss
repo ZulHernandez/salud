@@ -5,6 +5,18 @@
     padding: 2rem 5rem;
     h1 {
         margin: 0;
+        // Encabezado de sección tipo "capítulo de manual": mono, mayúsculas
+        // con tracking, y una línea de corte punteada abajo en vez de solo
+        // texto suelto -mismo lenguaje del resto de separadores impresos.
+        // Tamaño grande a propósito: el h1 de sección venía sin tamaño
+        // explícito (heredaba el default del navegador, bastante grande),
+        // así que mantenemos ese peso visual en vez de encogerlo.
+        @include fnFont(3.6rem, 700, normal, 0.08rem, $negro);
+        font-family: $mono;
+        text-transform: uppercase;
+        width: 100%;
+        padding-bottom: 1rem;
+        @include lineaPunteada($lado: bottom, $color: rgba($negro, 0.35));
     }
     @media (max-width: 660px) {
         padding: 18rem 3rem;

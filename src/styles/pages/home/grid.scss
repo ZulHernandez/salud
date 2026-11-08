@@ -11,29 +11,20 @@
     @media (max-width: 768px) {
         min-width: 15rem;
     }
-    background-color: #fff;
-    border-radius: 3rem;
+    background-color: $papel;
+    // Antes neumorfismo (varias capas de box-shadow blanco/gris difuminado):
+    // mismo cambio que card.scss/list.scss, sin sombra, solo borde fino.
+    position: relative;
+    border-radius: 0.8rem;
+    border: 1.5px solid rgba($negro, 0.18);
     transition: all 0.3s ease;
     cursor: pointer;
-    box-shadow:
-        1px 1px 2px 0 rgba(255, 255, 255, 0.075),
-        -1px -1px 2px 0 rgba(230, 230, 230, 0.125),
-        -15px 15px 30px 0 rgba(230, 230, 230, 0.05) inset,
-        15px -15px 30px 0 rgba(230, 230, 230, 0.05) inset,
-        -15px -15px 30px 0 rgba(255, 255, 255, 0.225) inset,
-        15px 15px 38px 0 rgba(230, 230, 230, 0.225) inset;
     &:hover,
     &:focus-within,
     &:active {
-        border-radius: 3rem;
-        background: #fff;
-        box-shadow:
-            1px 1px 2px 0 rgba(255, 255, 255, 0.3),
-            -1px -1px 2px 0 rgba(230, 230, 230, 0.5),
-            -15px 15px 30px 0 rgba(230, 230, 230, 0.2) inset,
-            15px -15px 30px 0 rgba(230, 230, 230, 0.2) inset,
-            -15px -15px 30px 0 rgba(255, 255, 255, 0.9) inset,
-            15px 15px 38px 0 rgba(230, 230, 230, 0.9) inset;
+        border-radius: 0.8rem;
+        background: $papel;
+        border-color: rgba($negro, 0.4);
 
         .grid-viewer-liquid-layer {
             background-color: transparent !important;
@@ -61,6 +52,19 @@
                 }
             }
         }
+    }
+    // Pastilla de color complementario arriba a la derecha, mismo
+    // lenguaje que card.scss/list.scss.
+    &-numero {
+        position: absolute;
+        top: -0.7rem;
+        right: 0.8rem;
+        @include fnFont(1.1rem, 700, normal, 0.06rem, $papel);
+        font-family: $mono;
+        text-transform: uppercase;
+        background-color: $rojo-complementario;
+        padding: 0.25rem 0.7rem;
+        border-radius: 1rem;
     }
     h3 {
         @include fnFont(3rem, 700, normal, -0.24rem, $negro);

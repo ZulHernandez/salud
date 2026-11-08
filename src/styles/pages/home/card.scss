@@ -20,29 +20,23 @@
         max-width: 60dvw;
         contain-intrinsic-size: auto 60dvw auto 60rem;
     }
-    background-color: #fff;
-    border-radius: 3rem;
+    background-color: $papel;
+    // Antes esto era neumorfismo (varias capas de box-shadow blanco/gris
+    // difuminado): se veía a botón de app, no a tarjeta impresa. Nada de
+    // sombra ahora -sobraba, ninguno de los impresos/menús de referencia
+    // usa sombra en sus tarjetas-, solo un borde fino, como una tarjeta
+    // recortada plana sobre la hoja.
+    position: relative;
+    border-radius: 0.8rem;
+    border: 1.5px solid rgba($negro, 0.18);
     transition: all 0.3s ease;
     cursor: pointer;
-    box-shadow:
-        1px 1px 2px 0 rgba(255, 255, 255, 0.075),
-        -1px -1px 2px 0 rgba(230, 230, 230, 0.125),
-        -15px 15px 30px 0 rgba(230, 230, 230, 0.05) inset,
-        15px -15px 30px 0 rgba(230, 230, 230, 0.05) inset,
-        -15px -15px 30px 0 rgba(255, 255, 255, 0.225) inset,
-        15px 15px 38px 0 rgba(230, 230, 230, 0.225) inset;
     &:hover,
     &:focus-within,
     &:active {
-        border-radius: 3rem;
-        background: #fff;
-        box-shadow:
-            1px 1px 2px 0 rgba(255, 255, 255, 0.3),
-            -1px -1px 2px 0 rgba(230, 230, 230, 0.5),
-            -15px 15px 30px 0 rgba(230, 230, 230, 0.2) inset,
-            15px -15px 30px 0 rgba(230, 230, 230, 0.2) inset,
-            -15px -15px 30px 0 rgba(255, 255, 255, 0.9) inset,
-            15px 15px 38px 0 rgba(230, 230, 230, 0.9) inset;
+        border-radius: 0.8rem;
+        background: $papel;
+        border-color: rgba($negro, 0.4);
 
         .card-viewer-liquid-layer {
             background-color: transparent !important;
@@ -70,6 +64,21 @@
                 }
             }
         }
+    }
+    // Pastilla de color complementario -mismo lenguaje que las etiquetas
+    // tipo "GOLDEN RATIO" de los pósters de referencia-, arriba a la
+    // derecha como una etiqueta de ficha/SKU, no metida en el flujo entre
+    // el vaso y el nombre.
+    &-numero {
+        position: absolute;
+        top: -0.8rem;
+        right: 1.2rem;
+        @include fnFont(1.2rem, 700, normal, 0.06rem, $papel);
+        font-family: $mono;
+        text-transform: uppercase;
+        background-color: $rojo-complementario;
+        padding: 0.3rem 0.8rem;
+        border-radius: 1rem;
     }
     h3 {
         @include fnFont(4.8rem, 700, normal, -0.24rem, $negro);
@@ -129,6 +138,7 @@
                     @include fnFlex(column, center, center, 0rem);
                     &-quantity {
                         @include fnFont(1.4rem, 750, normal, normal, $negro);
+                        font-family: $mono;
                         text-align: center;
                     }
                     &-name {
@@ -141,6 +151,7 @@
         &-ali {
             @include fnFlex(row, space-between, center, 1rem);
             @include fnWidth(0rem, 0rem, 0rem, 0rem, 100%);
+            font-family: $mono;
             span {
                 @include fnFont(3rem, 600, normal, normal, $negro);
                 transition: all 0.3s ease;

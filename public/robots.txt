@@ -1,0 +1,6 @@
+# Sitio de una sola página (SPA): no hay URLs individuales por coctel
+# todavía (esa vista de detalle aún no existe), así que no hay nada que
+# restringir. Cuando haya un dominio real, agregar aquí una línea
+# "Sitemap: https://TU-DOMINIO/sitemap.xml" si se llega a armar uno.
+User-agent: *
+Allow: /

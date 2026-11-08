@@ -1,5 +1,118 @@
-$rojo: var(--color-dinamico, #ff3f3f);
-$negro: #333333;
+$rojo: var(--color-dinamico, #eb584f);
+// $negro se corre un poco hacia cálido (antes #333333, gris neutro): la
+// tinta negra real casi nunca es un gris perfecto, y un papel color hueso
+// como $papel hace que un negro neutro se vea "de pantalla" al lado.
+$negro: #332c26;
+// Tono de papel base -crema/hueso, como un impreso offset real, no blanco
+// puro- para TODA superficie de la interfaz que antes era blanco puro o
+// #f4f4f4 (body, cards, sidebar, navbar, filtros...): un solo tono en
+// todos lados para que se sienta como una sola hoja, no un blanco "de
+// fábrica" insertado encima. Muy sutil a propósito -apenas un tinte-, la
+// profundidad entre superficies la siguen dando los box-shadow que ya
+// tenía cada componente, no un salto de color.
+$papel: #f8f5f2;
+
+// Complementario del acento activo (mismo tono/saturación, matiz +180°,
+// ver colorTheme.js/ThemeProvider). Para el par de contraste tipo
+// "etiqueta impresa" en vez de solo variaciones de un mismo color.
+$rojo-complementario: var(--color-complementario, #4fe2eb);
+
+// Mono técnica para datos "de ficha impresa": cantidades, precios, conteos
+// de filtro, número de catálogo. Todo lo demás (nombres, cuerpo de texto)
+// se queda en Outfit -esta es solo para que los datos se sientan tecleados
+// en una máquina, no de la misma fuente que el resto.
+$mono: "JetBrains Mono", "SFMono-Regular", Menlo, Consolas, monospace;
+
+// Crucecita de marca de registro (la marca de alineación de un impreso
+// real): puramente decorativa. Color fijo aproximando el fallback de
+// $rojo -no sigue --color-dinamico- porque va horneada en un data-URI y
+// aparece a muy baja opacidad, así que la diferencia entre tonos de
+// acento no se nota.
+$cruz-registro: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14'%3E%3Cline x1='7' y1='0' x2='7' y2='14' stroke='%23eb584f' stroke-opacity='0.4' stroke-width='1'/%3E%3Cline x1='0' y1='7' x2='14' y2='7' stroke='%23eb584f' stroke-opacity='0.4' stroke-width='1'/%3E%3C/svg%3E");
+
+// Dos crucecitas en las esquinas superiores del elemento. Pensado para
+// contenedores "de plancha" (navbar, sidebar) que no tengan ya su propio
+// background-image.
+@mixin marcasRegistro($margen: 1.2rem, $tamano: 1.4rem) {
+    background-image: $cruz-registro, $cruz-registro;
+    background-repeat: no-repeat;
+    background-size: $tamano $tamano;
+    background-position:
+        $margen $margen,
+        calc(100% - #{$margen} - #{$tamano}) $margen;
+}
+
+// Línea de corte punteada "a mano" en vez de un border: dashed nativo -ahí
+// el largo del guión y el hueco quedan atados al grosor del borde y no se
+// pueden separar-. Acá se controlan los tres por separado: guiones más
+// largos, huecos más anchos, trazo más grueso, como una línea de corte de
+// verdad en vez de una puntada fina.
+@mixin lineaPunteada(
+    $lado,
+    $color: rgba($negro, 0.3),
+    $grosor: 3px,
+    $guion: 9px,
+    $hueco: 9px
+) {
+    $paso: $guion + $hueco;
+    @if $lado == top or $lado == bottom {
+        background-image: repeating-linear-gradient(
+            to right,
+            $color 0,
+            $color $guion,
+            transparent $guion,
+            transparent $paso
+        );
+        background-size: $paso $grosor;
+        background-repeat: repeat-x;
+        background-position: left $lado;
+    } @else {
+        background-image: repeating-linear-gradient(
+            to bottom,
+            $color 0,
+            $color $guion,
+            transparent $guion,
+            transparent $paso
+        );
+        background-size: $grosor $paso;
+        background-repeat: repeat-y;
+        background-position: $lado top;
+    }
+}
+
+// Combinación de marcasRegistro + lineaPunteada lateral para un mismo
+// elemento (el sidebar necesita las dos y ambas viven en background-image,
+// así que hay que armarlas juntas en vez de que una pise a la otra).
+@mixin marcasYLineaLateral(
+    $lado: left,
+    $margenMarca: 1.2rem,
+    $tamanoMarca: 1.4rem,
+    $colorLinea: rgba($negro, 0.3),
+    $grosorLinea: 3px,
+    $guion: 9px,
+    $hueco: 9px
+) {
+    $paso: $guion + $hueco;
+    background-image:
+        $cruz-registro,
+        $cruz-registro,
+        repeating-linear-gradient(
+            to bottom,
+            $colorLinea 0,
+            $colorLinea $guion,
+            transparent $guion,
+            transparent $paso
+        );
+    background-repeat: no-repeat, no-repeat, repeat-y;
+    background-size:
+        $tamanoMarca $tamanoMarca,
+        $tamanoMarca $tamanoMarca,
+        $grosorLinea $paso;
+    background-position:
+        $margenMarca $margenMarca,
+        calc(100% - #{$margenMarca} - #{$tamanoMarca}) $margenMarca,
+        $lado top;
+}
 
 @mixin fnFlex($direction, $justify, $align, $gap) {
     display: flex;

@@ -33,11 +33,17 @@ function App() {
 					<>
 						<div className="halftone-overlay"></div>
 						<CoNav />
-						<CoFilterMenu />
 						{/* El catálogo ahora se carga por fetch (ver drinksSource.js), así
-						que todo lo que depende de él -incluyendo el índice y los filtros-
-						tiene que esperar dentro del mismo Suspense. */}
+						que todo lo que depende de él -incluyendo el sidebar de filtros,
+						el índice y los filtros activos- tiene que esperar dentro del
+						mismo error boundary. CoFilterMenu tiene su propio Suspense
+						(fallback null: no hay nada sensato que mostrar ahí mientras
+						carga) para no bloquear el contenido principal si por lo que sea
+						resuelve distinto. */}
 						<CoErrorBoundary>
+							<Suspense fallback={null}>
+								<CoFilterMenu />
+							</Suspense>
 							<Suspense fallback={<RoCarga />}>
 								<CatalogProvider>
 									{view !== "cuadricula" ? <CoIndex /> : null}

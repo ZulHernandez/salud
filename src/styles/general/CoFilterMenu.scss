@@ -7,14 +7,14 @@
     top: 0;
     right: 0rem;
     height: 97dvh;
-    background: #f4f4f4;
-    box-shadow:
-        2px 2px 3px 0 rgba(255, 255, 255, 0.3) inset,
-        -2px -2px 3px 0 rgba(146, 146, 146, 0.5) inset,
-        -50px 50px 100px 0 rgba(146, 146, 146, 0.2),
-        50px -50px 100px 0 rgba(146, 146, 146, 0.2),
-        -50px -50px 100px 0 rgba(255, 255, 255, 0.9),
-        50px 50px 125px 0 rgba(146, 146, 146, 0.9);
+    background: $papel;
+    // Antes neumorfismo (varias capas de box-shadow blanco/gris difuminado
+    // en modo inset+outset), sin sombra ahora: la línea de corte punteada
+    // (guiones más largos y separados, no el "dashed" nativo) más las
+    // marcas de registro en las esquinas ya dan suficiente separación del
+    // contenido, no hace falta también una sombra.
+    background-color: $papel;
+    @include marcasYLineaLateral($lado: left);
     z-index: 1000;
     gap: 2rem;
     transition: all 0.5s ease;
@@ -46,14 +46,8 @@
         top: 0;
         right: -100rem;
         height: 98dvh;
-        background: #f4f4f4;
-        box-shadow:
-            2px 2px 3px 0 rgba(255, 255, 255, 0.3) inset,
-            -2px -2px 3px 0 rgba(146, 146, 146, 0.5) inset,
-            -50px 50px 100px 0 rgba(146, 146, 146, 0.2),
-            50px -50px 100px 0 rgba(146, 146, 146, 0.2),
-            -50px -50px 100px 0 rgba(255, 255, 255, 0.9),
-            50px 50px 125px 0 rgba(146, 146, 146, 0.9);
+        background-color: $papel;
+        @include lineaPunteada($lado: left);
         z-index: 1000;
         gap: 2rem;
         transition: all 0.5s ease;
@@ -87,7 +81,12 @@
         width: 100%;
         cursor: pointer;
         h3 {
-            @include fnFont(1.8rem, 600, normal, normal, $negro);
+            @include fnFont(1.8rem, 600, normal, 0.06rem, $negro);
+            text-transform: uppercase;
+        }
+        &-count {
+            @include fnFont(1.6rem, 500, normal, normal, rgba($negro, 0.5));
+            font-family: $mono;
         }
         img {
             width: 2rem;

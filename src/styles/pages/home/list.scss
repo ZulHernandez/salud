@@ -3,30 +3,22 @@
 .list {
     @include fnFlex(row, flex-start, center, 5rem);
     @include fnWidth(5rem, 5rem, 5rem, 5rem, 100%);
-    background-color: #fff;
-    border-radius: 3rem;
+    background-color: $papel;
+    // Antes esto era neumorfismo (varias capas de box-shadow blanco/gris
+    // difuminado): se veía a botón de app, no a fila de catálogo impreso.
+    // Nada de sombra ahora -sobraba-, solo un borde fino.
+    position: relative;
+    border-radius: 0.8rem;
+    border: 1.5px solid rgba($negro, 0.18);
     transition: all 0.3s ease;
     cursor: pointer;
     margin-top: 2rem;
-    box-shadow:
-        1px 1px 2px 0 rgba(255, 255, 255, 0.075),
-        -1px -1px 2px 0 rgba(230, 230, 230, 0.125),
-        -15px 15px 30px 0 rgba(230, 230, 230, 0.05) inset,
-        15px -15px 30px 0 rgba(230, 230, 230, 0.05) inset,
-        -15px -15px 30px 0 rgba(255, 255, 255, 0.225) inset,
-        15px 15px 38px 0 rgba(230, 230, 230, 0.225) inset;
     &:hover,
     &:focus-within,
     &:active {
-        border-radius: 3rem;
-        background: #fff;
-        box-shadow:
-            1px 1px 2px 0 rgba(255, 255, 255, 0.3),
-            -1px -1px 2px 0 rgba(230, 230, 230, 0.5),
-            -15px 15px 30px 0 rgba(230, 230, 230, 0.2) inset,
-            15px -15px 30px 0 rgba(230, 230, 230, 0.2) inset,
-            -15px -15px 30px 0 rgba(255, 255, 255, 0.9) inset,
-            15px 15px 38px 0 rgba(230, 230, 230, 0.9) inset;
+        border-radius: 0.8rem;
+        background: $papel;
+        border-color: rgba($negro, 0.4);
 
         .list-viewer-liquid-layer {
             background-color: transparent !important;
@@ -84,6 +76,20 @@
     &-info {
         @include fnFlex(column, flex-start, flex-start, 5rem);
         width: 100%;
+        // Pastilla de color complementario, arriba a la derecha de toda
+        // la fila -mismo lenguaje que las etiquetas de los pósters de
+        // referencia-, no metida en el flujo antes del nombre.
+        &-numero {
+            position: absolute;
+            top: -0.8rem;
+            right: 1.2rem;
+            @include fnFont(1.2rem, 700, normal, 0.06rem, $papel);
+            font-family: $mono;
+            text-transform: uppercase;
+            background-color: $rojo-complementario;
+            padding: 0.3rem 0.8rem;
+            border-radius: 1rem;
+        }
         h3 {
             @include fnFont(4.8rem, 700, normal, -0.24rem, $negro);
             transition: all 0.3s ease;
@@ -105,6 +111,7 @@
                     @include fnFlex(column, flex-start, flex-start, 0rem);
                     &-quantity {
                         @include fnFont(1.4rem, 750, normal, normal, $negro);
+                        font-family: $mono;
                     }
                     &-name {
                         @include fnFont(1.4rem, 400, normal, normal, $negro);
@@ -115,6 +122,7 @@
         &-ali {
             @include fnFlex(row, flex-start, center, 5rem);
             @include fnWidth(0rem, 0rem, 0rem, 0rem, 100%);
+            font-family: $mono;
             span {
                 @include fnFont(4rem, 600, normal, normal, $negro);
                 transition: all 0.3s ease;

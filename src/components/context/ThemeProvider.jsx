@@ -19,10 +19,18 @@ export const ThemeContextProvider = ({ children }) => {
 
 	// El valor hexadecimal para el CSS (--color-dinamico)
 	const accentColor = activeColorObj.value;
+	// Su complementario (--color-complementario): mismo tono/saturación,
+	// matiz opuesto -ver colorTheme.js-, para el par de contraste tipo
+	// "etiqueta impresa" (la pastilla del número de catálogo, por ahora).
+	const complementColor = activeColorObj.complement;
 
 	useEffect(() => {
 		document.documentElement.style.setProperty("--color-dinamico", accentColor);
-	}, [accentColor]);
+		document.documentElement.style.setProperty(
+			"--color-complementario",
+			complementColor,
+		);
+	}, [accentColor, complementColor]);
 
 	// 3. ESCRIBIR: igual que GlassFilterProvider con sus propios params (g/s/q),
 	// navigate(..., { replace: true }) sobre el mismo pathname: cambia solo

@@ -2,6 +2,7 @@ import { memo } from "react";
 
 import "../../styles/pages/home/card.scss";
 import { useLanguage } from "../context/LanguageContext";
+import { useCatalogNumbers } from "../../hooks/useCatalogNumbers";
 
 import CoViewer from "./CoViewer";
 
@@ -9,9 +10,13 @@ import chill from "../../assets/icons/chill.svg";
 
 const CoCard = memo(({ drink }) => {
 	const { t, language } = useLanguage();
+	const numerosDeCatalogo = useCatalogNumbers();
 
 	return (
 		<div className="card" tabIndex={0}>
+			<p className="card-numero">
+				N.{String(numerosDeCatalogo.get(drink.key) ?? 0).padStart(2, "0")}
+			</p>
 			<h3>{t(drink.name)}</h3>
 			<CoViewer drink={drink} kind={"card"} />
 			<div className="card-info">

@@ -6,7 +6,7 @@ const CoViewer = memo(({ drink, kind }) => {
 	const layers = useLiquidLayers(drink);
 
 	return (
-		<div className={`${kind}-viewer`}>
+		<div className={`${kind}-viewer halftone`}>
 			<div style={{ height: "0px" }}>
 				<div
 					className={`${kind}-viewer-liquid`}

@@ -72,11 +72,20 @@ export const CatalogProvider = ({ children }) => {
 
 	const letters = useMemo(() => infoFinal.map((g) => g.letter), [infoFinal]);
 
+	// Índice de fila al que RoHome debe moverle el foco de teclado en cuanto
+	// termine de montarse (scrollToIndex solo mueve el scroll; sin esto, a
+	// alguien navegando con teclado o lector de pantalla no le queda claro
+	// que "llegó" a la letra). RoHome lo consume y lo limpia una vez que
+	// logra enfocar esa fila.
+	const [pendingFocusIndex, setPendingFocusIndex] = useState(null);
+	const clearPendingFocus = useCallback(() => setPendingFocusIndex(null), []);
+
 	const scrollToLetter = useCallback(
 		(letter) => {
 			const index = letterRowIndex.get(letter);
 			if (index === undefined) return;
 			virtualizer.scrollToIndex(index, { align: "start" });
+			setPendingFocusIndex(index);
 		},
 		[letterRowIndex, virtualizer],
 	);
@@ -89,8 +98,18 @@ export const CatalogProvider = ({ children }) => {
 			listRef,
 			letters,
 			scrollToLetter,
+			pendingFocusIndex,
+			clearPendingFocus,
 		}),
-		[infoFinal, rows, virtualizer, letters, scrollToLetter],
+		[
+			infoFinal,
+			rows,
+			virtualizer,
+			letters,
+			scrollToLetter,
+			pendingFocusIndex,
+			clearPendingFocus,
+		],
 	);
 
 	return (
